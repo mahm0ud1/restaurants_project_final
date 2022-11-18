@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    
+    height: 46px;
+    background-color: #FFFFFF;
+}
+.left_header {
+    display: flex;
+    align-items: center;
+    margin: 0 24px;
+}
+.center_header {
+    display: flex;
+    align-items: center;
+
+}
+.restaurant_logo {
+    display: flex;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+}
+.right_header {
+    display: flex;
+    align-items: center;
+    margin: 0 24px;
+}
+.header_right_logo {
+    height: 20px;
+    width: 20px;
+    color: blue;
+}
