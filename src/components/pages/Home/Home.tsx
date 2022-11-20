@@ -4,8 +4,8 @@ import HeroPicture from "../HeroPicture/HeroPicture";
 const Home = () => {
     return (
         <>
-        <HeroPicture />
-        <DishsCards />
+            <HeroPicture />
+            <DishsCards />
         </>
     );
 }

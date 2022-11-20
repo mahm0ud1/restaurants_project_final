@@ -1,4 +1,39 @@
 .hero_container {
+    display: flex;
     height: 273px;
-    background: url("https://github.com/mahm0ud1/restaurants_project_final/blob/master/src/assets/hero-picture 1.png?raw=true");
+    background-image: url("../../../assets/hero-picture-1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero_inner_container {
+    margin: 65px 20px;
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.88);
+}
+
+.hero_title {
+    margin: 16px 10px;
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 22px;
+    line-height: 32px;
+
+    /* or 133% */
+    letter-spacing: 1.97px;
+
+    color: #000000;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    text-align: center;
+}
+
+.search_input_container {
+    margin: 0 10px;
 }

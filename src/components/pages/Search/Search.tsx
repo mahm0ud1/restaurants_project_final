@@ -6,7 +6,7 @@ import { useState } from 'react';
 import searchLogo from '../../../assets/search_logo.svg';
 
 import './Search.css';
-import AbsoluteWindow from '../../tools/AbsoluteWindow/AbsoluteWindow';
+import SearchInput from './SearchInput';
 
 const options = ['Clare', 'Lumia'];
 
@@ -39,18 +39,7 @@ const Search = () => {
                         <div>Search</div>
                     </div>
                     <div className='search_body'>
-                        <div className='search_bar'>
-                            <img src={searchLogo} alt="restaurant_logo" />
-                            <input type="text" className='search_input' placeholder='Search for restaurant cuisine, chef' />
-                        </div>
-                        <div className='search_input_options'>
-                            <div className='search_input_options_title'>Restaurants:</div>
-                            <div className='search_input_options_value'>Tiger Lily</div>
-                            <div className='search_input_options_title'>Cusine:</div>
-                            <div className='search_input_options_value'>Thai</div>
-                            <div className='search_input_options_title'>Chef:</div>
-                            <div className='search_input_options_value'>Thai</div>
-                        </div>
+                        <SearchInput />
                     </div>
                 </div>
             </Dialog>
