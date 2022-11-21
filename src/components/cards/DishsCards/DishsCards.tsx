@@ -1,13 +1,14 @@
 import DishCard from '../DishCard/DishCard';
 import Vector from '../../../assets/vector.svg';
-import './DishsCards.css';
+
+import { RestaurantCardsContainerStyle, RestaurantCardsTitleStyle, RestaurantCardsStyle, AllCardsButtonStyle, AllCardsVectorStyle } from './Style'
 
 const DishsCards = () => {
     return (
         <>
-            <div className="restaurant_cards_container">
-                <div className="restaurant_cards_title">popular restaurant in epicure:</div>
-                <div className='restaurant_cards'>
+            <RestaurantCardsContainerStyle>
+                <RestaurantCardsTitleStyle>popular restaurant in epicure:</RestaurantCardsTitleStyle>
+                <RestaurantCardsStyle>
                     <DishCard />
                     <DishCard />
                     <DishCard />
@@ -19,11 +20,11 @@ const DishsCards = () => {
                     <DishCard />
                     <DishCard />
                     <DishCard />
-                </div>
-                <div className='all_cards_button'>
-                    All Restaurants<div className='all_cards_vector'><img src={Vector} /></div>
-                </div>
-            </div>
+                </RestaurantCardsStyle>
+                <AllCardsButtonStyle>
+                    All Restaurants<AllCardsVectorStyle><img src={Vector} /></AllCardsVectorStyle>
+                </AllCardsButtonStyle>
+            </RestaurantCardsContainerStyle>
         </>
     );
 }

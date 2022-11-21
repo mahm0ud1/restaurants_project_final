@@ -1,4 +1,6 @@
-.dish_card_container {
+import styled from "styled-components";
+
+const DishCardContainerStyle = styled.div`
     display: inline;
 
     width: 245px;
@@ -9,9 +11,9 @@
     flex: none;
     order: 0;
     flex-grow: 0;
-}
+`
 
-.dish_card_image {
+const DishCardImageStyle = styled.div`
     background-color: aquamarine;
 
     width: 245px;
@@ -21,9 +23,9 @@
     flex: none;
     order: 0;
     flex-grow: 0;
-}
+`
 
-.dish_card_details {
+const DishCardDetailsStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -39,9 +41,9 @@
     order: 12;
     align-self: stretch;
     flex-grow: 0;
-}
+`
 
-.dish_card_details_top {
+const DishCardDetailsTopStyle = styled.div`
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 400;
@@ -55,9 +57,9 @@
     flex: none;
     order: 0;
     flex-grow: 0;
-}
+`
 
-.dish_card_details_down {
+const DishCardDetailsDownStyle = styled.div`
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
@@ -73,4 +75,6 @@
     flex: none;
     order: 1;
     flex-grow: 0;
-}
+`
+
+export { DishCardContainerStyle, DishCardImageStyle, DishCardDetailsStyle, DishCardDetailsTopStyle, DishCardDetailsDownStyle }

@@ -1,20 +1,23 @@
-.hero_container {
+import styled from "styled-components";
+import heroImage from '../../../assets/hero-picture-1.png';
+
+const HeroContainerStyle = styled.div`
     display: flex;
     height: 273px;
-    background-image: url("../../../assets/hero-picture-1.png");
+    background-image: url(${heroImage});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-}
+`
 
-.hero_inner_container {
+const HeroInnerContainerStyle = styled.div`
     margin: 65px 20px;
     width: 100%;
 
     background: rgba(255, 255, 255, 0.88);
-}
+`
 
-.hero_title {
+const HeroTitleStyle = styled.div`
     margin: 16px 10px;
     font-family: 'Helvetica Neue';
     font-style: normal;
@@ -32,8 +35,10 @@
     order: 0;
     flex-grow: 0;
     text-align: center;
-}
+`
 
-.search_input_container {
+const SearchInputContainerStyle = styled.div`
     margin: 0 10px;
-}
+`
+
+export { HeroContainerStyle, HeroInnerContainerStyle, HeroTitleStyle, SearchInputContainerStyle };

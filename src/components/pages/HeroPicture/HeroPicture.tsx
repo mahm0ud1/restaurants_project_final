@@ -1,15 +1,17 @@
 import SearchInput from '../Search/SearchInput';
-import './HeroPicture.css';
+import { HeroContainerStyle, HeroInnerContainerStyle, HeroTitleStyle, SearchInputContainerStyle } from './Style'
 
 const HeroPicture = () => {
     return (
         <>
-            <div className="hero_container">
-                <div className='hero_inner_container'>
-                    <div className='hero_title'>Epicure works with the top chef restaurants in Tel Aviv</div>
-                    <div className='search_input_container'><SearchInput /></div>
-                </div>
-            </div>
+            <HeroContainerStyle>
+                <HeroInnerContainerStyle>
+                    <HeroTitleStyle>Epicure works with the top chef restaurants in Tel Aviv</HeroTitleStyle>
+                    <SearchInputContainerStyle>
+                        <SearchInput />
+                    </SearchInputContainerStyle>
+                </HeroInnerContainerStyle>
+            </HeroContainerStyle>
         </>
     );
 }

@@ -1,6 +1,10 @@
- .restaurant_cards_container {}
+import styled from "styled-components";
 
- .restaurant_cards_title {
+const RestaurantCardsContainerStyle = styled.div`
+
+`
+
+const RestaurantCardsTitleStyle = styled.div`
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
@@ -13,9 +17,9 @@
 
     color: #000000;
     margin: 48px 20px 17px;
- }
+`
 
- .restaurant_cards {
+const RestaurantCardsStyle = styled.div`
     display: flex;
     align-items: flex-start;
     padding: 0 20px;
@@ -28,36 +32,9 @@
     order: 0;
     flex-grow: 0;
     gap: 24px;
- }
+`
 
- /* .restaurant_cards:hover {
-   overflow-x: auto;
- }
-
- .restaurant_cards::-webkit-scrollbar {
-    height: 10px;
- }
-
- .restaurant_cards::-webkit-scrollbar:hover {
-   height: 10px;
-}
-
- .restaurant_cards::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
- }
-
- .restaurant_cards::-webkit-scrollbar-thumb {
-    background: red;
-    border-radius: 10px;
- }
-
- .restaurant_cards::-webkit-scrollbar-thumb:hover {
-    background: #001bb3;
-    width: 30px;
- } */
-
- ​ .all_cards_button {
+const AllCardsButtonStyle = styled.div`
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 400;
@@ -76,13 +53,15 @@
     flex: none;
     order: 0;
     flex-grow: 0;
- }
+`
 
- .all_cards_vector {
+const AllCardsVectorStyle = styled.div`
     display: inline;
     position: relative;
     top: 3px;
     height: 18px;
     width: 24px;
     padding: 0 12px;
- }
+`
+
+export { RestaurantCardsContainerStyle, RestaurantCardsTitleStyle, RestaurantCardsStyle, AllCardsButtonStyle, AllCardsVectorStyle }
