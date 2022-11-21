@@ -1,4 +1,4 @@
-import Search from '../../pages/Search/Search';
+import Search from '../../menuButtons/Search/Search';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import restaurantLogo from '../../../assets/restaurant_logo.svg';
@@ -13,6 +13,7 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
 
 import { HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle} from './Style'
+import Hamburgar from '../../menuButtons/hamburgar/Hamburgar';
 
 const Header = () => {
     const [topWindow, setTopWindow] = useState("");
@@ -32,6 +33,7 @@ const Header = () => {
     const getTopWindow = () => {
         switch (topWindow) {
             case "search": return <Search />
+            case "hamburger": return <Hamburgar />
         }
     }
 
@@ -49,7 +51,7 @@ const Header = () => {
         <>
             <HeaderStyle>
                 <LeftHeaderStyle>
-                    <MenuIcon />
+                    <MenuIcon onClick={() => setTopWindow("hamburger")}/>
                 </LeftHeaderStyle>
                 <CenterHeaderStyle>
                     <RestaurantLogoStyle src={restaurantLogo} alt="restaurant_logo" />

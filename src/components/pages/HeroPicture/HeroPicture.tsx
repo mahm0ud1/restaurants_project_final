@@ -1,4 +1,4 @@
-import SearchInput from '../Search/SearchInput';
+import SearchInput from '../../menuButtons/Search/SearchInput';
 import { HeroContainerStyle, HeroInnerContainerStyle, HeroTitleStyle, SearchInputContainerStyle } from './Style'
 
 const HeroPicture = () => {

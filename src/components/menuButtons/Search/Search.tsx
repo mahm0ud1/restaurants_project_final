@@ -6,7 +6,9 @@ import { useState } from 'react';
 
 import SearchInput from './SearchInput';
 
-import { SearchPageStyle, CloseButtonStyle, SearchBodyStyle, SearchHeaderStyle } from './Style'
+import { PopupPageStyle, PopupBodyStyle, CloseButtonStyle, PopupTitleStyle } from '../Style'
+
+
 
 const Search = () => {
     const [open, setOpen] = useState(true);
@@ -28,19 +30,19 @@ const Search = () => {
                 fullScreen={true}
                 scroll="body"
             >
-                <SearchPageStyle>
-                    <SearchHeaderStyle>
+                <PopupPageStyle>
+                    <PopupTitleStyle>
                         <CloseButtonStyle>
                             <IconButton aria-label="close">
                                 <img src={CloseButton} alt="close" />
                             </IconButton>
                         </CloseButtonStyle>
                         <div>Search</div>
-                    </SearchHeaderStyle>
-                    <SearchBodyStyle>
+                    </PopupTitleStyle>
+                    <PopupBodyStyle>
                         <SearchInput />
-                    </SearchBodyStyle>
-                </SearchPageStyle>
+                    </PopupBodyStyle>
+                </PopupPageStyle>
             </Dialog>
         </>
     );

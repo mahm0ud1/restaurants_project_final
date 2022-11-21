@@ -1,40 +1,5 @@
 import styled from "styled-components";
 
-const SearchPageStyle = styled.div`
-    position: absolute;
-    background: #FFFFFF;
-    top: 0px;
-    height: 413px;
-    box-shadow: 2px 4px 10px rgba(175, 175, 175, 0.25);
-    width: 100%;
-`
-
-const CloseButtonStyle = styled.div`
-    position: fixed;
-    left: 25px;
-    align-items: center;
-`
-
-const SearchHeaderStyle = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 46px;
-    font-family: 'Helvetica Neue';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 18px;
-    line-height: 22px;
-    letter-spacing: 1.92px;
-    color: #000000;
-`
-
-const SearchBodyStyle = styled.div`
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 24px 31px;
-`
-
 const SearchBarStyle = styled.div`
     box-sizing: border-box;
 
@@ -130,5 +95,4 @@ const SearchInputOptionsValueStyle = styled.div`
     flex-grow: 0;
 `
 
-export { SearchPageStyle, CloseButtonStyle, SearchBodyStyle, SearchHeaderStyle };
 export { SearchBarStyle, SearchInputStyle, SearchInputOptionsStyle, SearchInputOptionsTitleStyle, SearchInputOptionsValueStyle };
