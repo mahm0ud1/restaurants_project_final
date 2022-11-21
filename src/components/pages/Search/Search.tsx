@@ -3,12 +3,9 @@ import IconButton from '@mui/material/IconButton';
 
 import Dialog from '@mui/material/Dialog';
 import { useState } from 'react';
-import searchLogo from '../../../assets/search_logo.svg';
 
 import './Search.css';
 import SearchInput from './SearchInput';
-
-const options = ['Clare', 'Lumia'];
 
 const Search = () => {
     const [open, setOpen] = useState(true);

@@ -30,7 +30,34 @@
     gap: 24px;
  }
 
- .all_cards_button {
+ /* .restaurant_cards:hover {
+   overflow-x: auto;
+ }
+
+ .restaurant_cards::-webkit-scrollbar {
+    height: 10px;
+ }
+
+ .restaurant_cards::-webkit-scrollbar:hover {
+   height: 10px;
+}
+
+ .restaurant_cards::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+ }
+
+ .restaurant_cards::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
+ }
+
+ .restaurant_cards::-webkit-scrollbar-thumb:hover {
+    background: #001bb3;
+    width: 30px;
+ } */
+
+ ​ .all_cards_button {
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 400;
@@ -52,10 +79,10 @@
  }
 
  .all_cards_vector {
-   display: inline;
-   position: relative;
-   top: 3px;
-   height: 18px;
-   width: 24px;
-   padding: 0 12px;
+    display: inline;
+    position: relative;
+    top: 3px;
+    height: 18px;
+    width: 24px;
+    padding: 0 12px;
  }

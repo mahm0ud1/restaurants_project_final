@@ -9,9 +9,10 @@ import cartLogo from '../../../assets/cart_logo.svg';
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 
-import './Header.css';
-import { Button, createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
+
+import { HeaderSyle, LeftHeaderSyle, CenterHeaderSyle, RestaurantLogoSyle, RightHeaderSyle, HeaderRightLogoSyle} from './Style'
 
 const Header = () => {
     const [topWindow, setTopWindow] = useState("");
@@ -46,19 +47,19 @@ const Header = () => {
 
     return (
         <>
-            <div className="header">
-                <div className="left_header">
+            <HeaderSyle>
+                <LeftHeaderSyle>
                     <MenuIcon />
-                </div>
-                <div className="center_header">
-                    <img className='restaurant_logo' src={restaurantLogo} alt="restaurant_logo" />
-                </div>
-                <div className="right_header">
+                </LeftHeaderSyle>
+                <CenterHeaderSyle>
+                    <RestaurantLogoSyle src={restaurantLogo} alt="restaurant_logo" />
+                </CenterHeaderSyle>
+                <RightHeaderSyle>
                     <IconButton onClick={() => setTopWindow("search")}>
-                        <img src={searchLogo} alt="restaurant_logo" />
+                        <HeaderRightLogoSyle src={searchLogo} alt="search_logo" />
                     </IconButton>
                     <IconButton>
-                        <img className='header_right_logo' src={accountLogo} alt="account_logo" />
+                        <HeaderRightLogoSyle src={accountLogo} alt="account_logo" />
                     </IconButton>
                     <IconButton
                         aria-label={notificationsLabel(100)}
@@ -71,12 +72,12 @@ const Header = () => {
                                     horizontal: 'left',
                                 }}
                                 badgeContent={19}>
-                                <img className='header_right_logo' src={cartLogo} alt="cart_logo" />
+                                <HeaderRightLogoSyle src={cartLogo} alt="cart_logo" />
                             </Badge>
                         </ThemeProvider>
                     </IconButton>
-                </div>
-            </div>
+                </RightHeaderSyle>
+            </HeaderSyle>
             {getTopWindow()}
         </>
     );
