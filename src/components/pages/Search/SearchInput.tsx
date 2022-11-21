@@ -1,13 +1,14 @@
 import searchLogo from '../../../assets/search_logo.svg';
-import './SearchInput.css';
+
+import  { SearchBarStyle, SearchInputStyle, SearchInputOptionsStyle, SearchInputOptionsTitleStyle, SearchInputOptionsValueStyle } from './Style'
 
 const SearchInput = () => {
     return (
         <>
-            <div className='search_bar'>
+            <SearchBarStyle>
                 <img src={searchLogo} alt="restaurant_logo" />
-                <input type="text" className='search_input' placeholder='Search for restaurant cuisine, chef' />
-            </div>
+                <SearchInputStyle type="text" placeholder='Search for restaurant cuisine, chef' />
+            </SearchBarStyle>
             {/* <div className='search_input_options'>
                 <div className='search_input_options_title'>Restaurants:</div>
                 <div className='search_input_options_value'>Tiger Lily</div>

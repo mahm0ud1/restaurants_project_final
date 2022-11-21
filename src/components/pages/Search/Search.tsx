@@ -4,8 +4,9 @@ import IconButton from '@mui/material/IconButton';
 import Dialog from '@mui/material/Dialog';
 import { useState } from 'react';
 
-import './Search.css';
 import SearchInput from './SearchInput';
+
+import { SearchPageStyle, CloseButtonStyle, SearchBodyStyle, SearchHeaderStyle } from './Style'
 
 const Search = () => {
     const [open, setOpen] = useState(true);
@@ -27,18 +28,19 @@ const Search = () => {
                 fullScreen={true}
                 scroll="body"
             >
-                <div className='search_page'>
-                    <div className='search_header'>
-                        <div className='close_button'>
+                <SearchPageStyle>
+                    <SearchHeaderStyle>
+                        <CloseButtonStyle>
                             <IconButton aria-label="close">
                                 <img src={CloseButton} alt="close" />
-                            </IconButton></div>
+                            </IconButton>
+                        </CloseButtonStyle>
                         <div>Search</div>
-                    </div>
-                    <div className='search_body'>
+                    </SearchHeaderStyle>
+                    <SearchBodyStyle>
                         <SearchInput />
-                    </div>
-                </div>
+                    </SearchBodyStyle>
+                </SearchPageStyle>
             </Dialog>
         </>
     );
