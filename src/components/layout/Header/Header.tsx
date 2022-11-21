@@ -12,7 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
 
-import { HeaderSyle, LeftHeaderSyle, CenterHeaderSyle, RestaurantLogoSyle, RightHeaderSyle, HeaderRightLogoSyle} from './Style'
+import { HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle} from './Style'
 
 const Header = () => {
     const [topWindow, setTopWindow] = useState("");
@@ -47,19 +47,19 @@ const Header = () => {
 
     return (
         <>
-            <HeaderSyle>
-                <LeftHeaderSyle>
+            <HeaderStyle>
+                <LeftHeaderStyle>
                     <MenuIcon />
-                </LeftHeaderSyle>
-                <CenterHeaderSyle>
-                    <RestaurantLogoSyle src={restaurantLogo} alt="restaurant_logo" />
-                </CenterHeaderSyle>
-                <RightHeaderSyle>
+                </LeftHeaderStyle>
+                <CenterHeaderStyle>
+                    <RestaurantLogoStyle src={restaurantLogo} alt="restaurant_logo" />
+                </CenterHeaderStyle>
+                <RightHeaderStyle>
                     <IconButton onClick={() => setTopWindow("search")}>
-                        <HeaderRightLogoSyle src={searchLogo} alt="search_logo" />
+                        <HeaderRightLogoStyle src={searchLogo} alt="search_logo" />
                     </IconButton>
                     <IconButton>
-                        <HeaderRightLogoSyle src={accountLogo} alt="account_logo" />
+                        <HeaderRightLogoStyle src={accountLogo} alt="account_logo" />
                     </IconButton>
                     <IconButton
                         aria-label={notificationsLabel(100)}
@@ -72,12 +72,12 @@ const Header = () => {
                                     horizontal: 'left',
                                 }}
                                 badgeContent={19}>
-                                <HeaderRightLogoSyle src={cartLogo} alt="cart_logo" />
+                                <HeaderRightLogoStyle src={cartLogo} alt="cart_logo" />
                             </Badge>
                         </ThemeProvider>
                     </IconButton>
-                </RightHeaderSyle>
-            </HeaderSyle>
+                </RightHeaderStyle>
+            </HeaderStyle>
             {getTopWindow()}
         </>
     );

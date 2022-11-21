@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const HeaderSyle = styled.div`
+const HeaderStyle = styled.div`
     display: flex;
     justify-content: space-between;
     
@@ -8,34 +8,34 @@ const HeaderSyle = styled.div`
     background-color: #FFFFFF;
 `
 
-const LeftHeaderSyle = styled.div`
+const LeftHeaderStyle = styled.div`
     display: flex;
     align-items: center;
     margin: 0 24px;
 `
 
-const CenterHeaderSyle = styled.div`
+const CenterHeaderStyle = styled.div`
     display: flex;
     align-items: center;
 `
 
-const RestaurantLogoSyle = styled.img`
+const RestaurantLogoStyle = styled.img`
     display: flex;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
 `
 
-const RightHeaderSyle = styled.div`
+const RightHeaderStyle = styled.div`
     display: flex;
     align-items: center;
     margin: 0 24px;
 `
 
-const HeaderRightLogoSyle = styled.img`
+const HeaderRightLogoStyle = styled.img`
     height: 20px;
     width: 20px;
     color: blue;
 `
 
-export { HeaderSyle, LeftHeaderSyle, CenterHeaderSyle, RestaurantLogoSyle, RightHeaderSyle, HeaderRightLogoSyle};
+export { HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle};
