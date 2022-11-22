@@ -1,22 +1,20 @@
+import { MenuIcon, restaurantLogo, searchLogo, accountLogo, cartLogo, CloseButton } from '../../../assets/AllLogo';
+
+import Hamburgar from '../../menuButtons/hamburgar/Hamburgar';
 import Search from '../../menuButtons/Search/Search';
 
-import MenuIcon from '@mui/icons-material/Menu';
-import restaurantLogo from '../../../assets/restaurant_logo.svg';
-import searchLogo from '../../../assets/search_logo.svg';
-import accountLogo from '../../../assets/account_logo.svg';
-import cartLogo from '../../../assets/cart_logo.svg';
+import {IconButton, Badge, Dialog, createTheme, ThemeProvider} from '@mui/material';
+import { useRef, useState } from 'react';
 
-import Badge from '@mui/material/Badge';
-import IconButton from '@mui/material/IconButton';
+import { HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle } from './Style'
+import { PopupPageStyle, PopupBodyStyle, CloseButtonStyle, PopupTitleStyle } from './Style'
 
-import { createTheme, ThemeProvider } from '@mui/material';
-import { useState } from 'react';
-
-import { HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle} from './Style'
-import Hamburgar from '../../menuButtons/hamburgar/Hamburgar';
 
 const Header = () => {
     const [topWindow, setTopWindow] = useState("");
+    const [open, setOpen] = useState(false);
+    const [ notificationCount, setNotificationCount ] = useState(20);
+    const popupTitle = useRef("");
 
     const theme = createTheme({
         palette: {
@@ -26,13 +24,48 @@ const Header = () => {
         },
     });
 
-    const closeTopWindow = (windowName: string) => {
+    const handleClose = () => {
         setTopWindow("");
-    }
+        popupTitle.current = "";
+        setOpen(false);
+    };
+
+    const handleOpen = (windowName: string) => {
+        setTopWindow(windowName);
+        setOpen(true);
+    };
 
     const getTopWindow = () => {
-        switch (topWindow) {
-            case "search": return <Search />
+
+        return (
+        <Dialog
+            open={open}
+            onClose={handleClose}
+            style={{ height: '413px' }}
+            fullScreen={true}
+            scroll="body"
+        >
+            <PopupPageStyle>
+                <PopupTitleStyle>
+                    <CloseButtonStyle>
+                        <IconButton aria-label="close" onClick={handleClose}>
+                            <img src={CloseButton} alt="close" />
+                        </IconButton>
+                    </CloseButtonStyle>
+                    <div>{popupTitle.current}</div>
+                </PopupTitleStyle>
+                <PopupBodyStyle>
+                    {getPopup(topWindow)}
+                </PopupBodyStyle>
+            </PopupPageStyle>
+        </Dialog>);
+    }
+
+    const getPopup = (windowName: string) => {
+        switch (windowName) {
+            case "search": 
+            popupTitle.current = "Search";
+            return <Search />
             case "hamburger": return <Hamburgar />
         }
     }
@@ -51,21 +84,21 @@ const Header = () => {
         <>
             <HeaderStyle>
                 <LeftHeaderStyle>
-                    <MenuIcon onClick={() => setTopWindow("hamburger")}/>
+                    <MenuIcon onClick={() => handleOpen("hamburger")} />
                 </LeftHeaderStyle>
                 <CenterHeaderStyle>
                     <RestaurantLogoStyle src={restaurantLogo} alt="restaurant_logo" />
                 </CenterHeaderStyle>
                 <RightHeaderStyle>
-                    <IconButton onClick={() => setTopWindow("search")}>
+                    <IconButton onClick={() => handleOpen("search")}>
                         <HeaderRightLogoStyle src={searchLogo} alt="search_logo" />
                     </IconButton>
                     <IconButton>
                         <HeaderRightLogoStyle src={accountLogo} alt="account_logo" />
                     </IconButton>
                     <IconButton
-                        aria-label={notificationsLabel(100)}
-                        sx={{zIndex:"0"}}>
+                        aria-label={notificationsLabel(notificationCount)}
+                        sx={{ zIndex: "0" }}>
                         <ThemeProvider theme={theme}>
                             <Badge
                                 color='primary'
@@ -73,7 +106,7 @@ const Header = () => {
                                     vertical: 'top',
                                     horizontal: 'left',
                                 }}
-                                badgeContent={19}>
+                                badgeContent={notificationCount}>
                                 <HeaderRightLogoStyle src={cartLogo} alt="cart_logo" />
                             </Badge>
                         </ThemeProvider>
