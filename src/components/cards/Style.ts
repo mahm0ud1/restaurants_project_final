@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const RestaurantCardsContainerStyle = styled.div`
+const CardsContainerStyle = styled.div`
 
 `
 
-const RestaurantCardsTitleStyle = styled.div`
+const CardsTitleStyle = styled.div`
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
@@ -19,7 +19,7 @@ const RestaurantCardsTitleStyle = styled.div`
     margin: 48px 20px 17px;
 `
 
-const RestaurantCardsStyle = styled.div`
+const CardsStyle = styled.div`
     display: flex;
     align-items: flex-start;
     padding: 0 20px;
@@ -64,4 +64,4 @@ const AllCardsVectorStyle = styled.div`
     padding: 0 12px;
 `
 
-export { RestaurantCardsContainerStyle, RestaurantCardsTitleStyle, RestaurantCardsStyle, AllCardsButtonStyle, AllCardsVectorStyle }
+export { CardsContainerStyle, CardsTitleStyle, CardsStyle, AllCardsButtonStyle, AllCardsVectorStyle }

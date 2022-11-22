@@ -2,22 +2,20 @@ import Card from '../Card/Card';
 import { Vector } from '../../../assets/AllLogo';
 
 import { CardsContainerStyle, CardsTitleStyle, CardsStyle, AllCardsButtonStyle, AllCardsVectorStyle } from '../Style'
-import DishCardDetails from '../../../interfaces/DishCardDetails';
+import RestaurantCardDetails from '../../../interfaces/RestaurantCardDetails';
 
-const cardDetails:DishCardDetails = {
+const cardDetails:RestaurantCardDetails = {
     imageUrl: "image",
     title: "title",
-    details: "details",
-    signature: "spi",
-    price: "88"
+    details: "details"
 }
 const cards = [1, 2, 3, 4, 5];
 
-const DishsCards = () => {
+const RestaurantsCards = () => {
     return (
         <>
             <CardsContainerStyle>
-                <CardsTitleStyle>Signature Dish Of:</CardsTitleStyle>
+                <CardsTitleStyle>popular restaurant in epicure:</CardsTitleStyle>
                 <CardsStyle>
                     {cards.map((card) => <Card key={card} {...cardDetails}/>)}
                 </CardsStyle>
@@ -29,4 +27,4 @@ const DishsCards = () => {
     );
 }
 
-export default DishsCards;
+export default RestaurantsCards;

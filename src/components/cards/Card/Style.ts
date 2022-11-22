@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const DishCardContainerStyle = styled.div`
+const CardContainerStyle = styled.div`
     display: inline;
 
     width: 245px;
@@ -13,7 +13,7 @@ const DishCardContainerStyle = styled.div`
     flex-grow: 0;
 `
 
-const DishCardImageStyle = styled.div`
+const CardImageStyle = styled.div`
     background-color: aquamarine;
 
     width: 245px;
@@ -25,7 +25,7 @@ const DishCardImageStyle = styled.div`
     flex-grow: 0;
 `
 
-const DishCardDetailsStyle = styled.div`
+const CardDetailsStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -43,7 +43,7 @@ const DishCardDetailsStyle = styled.div`
     flex-grow: 0;
 `
 
-const DishCardDetailsTopStyle = styled.div`
+const CardDetailsTopStyle = styled.div`
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 400;
@@ -59,7 +59,7 @@ const DishCardDetailsTopStyle = styled.div`
     flex-grow: 0;
 `
 
-const DishCardDetailsDownStyle = styled.div`
+const CardDetailsDownStyle = styled.div`
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
@@ -77,4 +77,4 @@ const DishCardDetailsDownStyle = styled.div`
     flex-grow: 0;
 `
 
-export { DishCardContainerStyle, DishCardImageStyle, DishCardDetailsStyle, DishCardDetailsTopStyle, DishCardDetailsDownStyle }
+export { CardContainerStyle, CardImageStyle, CardDetailsStyle, CardDetailsTopStyle, CardDetailsDownStyle }
