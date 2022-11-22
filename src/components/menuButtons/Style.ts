@@ -12,7 +12,6 @@ const PopupPageStyle = styled.div`
 const PopupBodyStyle = styled.div`
     flex-direction: column;
     align-items: flex-start;
-    margin: 24px 31px;
 `
 
 const CloseButtonStyle = styled.div`

@@ -5,6 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseButton from '../../../assets/close_button_black.svg';
 
 import { PopupPageStyle, PopupBodyStyle, CloseButtonStyle, PopupTitleStyle } from '../Style';
+import { ButtonsRowsUpperContainerStyle, ButtonsRowsLowerContainerStyle, ButtonRowStyle, LineBreak } from './Style'
 
 const Hamburgar = () => {
     const [open, setOpen] = useState(true);
@@ -31,7 +32,16 @@ const Hamburgar = () => {
                         </CloseButtonStyle>
                     </PopupTitleStyle>
                     <PopupBodyStyle>
-                        <div></div>
+                        <ButtonsRowsUpperContainerStyle>
+                            <ButtonRowStyle>Restaurants</ButtonRowStyle>
+                            <ButtonRowStyle>Chefs</ButtonRowStyle>
+                        </ButtonsRowsUpperContainerStyle>
+                        <LineBreak />
+                        <ButtonsRowsLowerContainerStyle>
+                            <ButtonRowStyle>Contact Us</ButtonRowStyle>
+                            <ButtonRowStyle>Term of Use</ButtonRowStyle>
+                            <ButtonRowStyle>Privacy Policy</ButtonRowStyle>
+                        </ButtonsRowsLowerContainerStyle>
                     </PopupBodyStyle>
                 </PopupPageStyle>
         </Dialog>

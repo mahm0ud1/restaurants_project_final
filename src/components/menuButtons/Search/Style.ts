@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const SearchStyle = styled.div`
+    margin: 24px 31px;
+`
+
 const SearchBarStyle = styled.div`
     box-sizing: border-box;
 
@@ -95,4 +99,4 @@ const SearchInputOptionsValueStyle = styled.div`
     flex-grow: 0;
 `
 
-export { SearchBarStyle, SearchInputStyle, SearchInputOptionsStyle, SearchInputOptionsTitleStyle, SearchInputOptionsValueStyle };
+export { SearchStyle, SearchBarStyle, SearchInputStyle, SearchInputOptionsStyle, SearchInputOptionsTitleStyle, SearchInputOptionsValueStyle };
