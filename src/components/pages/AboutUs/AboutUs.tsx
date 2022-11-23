@@ -1,17 +1,26 @@
-import { AboutUsContainerStyle, AboutUsLogoStyle, AboutUsButtonsContainerStyle, AboutUsButtonStyle, AboutUsDescreptionStyle } from './Style'
+import { AboutUsContainerStyle, AboutUsLogoStyle, AboutUsButtonsContainerStyle, AboutUsButtonStyle, AboutUsDescriptionStyle, AboutUsDescriptionTitleStyle, AboutUsDescriptionBodyStyle } from './Style'
+import { PlaystoreButton, AppstoreButton, EpicureLogo } from '../../../assets/AllLogo'
 
 const AboutUs = () => {
     return (
         <>
             <AboutUsContainerStyle>
-                <AboutUsLogoStyle src='test' />
+                <AboutUsLogoStyle src={EpicureLogo} />
                 <AboutUsButtonsContainerStyle>
-                    <AboutUsButtonStyle src='test' />
-                    <AboutUsButtonStyle src='test' />
+                    <AboutUsButtonStyle src={PlaystoreButton} />
+                    <AboutUsButtonStyle src={AppstoreButton} />
                 </AboutUsButtonsContainerStyle>
-                <AboutUsDescreptionStyle>
-                    Test
-                </AboutUsDescreptionStyle>
+                <AboutUsDescriptionStyle>
+                    <AboutUsDescriptionTitleStyle>about us:</AboutUsDescriptionTitleStyle>
+                    <AboutUsDescriptionBodyStyle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a lacus vel justo fermentum bibendum non 
+eu ipsum. Cras porta malesuada eros, eget blandit
+turpis suscipit at.  Vestibulum sed massa in magna sodales porta.  Vivamus elit urna, 
+dignissim a vestibulum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a lacus vel justo fermentum bibendum non 
+eu ipsum. Cras porta malesuada eros, eget blandit
+turpis suscipit at.  Vestibulum sed massa in magna sodales porta.  Vivamus elit urna, 
+dignissim a vestibulum.</AboutUsDescriptionBodyStyle>
+                </AboutUsDescriptionStyle>
             </AboutUsContainerStyle>
         </>
     )

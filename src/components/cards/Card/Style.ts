@@ -5,12 +5,6 @@ const CardContainerStyle = styled.div`
 
     width: 245px;
     height: auto;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 `
 
 const CardImageStyle = styled.div`
@@ -18,11 +12,6 @@ const CardImageStyle = styled.div`
 
     width: 245px;
     height: 151.8px;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 `
 
 const CardDetailsStyle = styled.div`
@@ -35,12 +24,6 @@ const CardDetailsStyle = styled.div`
     height: auto;
 
     background: #F9F4EA;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 12;
-    align-self: stretch;
-    flex-grow: 0;
 `
 
 const CardDetailsTopStyle = styled.div`
@@ -52,11 +35,6 @@ const CardDetailsTopStyle = styled.div`
     letter-spacing: 2.67px;
 
     color: #000000;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 `
 
 const CardDetailsDownStyle = styled.div`
@@ -66,15 +44,20 @@ const CardDetailsDownStyle = styled.div`
     font-size: 16px;
     line-height: 20px;
 
-    /* identical to box height, or 125% */
     letter-spacing: 1.97px;
 
     color: #000000;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 `
 
-export { CardContainerStyle, CardImageStyle, CardDetailsStyle, CardDetailsTopStyle, CardDetailsDownStyle }
+const CardSignatureImageStyle = styled.img`
+    width: 30px;
+    height: 24px;
+`
+
+const CardCurrencyImageStyle = styled.img`
+    position: relative;
+    padding-right: 3px;
+    bottom: -3px;
+`
+
+export { CardContainerStyle, CardImageStyle, CardDetailsStyle, CardDetailsTopStyle, CardDetailsDownStyle, CardSignatureImageStyle, CardCurrencyImageStyle }

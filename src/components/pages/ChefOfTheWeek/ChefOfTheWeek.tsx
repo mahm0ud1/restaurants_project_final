@@ -29,7 +29,7 @@ const ChefOfTheWeek = () => {
                     <CardsStyle>
                         {cards.map((card) => <Card key={card} {...cardDetails} />)}
                     </CardsStyle>
-                    <AllCardsButtonStyle>
+                    <AllCardsButtonStyle to="/homePage_restaurants_all">
                         All Restaurants<AllCardsVectorStyle><img src={Vector} /></AllCardsVectorStyle>
                     </AllCardsButtonStyle>
                 </ChefOfTheWeekCardsStyle>

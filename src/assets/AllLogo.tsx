@@ -5,5 +5,9 @@ import accountLogo from './account_logo.svg';
 import cartLogo from './cart_logo.svg';
 import CloseButton from './close_button_black.svg';
 import Vector from './vector.svg';
+import PlaystoreButton from './appstoreButton.svg'
+import AppstoreButton from './playstoreButton.svg'
+import EpicureLogo from './epicure_logo.svg'
+import Shekel from './shekel.svg'
 
-export { MenuIcon, restaurantLogo, searchLogo, accountLogo, cartLogo, CloseButton, Vector }
+export { MenuIcon, restaurantLogo, searchLogo, accountLogo, cartLogo, CloseButton, Vector, PlaystoreButton, AppstoreButton, EpicureLogo, Shekel }

@@ -5,7 +5,6 @@ import { SearchStyle, SearchBarStyle, SearchInputStyle, SearchInputOptionsStyle,
 const SearchInput = () => {
     return (
         <>
-            <SearchStyle>
                 <SearchBarStyle>
                     <img src={searchLogo} alt="restaurant_logo" />
                     <SearchInputStyle type="text" placeholder='Search for restaurant cuisine, chef' />
@@ -18,7 +17,6 @@ const SearchInput = () => {
                 <div className='search_input_options_title'>Chef:</div>
                 <div className='search_input_options_value'>Thai</div>
             </div> */}
-            </SearchStyle>
         </>
     );
 }

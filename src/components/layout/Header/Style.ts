@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const HeaderStyle = styled.div`
     display: flex;
@@ -14,7 +15,7 @@ const LeftHeaderStyle = styled.div`
     margin: 0 24px;
 `
 
-const CenterHeaderStyle = styled.div`
+const CenterHeaderStyle = styled(Link)`
     display: flex;
     align-items: center;
 `

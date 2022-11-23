@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ButtonsRowsUpperContainerStyle = styled.div`
@@ -14,22 +15,17 @@ const ButtonsRowsLowerContainerStyle = styled.div`
     padding: 0 20px;
 `
 
-const ButtonRowStyle = styled.div`
+const ButtonRowStyle = styled(Link)`
     display: block;
     font-style: normal;
     font-weight: 100;
     font-size: 18px;
     line-height: 22px;
 
-    /* identical to box height */
     letter-spacing: 1.92px;
 
     color: #000000;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    text-decoration: none;
 `
 
 const LineBreak = styled.hr`

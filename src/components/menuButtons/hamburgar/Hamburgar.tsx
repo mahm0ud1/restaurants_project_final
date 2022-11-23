@@ -4,14 +4,14 @@ const Hamburgar = () => {
     return (
         <>
             <ButtonsRowsUpperContainerStyle>
-                <ButtonRowStyle>Restaurants</ButtonRowStyle>
-                <ButtonRowStyle>Chefs</ButtonRowStyle>
+                <ButtonRowStyle to="/homePage_restaurants_all">Restaurants</ButtonRowStyle>
+                <ButtonRowStyle to="/">Chefs</ButtonRowStyle>
             </ButtonsRowsUpperContainerStyle>
             <LineBreak />
             <ButtonsRowsLowerContainerStyle>
-                <ButtonRowStyle>Contact Us</ButtonRowStyle>
-                <ButtonRowStyle>Term of Use</ButtonRowStyle>
-                <ButtonRowStyle>Privacy Policy</ButtonRowStyle>
+                <ButtonRowStyle to="/">Contact Us</ButtonRowStyle>
+                <ButtonRowStyle to="/">Term of Use</ButtonRowStyle>
+                <ButtonRowStyle to="/">Privacy Policy</ButtonRowStyle>
             </ButtonsRowsLowerContainerStyle>
         </>
     );

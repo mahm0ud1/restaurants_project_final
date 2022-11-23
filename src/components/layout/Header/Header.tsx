@@ -3,17 +3,18 @@ import { MenuIcon, restaurantLogo, searchLogo, accountLogo, cartLogo, CloseButto
 import Hamburgar from '../../menuButtons/hamburgar/Hamburgar';
 import Search from '../../menuButtons/Search/Search';
 
-import {IconButton, Badge, Dialog, createTheme, ThemeProvider} from '@mui/material';
+import { IconButton, Badge, Dialog, createTheme, ThemeProvider } from '@mui/material';
 import { useRef, useState } from 'react';
 
 import { HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle } from './Style'
 import { PopupPageStyle, PopupBodyStyle, CloseButtonStyle, PopupTitleStyle } from './Style'
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
     const [topWindow, setTopWindow] = useState("");
     const [open, setOpen] = useState(false);
-    const [ notificationCount, setNotificationCount ] = useState(20);
+    const [notificationCount, setNotificationCount] = useState(20);
     const popupTitle = useRef("");
 
     const theme = createTheme({
@@ -38,34 +39,34 @@ const Header = () => {
     const getTopWindow = () => {
 
         return (
-        <Dialog
-            open={open}
-            onClose={handleClose}
-            style={{ height: '413px' }}
-            fullScreen={true}
-            scroll="body"
-        >
-            <PopupPageStyle>
-                <PopupTitleStyle>
-                    <CloseButtonStyle>
-                        <IconButton aria-label="close" onClick={handleClose}>
-                            <img src={CloseButton} alt="close" />
-                        </IconButton>
-                    </CloseButtonStyle>
-                    <div>{popupTitle.current}</div>
-                </PopupTitleStyle>
-                <PopupBodyStyle>
-                    {getPopup(topWindow)}
-                </PopupBodyStyle>
-            </PopupPageStyle>
-        </Dialog>);
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                style={{ height: '413px' }}
+                fullScreen={true}
+                scroll="body"
+            >
+                <PopupPageStyle>
+                    <PopupTitleStyle>
+                        <CloseButtonStyle>
+                            <IconButton aria-label="close" onClick={handleClose}>
+                                <img src={CloseButton} alt="close" />
+                            </IconButton>
+                        </CloseButtonStyle>
+                        <div>{popupTitle.current}</div>
+                    </PopupTitleStyle>
+                    <PopupBodyStyle>
+                        {getPopup(topWindow)}
+                    </PopupBodyStyle>
+                </PopupPageStyle>
+            </Dialog>);
     }
 
     const getPopup = (windowName: string) => {
         switch (windowName) {
-            case "search": 
-            popupTitle.current = "Search";
-            return <Search />
+            case "search":
+                popupTitle.current = "Search";
+                return <Search />
             case "hamburger": return <Hamburgar />
         }
     }
@@ -86,7 +87,7 @@ const Header = () => {
                 <LeftHeaderStyle>
                     <MenuIcon onClick={() => handleOpen("hamburger")} />
                 </LeftHeaderStyle>
-                <CenterHeaderStyle>
+                <CenterHeaderStyle to="/">
                     <RestaurantLogoStyle src={restaurantLogo} alt="restaurant_logo" />
                 </CenterHeaderStyle>
                 <RightHeaderStyle>

@@ -1,10 +1,11 @@
 import { SignaturesContainerStyle, SignaturesTitleStyle, SignaturesListContainerStyle, SignatureContainerStyle, SignatureImageStyle, SignatureTypeStyle } from './Style'
+import GetSignatureImage from '../../../assets/signatures/Signatures';
 
 const getSignatureStyle = (image:string,type:string) =>
 {
     return (
         <SignatureContainerStyle>
-            <SignatureImageStyle src={image} />
+            <SignatureImageStyle src={GetSignatureImage(image)} />
             <SignatureTypeStyle>{type}</SignatureTypeStyle>
         </SignatureContainerStyle>
     );
@@ -16,9 +17,9 @@ const Signature = () => {
             <SignaturesContainerStyle>
                 <SignaturesTitleStyle>Signature Dish Of:</SignaturesTitleStyle>
                 <SignaturesListContainerStyle>
-                    {getSignatureStyle("Image1", "Type1")}
-                    {getSignatureStyle("Image2", "Type2")}
-                    {getSignatureStyle("Image3", "Type3")}
+                    {getSignatureStyle("spicy", "Spicy")}
+                    {getSignatureStyle("vegitarian", "Vegitarian")}
+                    {getSignatureStyle("vegan", "Vegan")}
                 </SignaturesListContainerStyle>
             </SignaturesContainerStyle>
         </>

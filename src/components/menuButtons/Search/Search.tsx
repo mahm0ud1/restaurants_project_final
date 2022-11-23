@@ -1,11 +1,13 @@
-import { useState } from 'react';
-
 import SearchInput from './SearchInput';
+import { SearchStyle } from './Style';
 
 const Search = () => {
     return (
         <>
-            <SearchInput />
+
+            <SearchStyle>
+                <SearchInput />
+            </SearchStyle>
         </>
     );
 }

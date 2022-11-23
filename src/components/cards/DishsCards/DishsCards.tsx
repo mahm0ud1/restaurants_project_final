@@ -4,11 +4,11 @@ import { Vector } from '../../../assets/AllLogo';
 import { CardsContainerStyle, CardsTitleStyle, CardsStyle, AllCardsButtonStyle, AllCardsVectorStyle } from '../Style'
 import DishCardDetails from '../../../interfaces/DishCardDetails';
 
-const cardDetails:DishCardDetails = {
+const cardDetails: DishCardDetails = {
     imageUrl: "image",
     title: "title",
     details: "details",
-    signature: "spi",
+    signature: "spicy",
     price: "88"
 }
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -19,9 +19,9 @@ const DishsCards = () => {
             <CardsContainerStyle>
                 <CardsTitleStyle>Signature Dish Of:</CardsTitleStyle>
                 <CardsStyle>
-                    {cards.map((card) => <Card key={card} {...cardDetails}/>)}
+                    {cards.map((card) => <Card key={card} {...cardDetails} />)}
                 </CardsStyle>
-                <AllCardsButtonStyle>
+                <AllCardsButtonStyle to="/homePage_restaurants_all">
                     All Restaurants<AllCardsVectorStyle><img src={Vector} /></AllCardsVectorStyle>
                 </AllCardsButtonStyle>
             </CardsContainerStyle>
