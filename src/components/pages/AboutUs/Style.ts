@@ -28,7 +28,6 @@ const AboutUsDescriptionStyle = styled.div`
 `
 
 const AboutUsDescriptionTitleStyle = styled.div`    
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 18px;
@@ -41,7 +40,6 @@ const AboutUsDescriptionTitleStyle = styled.div`
 `
 
 const AboutUsDescriptionBodyStyle = styled.div`
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 18px;

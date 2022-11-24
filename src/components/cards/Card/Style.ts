@@ -38,7 +38,6 @@ const CardDetailsTopStyle = styled.div`
 `
 
 const CardDetailsDownStyle = styled.div`
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 16px;
@@ -60,4 +59,9 @@ const CardCurrencyImageStyle = styled.img`
     bottom: -3px;
 `
 
-export { CardContainerStyle, CardImageStyle, CardDetailsStyle, CardDetailsTopStyle, CardDetailsDownStyle, CardSignatureImageStyle, CardCurrencyImageStyle }
+const CardCurrencyPriceStyle = styled.div`
+    display: inline;
+    font-family: 'Helvetica Neue';
+`
+
+export { CardContainerStyle, CardImageStyle, CardDetailsStyle, CardDetailsTopStyle, CardDetailsDownStyle, CardSignatureImageStyle, CardCurrencyImageStyle, CardCurrencyPriceStyle }

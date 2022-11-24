@@ -6,7 +6,6 @@ const CardsContainerStyle = styled.div`
 `
 
 const CardsTitleStyle = styled.div`
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 16px;
@@ -56,21 +55,5 @@ const AllCardsVectorStyle = styled.div`
     width: 24px;
     padding: 0 12px;
 `
-
-// const LinkStyle = styled(Link)`
-//     text-decoration: none;
-//     font-family: 'Helvetica Neue';
-//     font-style: normal;
-//     font-weight: 400;
-//     font-size: 16px;
-//     line-height: 35px;
-
-//     /* identical to box height, or 219% */
-//     text-align: right;
-//     letter-spacing: 2px;
-//     text-transform: capitalize;
-
-//     color: #000000;
-// `
 
 export { CardsContainerStyle, CardsTitleStyle, CardsStyle, AllCardsButtonStyle, AllCardsVectorStyle }

@@ -64,7 +64,6 @@ const PopupTitleStyle = styled.div`
     justify-content: center;
     align-items: center;
     height: 46px;
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 18px;

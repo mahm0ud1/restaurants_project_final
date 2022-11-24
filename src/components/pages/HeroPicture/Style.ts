@@ -19,7 +19,6 @@ const HeroInnerContainerStyle = styled.div`
 
 const HeroTitleStyle = styled.div`
     margin: 16px 10px;
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 22px;

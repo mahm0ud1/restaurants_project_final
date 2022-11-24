@@ -12,7 +12,6 @@ const SignaturesTitleStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 18px;
@@ -48,7 +47,6 @@ const SignatureImageStyle = styled.img`
 `
 
 const SignatureTypeStyle = styled.div`
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 18px;

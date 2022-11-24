@@ -21,7 +21,6 @@ const SearchBarStyle = styled.div`
 `
 
 const SearchInputStyle = styled.input`
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 12px;
@@ -64,7 +63,6 @@ const SearchInputOptionsStyle = styled.div`
 `
 
 const SearchInputOptionsTitleStyle = styled.div`
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 14px;
@@ -81,7 +79,6 @@ const SearchInputOptionsTitleStyle = styled.div`
 `
 
 const SearchInputOptionsValueStyle = styled.div`
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

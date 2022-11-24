@@ -1,6 +1,6 @@
 import DishCardDetails from '../../../interfaces/DishCardDetails';
 import RestaurantCardDetails from '../../../interfaces/RestaurantCardDetails';
-import { CardContainerStyle, CardImageStyle, CardDetailsStyle, CardDetailsTopStyle, CardDetailsDownStyle, CardSignatureImageStyle, CardCurrencyImageStyle } from './Style'
+import { CardContainerStyle, CardImageStyle, CardDetailsStyle, CardDetailsTopStyle, CardDetailsDownStyle, CardSignatureImageStyle, CardCurrencyImageStyle, CardCurrencyPriceStyle } from './Style'
 import GetSignatureImage from '../../../assets/signatures/Signatures';
 import { Shekel } from '../../../assets/AllLogo';
 
@@ -12,7 +12,7 @@ const Card = (cardDetails: DishCardDetails | RestaurantCardDetails) => {
                 <CardSignatureImageStyle src={GetSignatureImage(dishCardDetails.signature)} />
                 <CardDetailsDownStyle>
                     <CardCurrencyImageStyle src={Shekel} />
-                    {dishCardDetails.price}
+                    <CardCurrencyPriceStyle>{dishCardDetails.price}</CardCurrencyPriceStyle>
                 </CardDetailsDownStyle>
             </>
         }

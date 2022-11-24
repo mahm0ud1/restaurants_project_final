@@ -6,7 +6,6 @@ const ChefOfTheWeekContainerStyle = styled.div`
 `
 
 const ChefOfTheWeekTitleStyle = styled.div`
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 18px;
@@ -47,7 +46,6 @@ const ChefOfTheWeekDescriptionStyle = styled.div`
     position: relative;
     top: -30px;
 
-    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 200;
     font-size: 18px;
