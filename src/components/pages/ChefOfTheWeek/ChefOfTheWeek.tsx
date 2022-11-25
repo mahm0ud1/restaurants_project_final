@@ -1,19 +1,14 @@
 import { ChefOfTheWeekContainerStyle, ChefOfTheWeekTitleStyle, ChefOfTheWeekImageContainerStyle, ChefOfTheWeekImageStyle, ChefOfTheWeekImageTitleStyle, ChefOfTheWeekDescriptionStyle, ChefOfTheWeekCardsStyle } from './Style'
-import { CardsTitleStyle, CardsStyle, AllCardsButtonStyle, AllCardsVectorStyle } from '../../cards/Style'
+import { CardsTitleStyle, CardsHorizontalStyle, AllCardsButtonStyle, AllCardsVectorStyle, CardSmallSize } from '../../cards/Style'
 
 import Card from '../../cards/Card/Card';
 import { Vector } from '../../../assets/AllLogo';
-import RestaurantCardDetails from '../../../interfaces/RestaurantCardDetails';
-
-const cardDetails: RestaurantCardDetails = {
-    id: 1,
-    imageUrl: "image",
-    title: "title",
-    details: ""
-}
-const cards = [1, 2, 3, 4, 5];
+import { getChefRestaurants } from '../../../api/EpicureAPI';
 
 const ChefOfTheWeek = () => {
+    const restaurants = getChefRestaurants(1);
+
+    const imgSize = CardSmallSize;
     return (
         <>
             <ChefOfTheWeekContainerStyle>
@@ -27,9 +22,9 @@ const ChefOfTheWeek = () => {
                 </ChefOfTheWeekDescriptionStyle>
                 <ChefOfTheWeekCardsStyle>
                     <CardsTitleStyle>Chef of the week:</CardsTitleStyle>
-                    <CardsStyle>
-                        {cards.map((card) => <Card key={card} {...cardDetails} />)}
-                    </CardsStyle>
+                    <CardsHorizontalStyle>
+                        {restaurants.map((restaurant) => <Card key={restaurant.id} cardDetails={restaurant} imgSize={imgSize} />)}
+                    </CardsHorizontalStyle>
                     <AllCardsButtonStyle to="/homePage_restaurants_all">
                         All Restaurants<AllCardsVectorStyle><img src={Vector} /></AllCardsVectorStyle>
                     </AllCardsButtonStyle>

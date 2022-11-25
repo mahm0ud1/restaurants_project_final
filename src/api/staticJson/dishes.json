@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "imageUrl": "image",
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
         "title": "title",
         "details": "details",
         "signature": "spicy",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "imageUrl": "image",
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
         "title": "title",
         "details": "details",
         "signature": "vegitarian",
@@ -17,7 +17,7 @@
     },
     {
         "id": 3,
-        "imageUrl": "image",
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
         "title": "title",
         "details": "details",
         "signature": "vegan",
@@ -25,7 +25,7 @@
     },
     {
         "id": 4,
-        "imageUrl": "image",
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
         "title": "title",
         "details": "details",
         "signature": "spicy",

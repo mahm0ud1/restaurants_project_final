@@ -1,3 +1,4 @@
+import { Divider } from "@mui/material";
 import styled from "styled-components";
 
 const FooterContainerStyle = styled.div`
@@ -20,4 +21,8 @@ const FooterButtonStyle = styled.div`
     color: #000000;
 `
 
-export { FooterContainerStyle, FooterButtonStyle }
+const DividerStyle = styled(Divider)`
+
+`
+
+export { FooterContainerStyle, FooterButtonStyle, DividerStyle }

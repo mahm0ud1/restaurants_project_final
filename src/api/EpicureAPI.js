@@ -9,4 +9,8 @@ const getRestaurantDishes = (restaurantID) => {
     return dishes;
 }
 
-export { getRestaurants, getRestaurantDishes }
+const getChefRestaurants = (chefID) => {
+    return restaurants;
+}
+
+export { getRestaurants, getRestaurantDishes, getChefRestaurants }

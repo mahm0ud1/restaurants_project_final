@@ -1,10 +1,16 @@
 import DishCardDetails from '../../../interfaces/DishCardDetails';
-import RestaurantCardDetails from '../../../interfaces/RestaurantCardDetails';
-import { CardContainerStyle, CardImageStyle, CardDetailsStyle, CardDetailsTopStyle, CardDetailsDownStyle, CardSignatureImageStyle, CardCurrencyImageStyle, CardCurrencyPriceStyle } from './Style'
+import {
+    CardContainerStyle, CardImageStyle, CardDetailsStyle, CardDetailsTopStyle, CardDetailsDownStyle,
+    CardSignatureImageStyle, CardCurrencyImageStyle, CardCurrencyPriceStyle
+} from './Style'
 import GetSignatureImage from '../../../assets/signatures/Signatures';
 import { Shekel } from '../../../assets/AllLogo';
+import CustomCardProps from '../../../interfaces/CustomCardProps';
 
-const Card = (cardDetails: DishCardDetails | RestaurantCardDetails) => {
+const Card = (props: CustomCardProps) => {
+    const size = props.imgSize;
+    const cardDetails = props.cardDetails;
+
     const getDetails = () => {
         if (Object.prototype.hasOwnProperty.call(cardDetails, 'signature')) {
             const dishCardDetails = cardDetails as DishCardDetails;
@@ -20,9 +26,9 @@ const Card = (cardDetails: DishCardDetails | RestaurantCardDetails) => {
 
     return (
         <>
-            <CardContainerStyle>
-                <CardImageStyle>{cardDetails.imageUrl}</CardImageStyle>
-                <CardDetailsStyle>
+            <CardContainerStyle style={{width: size.width}}>
+                <CardImageStyle style={size} src={cardDetails.imageUrl} />
+                <CardDetailsStyle style={{width: size.width}}>
                     <CardDetailsTopStyle>{cardDetails.title}</CardDetailsTopStyle>
                     <CardDetailsDownStyle>{cardDetails.details}</CardDetailsDownStyle>
                     {getDetails()}

@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+const CardSmallSize = {
+    width: '245px',
+    height: '151.8px'
+}
+
+const CardLargSize = {
+    width: '99%',
+    height: 'auto'
+}
+
 const CardsContainerStyle = styled.div`
     margin: 48px 20px 17px;
 `
@@ -17,17 +27,25 @@ const CardsTitleStyle = styled.div`
     color: #000000;
 `
 
-const CardsStyle = styled.div`
+const CardsHorizontalStyle = styled.div`
     display: flex;
     align-items: flex-start;
     overflow-x: auto;
 
     height: auto;
 
-    flex: none;
-    order: 0;
-    flex-grow: 0;
     gap: 24px;
+    padding: 17px 0;
+`
+
+const CardsVerticalStyle = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    height: auto;
+
+    gap: 25px;
     padding: 17px 0;
 `
 
@@ -56,4 +74,4 @@ const AllCardsVectorStyle = styled.div`
     padding: 0 12px;
 `
 
-export { CardsContainerStyle, CardsTitleStyle, CardsStyle, AllCardsButtonStyle, AllCardsVectorStyle }
+export { CardSmallSize, CardLargSize, CardsContainerStyle, CardsTitleStyle, CardsHorizontalStyle, CardsVerticalStyle, AllCardsButtonStyle, AllCardsVectorStyle }

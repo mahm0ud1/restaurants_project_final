@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 const CardContainerStyle = styled.div`
-    display: inline;
+    display: block;
 
-    width: 245px;
     height: auto;
+    background: #F9F4EA;
 `
 
-const CardImageStyle = styled.div`
-    background-color: aquamarine;
-
-    width: 245px;
-    height: 151.8px;
+const CardImageStyle = styled.img`
+    /* width: 245px;
+    height: 151.8px; */
+    /* width: ${props => props.className == "small" ? "245px" : "100%" }; */
 `
 
 const CardDetailsStyle = styled.div`
@@ -22,8 +21,6 @@ const CardDetailsStyle = styled.div`
     gap: 10px;
 
     height: auto;
-
-    background: #F9F4EA;
 `
 
 const CardDetailsTopStyle = styled.div`

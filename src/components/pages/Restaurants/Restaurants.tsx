@@ -4,27 +4,35 @@ import Box from "@mui/material/Box";
 
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { CardLargSize, CardsHorizontalStyle, CardsVerticalStyle } from "../../cards/Style";
+import RestaurantCardDetails from "../../../interfaces/RestaurantCardDetails";
+import { getRestaurants } from "../../../api/EpicureAPI";
+import Card from "../../cards/Card/Card";
+import { RestaurantsContainer } from "./Style";
 
 const Restaurants = () => {
+    const restaurants = getRestaurants();
+    const imgSize = CardLargSize;
+
     let { sub_menu } = useParams();
     const [subMenu, setSubMenu] = useState(sub_menu);
 
-    useEffect( () => {
-        
+    useEffect(() => {
+
     }, [subMenu])
 
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setSubMenu(newValue);
         window.history.replaceState("", "", `homePage_restaurants_${newValue}`);
-      };
+    };
 
     const get_restaurants = () => {
         switch (sub_menu) {
             case "all":
             case "new":
             case "most_popular":
-            case "open_now": 
-            break;
+            case "open_now":
+                break;
             default: break;
         }
     }
@@ -46,6 +54,13 @@ const Restaurants = () => {
                     <Tab value="open_new" label="Open Now" />
                 </Tabs>
             </Box>
+            <RestaurantsContainer>
+                <CardsVerticalStyle>
+                    {restaurants.map((restaurant: RestaurantCardDetails) =>
+                        <Card key={restaurant.id} cardDetails={restaurant} imgSize={imgSize} />
+                    )}
+                </CardsVerticalStyle>
+            </RestaurantsContainer>
         </>
     );
 }
