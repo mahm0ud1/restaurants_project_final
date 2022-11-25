@@ -7,8 +7,8 @@ import { IconButton, Badge, Dialog, createTheme, ThemeProvider } from '@mui/mate
 import { useRef, useState } from 'react';
 
 import { HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle } from './Style'
-import { PopupPageStyle, PopupBodyStyle, CloseButtonStyle, PopupTitleStyle } from './Style'
-import { Link } from 'react-router-dom';
+import { PopupPageStyle, PopupBodyStyle, CloseButtonStyle, PopupTitleStyle, DialogWindowStyle } from './Style'
+import SignIn from '../../pages/SignIn/SignIn';
 
 
 const Header = () => {
@@ -36,15 +36,13 @@ const Header = () => {
         setOpen(true);
     };
 
-    const getTopWindow = () => {
+    const getDialogWindow = () => {
 
         return (
-            <Dialog
+            <DialogWindowStyle
                 open={open}
                 onClose={handleClose}
-                style={{ height: '413px' }}
                 fullScreen={true}
-                scroll="body"
             >
                 <PopupPageStyle>
                     <PopupTitleStyle>
@@ -59,7 +57,7 @@ const Header = () => {
                         {getPopup(topWindow)}
                     </PopupBodyStyle>
                 </PopupPageStyle>
-            </Dialog>);
+            </DialogWindowStyle>);
     }
 
     const getPopup = (windowName: string) => {
@@ -68,6 +66,7 @@ const Header = () => {
                 popupTitle.current = "Search";
                 return <Search />
             case "hamburger": return <Hamburgar />
+            case "signin": return <SignIn />
         }
     }
 
@@ -94,7 +93,7 @@ const Header = () => {
                     <IconButton onClick={() => handleOpen("search")}>
                         <HeaderRightLogoStyle src={searchLogo} alt="search_logo" />
                     </IconButton>
-                    <IconButton>
+                    <IconButton onClick={() => handleOpen("signin")}>
                         <HeaderRightLogoStyle src={accountLogo} alt="account_logo" />
                     </IconButton>
                     <IconButton
@@ -114,7 +113,7 @@ const Header = () => {
                     </IconButton>
                 </RightHeaderStyle>
             </HeaderStyle>
-            {getTopWindow()}
+            {getDialogWindow()}
         </>
     );
 }

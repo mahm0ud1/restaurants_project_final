@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const SearchStyle = styled.div`
     margin: 24px 31px;
+    height: 367px;
 `
 
 const SearchBarStyle = styled.div`
@@ -46,6 +47,10 @@ const SearchInputStyle = styled.input`
 
     &::placeholder:focus {
         opacity: 0.2;
+    }
+
+    &:focus {
+        outline: none;
     }
 `
 

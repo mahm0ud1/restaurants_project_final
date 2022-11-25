@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+const HamburgerStyle = styled.div`
+    height: 367px;
+`
+
 const ButtonsRowsUpperContainerStyle = styled.div`
     display: flex;
     flex-direction: column;
@@ -33,4 +37,4 @@ const LineBreak = styled.hr`
 `
 
 
-export { ButtonsRowsUpperContainerStyle, ButtonsRowsLowerContainerStyle, ButtonRowStyle, LineBreak }
+export { HamburgerStyle, ButtonsRowsUpperContainerStyle, ButtonsRowsLowerContainerStyle, ButtonRowStyle, LineBreak }

@@ -1,10 +1,15 @@
 import styled from "@emotion/styled";
+import { Dialog } from "@mui/material";
 import { Link } from "react-router-dom";
+
+
+const DialogWindowStyle = styled(Dialog)`
+    height: fit-content;
+`
 
 const HeaderStyle = styled.div`
     display: flex;
     justify-content: space-between;
-    
     height: 46px;
     background-color: #FFFFFF;
 `
@@ -40,10 +45,9 @@ const HeaderRightLogoStyle = styled.img`
 `
 
 const PopupPageStyle = styled.div`
-    position: absolute;
     background: #FFFFFF;
     top: 0px;
-    height: 413px;
+    height: fit-content;
     box-shadow: 2px 4px 10px rgba(175, 175, 175, 0.25);
     width: 100%;
 `
@@ -73,4 +77,4 @@ const PopupTitleStyle = styled.div`
 `
 
 export { HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle};
-export { PopupPageStyle, PopupBodyStyle, CloseButtonStyle, PopupTitleStyle };
+export { PopupPageStyle, PopupBodyStyle, CloseButtonStyle, PopupTitleStyle, DialogWindowStyle };
