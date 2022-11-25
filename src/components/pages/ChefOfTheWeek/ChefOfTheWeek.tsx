@@ -6,6 +6,7 @@ import { Vector } from '../../../assets/AllLogo';
 import RestaurantCardDetails from '../../../interfaces/RestaurantCardDetails';
 
 const cardDetails: RestaurantCardDetails = {
+    id: 1,
     imageUrl: "image",
     title: "title",
     details: ""

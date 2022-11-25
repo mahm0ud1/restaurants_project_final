@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "imageUrl": "image1",
+        "title": "title1",
+        "details": "details1"
+    },
+    {
+        "id":2,
+        "imageUrl": "image2",
+        "title": "title2",
+        "details": "details2"
+    },
+    {
+        "id":3,
+        "imageUrl": "image3",
+        "title": "title3",
+        "details": "details3"
+    },
+    {
+        "id":4,
+        "imageUrl": "image4",
+        "title": "title4",
+        "details": "details4"
+    },
+    {
+        "id":5,
+        "imageUrl": "image5",
+        "title": "title5",
+        "details": "details5"
+    },
+    {
+        "id":6,
+        "imageUrl": "image6",
+        "title": "title6",
+        "details": "details6"
+    }
+]

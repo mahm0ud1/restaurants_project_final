@@ -1,23 +1,20 @@
-import Card from '../Card/Card';
+import { useRef } from 'react';
+import { getRestaurants } from '../../../api/EpicureAPI';
 import { Vector } from '../../../assets/AllLogo';
+import RestaurantCardDetails from '../../../interfaces/RestaurantCardDetails';
+import Card from '../Card/Card';
 
 import { CardsContainerStyle, CardsTitleStyle, CardsStyle, AllCardsButtonStyle, AllCardsVectorStyle } from '../Style'
-import RestaurantCardDetails from '../../../interfaces/RestaurantCardDetails';
-
-const cardDetails: RestaurantCardDetails = {
-    imageUrl: "image",
-    title: "title",
-    details: "details"
-}
-const cards = [1, 2, 3, 4, 5];
 
 const RestaurantsCards = () => {
+    const restaurants = useRef<RestaurantCardDetails[]>(getRestaurants());
+
     return (
         <>
             <CardsContainerStyle>
                 <CardsTitleStyle>popular restaurant in epicure:</CardsTitleStyle>
                 <CardsStyle>
-                    {cards.map((card) => <Card key={card} {...cardDetails} />)}
+                    {restaurants.current.map((restaurant) => <Card key={restaurant.id} {...restaurant} />)}
                 </CardsStyle>
                 <AllCardsButtonStyle to="/homePage_restaurants_all">
                     All Restaurants<AllCardsVectorStyle><img src={Vector} /></AllCardsVectorStyle>

@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "imageUrl": "image",
+        "title": "title",
+        "details": "details",
+        "signature": "spicy",
+        "price": "88"
+    },
+    {
+        "id": 2,
+        "imageUrl": "image",
+        "title": "title",
+        "details": "details",
+        "signature": "vegitarian",
+        "price": "88"
+    },
+    {
+        "id": 3,
+        "imageUrl": "image",
+        "title": "title",
+        "details": "details",
+        "signature": "vegan",
+        "price": "88"
+    },
+    {
+        "id": 4,
+        "imageUrl": "image",
+        "title": "title",
+        "details": "details",
+        "signature": "spicy",
+        "price": "88"
+    }
+]

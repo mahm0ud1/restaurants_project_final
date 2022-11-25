@@ -1,4 +1,5 @@
 interface DishCardDetails {
+    id: number,
     imageUrl: string,
     title: string,
     details: string,
