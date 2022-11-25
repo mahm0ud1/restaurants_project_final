@@ -72,7 +72,7 @@ const LoginButtonStyle = styled.button`
     width: 206px;
     height: 48px;
 
-    background: #979797;
+    background: ${props => props.disabled ? "#979797" : "#000000" };
 
     font-style: normal;
     font-weight: 400;

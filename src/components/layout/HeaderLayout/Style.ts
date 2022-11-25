@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 
 const DialogWindowStyle = styled(Dialog)`
     height: fit-content;
+    background-color: transparent;
+    box-shadow: none;
+`
+
+const HeaderContainerStyle = styled.div`
+
 `
 
 const HeaderStyle = styled.div`
@@ -76,5 +82,5 @@ const PopupTitleStyle = styled.div`
     color: #000000;
 `
 
-export { HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle};
+export { HeaderContainerStyle, HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle};
 export { PopupPageStyle, PopupBodyStyle, CloseButtonStyle, PopupTitleStyle, DialogWindowStyle };

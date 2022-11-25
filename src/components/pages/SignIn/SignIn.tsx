@@ -4,15 +4,28 @@ import { SigninContainerStyle, SigninTitleContainerStyle, SigninTitleStyle, Sign
 
 const SignIn = () => {
     const [ isDisabled, setIsDisabled ] = React.useState<boolean>(true);
-    const [ email, setEmail ] = React.useState<string>('');
-    const [ password, setPassword ] = React.useState<string>('');
+    const email = React.useRef<string>('');
+    const password = React.useRef<string>('');
+
+    const checkInputs = () => {
+        if(email.current != "" && password.current != "")
+        {
+            setIsDisabled(false);
+        }
+        else
+        {
+            setIsDisabled(true);
+        }
+    }
 
     const checkEmailInput = (e: { currentTarget: { value: React.SetStateAction<string>; }; }):void => {
-        setEmail(e.currentTarget.value);
+        email.current = String(e.currentTarget.value);
+        checkInputs();
     }
 
     const checkPasswordInput = (e: { currentTarget: { value: React.SetStateAction<string>; }; }):void => {
-        setPassword(e.currentTarget.value);
+        password.current = String(e.currentTarget.value);
+        checkInputs();
     }
 
     return (
