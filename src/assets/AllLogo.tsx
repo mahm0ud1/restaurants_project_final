@@ -9,5 +9,6 @@ import PlaystoreButton from './appstoreButton.svg'
 import AppstoreButton from './playstoreButton.svg'
 import EpicureLogo from './epicure_logo.svg'
 import Shekel from './shekel.svg'
+import InnerBag from './bag_inner.svg'
 
-export { MenuIcon, restaurantLogo, searchLogo, accountLogo, cartLogo, CloseButton, Vector, PlaystoreButton, AppstoreButton, EpicureLogo, Shekel }
+export { MenuIcon, restaurantLogo, searchLogo, accountLogo, cartLogo, CloseButton, Vector, PlaystoreButton, AppstoreButton, EpicureLogo, Shekel, InnerBag }

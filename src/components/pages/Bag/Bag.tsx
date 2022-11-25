@@ -1,5 +1,6 @@
 import HandleCloseInterface from "../../../interfaces/HandleCloseInterface";
-import { BagContainerStyle, BagOutSideContainerStyle } from "./Style";
+import { BagContainerStyle, BagEmptyContainerStyle, BagOutSideContainerStyle } from "./Style";
+import { InnerBag } from '../../../assets/AllLogo'
 
 const Bag = ({ closeFunction }:HandleCloseInterface) => {
 
@@ -10,7 +11,9 @@ const Bag = ({ closeFunction }:HandleCloseInterface) => {
     return (
         <>
             <BagContainerStyle>
-                <div>Bag</div>
+                <BagEmptyContainerStyle>
+                    <img src={InnerBag} />
+                </BagEmptyContainerStyle>
             </BagContainerStyle>
             <BagOutSideContainerStyle onClick={CloseBag}/>
         </>
