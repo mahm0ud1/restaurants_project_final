@@ -1,3 +1,4 @@
+import { calculateNewValue } from "@testing-library/user-event/dist/utils";
 import styled from "styled-components";
 
 const CardContainerStyle = styled.div`
@@ -17,9 +18,8 @@ const CardDetailsStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 16px;
+    margin: 16px;
     gap: 10px;
-
     height: auto;
 `
 

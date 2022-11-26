@@ -8,7 +8,7 @@ import { CardLargSize, CardsHorizontalStyle, CardsVerticalStyle } from "../../ca
 import RestaurantCardDetails from "../../../interfaces/RestaurantCardDetails";
 import { getRestaurants } from "../../../api/EpicureAPI";
 import Card from "../../cards/Card/Card";
-import { RestaurantsContainer } from "./Style";
+import { RestaurantsContainerStyle, RestaurantsTabContainerStyle, RestaurantsListContainerStyle } from "./Style";
 
 const Restaurants = () => {
     const restaurants = getRestaurants();
@@ -39,28 +39,32 @@ const Restaurants = () => {
 
     return (
         <>
-            <Box>
-                <Tabs
-                    value={subMenu}
-                    onChange={handleChange}
-                    textColor="inherit"
-                    indicatorColor="primary"
-                    TabIndicatorProps={{ style: { background: "#E19D1A" } }}
-                    aria-label="secondary tabs example"
-                >
-                    <Tab value="all" label="All" />
-                    <Tab value="new" label="New" />
-                    <Tab value="most_popular" label="Most Popular" />
-                    <Tab value="open_new" label="Open Now" />
-                </Tabs>
-            </Box>
-            <RestaurantsContainer>
-                <CardsVerticalStyle>
-                    {restaurants.map((restaurant: RestaurantCardDetails) =>
-                        <Card key={restaurant.id} cardDetails={restaurant} imgSize={imgSize} />
-                    )}
-                </CardsVerticalStyle>
-            </RestaurantsContainer>
+            <RestaurantsContainerStyle>
+                <RestaurantsTabContainerStyle>
+                    <Box>
+                        <Tabs
+                            value={subMenu}
+                            onChange={handleChange}
+                            textColor="inherit"
+                            indicatorColor="primary"
+                            TabIndicatorProps={{ style: { background: "#E19D1A" } }}
+                            aria-label="secondary tabs example"
+                        >
+                            <Tab value="all" label="All" />
+                            <Tab value="new" label="New" />
+                            <Tab value="most_popular" label="Most Popular" />
+                            <Tab value="open_new" label="Open Now" />
+                        </Tabs>
+                    </Box>
+                </RestaurantsTabContainerStyle>
+                <RestaurantsListContainerStyle>
+                    <CardsVerticalStyle>
+                        {restaurants.map((restaurant: RestaurantCardDetails) =>
+                            <Card key={restaurant.id} cardDetails={restaurant} imgSize={imgSize} />
+                        )}
+                    </CardsVerticalStyle>
+                </RestaurantsListContainerStyle>
+            </RestaurantsContainerStyle>
         </>
     );
 }

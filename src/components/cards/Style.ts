@@ -7,7 +7,7 @@ const CardSmallSize = {
 }
 
 const CardLargSize = {
-    width: '99%',
+    width: '100%',
     height: 'auto'
 }
 

@@ -28,7 +28,7 @@ const Card = (props: CustomCardProps) => {
         <>
             <CardContainerStyle style={{width: size.width}}>
                 <CardImageStyle style={size} src={cardDetails.imageUrl} />
-                <CardDetailsStyle style={{width: size.width}}>
+                <CardDetailsStyle>
                     <CardDetailsTopStyle>{cardDetails.title}</CardDetailsTopStyle>
                     <CardDetailsDownStyle>{cardDetails.details}</CardDetailsDownStyle>
                     {getDetails()}
