@@ -7,9 +7,9 @@ import { IconButton, Badge, createTheme, ThemeProvider } from '@mui/material';
 import { useRef, useState } from 'react';
 
 import { HeaderContainerStyle, HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle } from './Style'
-import { PopupPageStyle, PopupBodyStyle, CloseButtonStyle, PopupTitleStyle, DialogWindowStyle } from './Style'
 import SignIn from '../../pages/SignIn/SignIn';
 import Bag from '../../pages/Bag/Bag';
+import DialogWindow from '../../tools/AbsoluteWindow/DialogWindow';
 
 
 const Header = () => {
@@ -40,36 +40,14 @@ const Header = () => {
     const getDialogWindow = () => {
 
         return (
-            <DialogWindowStyle
-                open={open}
-                onClose={handleClose}
-                fullScreen={true}
-                BackdropProps={{ 
-                    style: { 
-                        backgroundColor: "transparent"
-                     } 
-                }}
-                PaperProps={{
-                    style: {
-                      backgroundColor: 'transparent',
-                      boxShadow: 'none',
-                    },
-                }}
-            >
-                <PopupPageStyle>
-                    <PopupTitleStyle>
-                        <CloseButtonStyle>
-                            <IconButton aria-label="close" onClick={handleClose}>
-                                <img src={CloseButton} alt="close" />
-                            </IconButton>
-                        </CloseButtonStyle>
-                        <div>{popupTitle.current}</div>
-                    </PopupTitleStyle>
-                    <PopupBodyStyle>
-                        {getPopup(topWindow)}
-                    </PopupBodyStyle>
-                </PopupPageStyle>
-            </DialogWindowStyle>);
+            <>
+                {open && <DialogWindow
+                    closeFunction={handleClose}
+                    title={popupTitle.current}
+                >
+                    {getPopup(topWindow)}
+                </DialogWindow>}
+            </>);
     }
 
     const getPopup = (windowName: string) => {
@@ -86,7 +64,7 @@ const Header = () => {
         if (topWindow == "bag")
             return (
                 <>
-                    <Bag closeFunction={handleClose}/>
+                    <Bag closeFunction={handleClose} />
                 </>
             )
     }
