@@ -15,7 +15,7 @@ import DialogWindow from '../../tools/AbsoluteWindow/DialogWindow';
 const Header = () => {
     const [topWindow, setTopWindow] = useState("");
     const [open, setOpen] = useState(false);
-    const [notificationCount, setNotificationCount] = useState(0);
+    const [notificationCount, setNotificationCount] = useState(25);
     const popupTitle = useRef("");
 
     const theme = createTheme({
