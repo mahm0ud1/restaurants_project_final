@@ -1,8 +1,15 @@
-import Tab from "./Tab";
-import TabsProps from "./TabsProps";
 import { TabsStyle, TabStyle } from './Style'
-import TabProps from "./TabProps";
-import { useState } from "react";
+
+interface TabsProps {
+    selected: string|undefined;
+    selectTab: (tab:string) => void
+    children: React.ReactElement<typeof Tab>[];
+}
+
+interface TabProps {
+    tabName: string,
+    tabValue: string
+}
 
 const Tabs = (props: TabsProps) => {
     const selectedTab = props.selected !== undefined ? props.selected : (props.children[0] as unknown as TabProps).tabName;
@@ -19,4 +26,10 @@ const Tabs = (props: TabsProps) => {
     )
 }
 
-export default Tabs;
+const Tab = (props:TabProps) => {
+    return (
+        <>{props.tabName}</>
+    )
+}
+
+export { Tabs, Tab };

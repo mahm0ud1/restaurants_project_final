@@ -5,8 +5,7 @@ import RestaurantCardDetails from "../../../interfaces/RestaurantCardDetails";
 import { getRestaurants } from "../../../api/EpicureAPI";
 import Card from "../../cards/Card/Card";
 import { RestaurantsContainerStyle, RestaurantsTabContainerStyle, RestaurantsListContainerStyle } from "./Style";
-import Tabs from "../../tools/Tabs/Tabs";
-import Tab from "../../tools/Tabs/Tab";
+import {Tabs, Tab} from "../../tools/Tabs/Tabs";
 
 
 const Restaurants = () => {
