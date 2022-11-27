@@ -1,21 +1,20 @@
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
-
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { CardLargSize, CardsHorizontalStyle, CardsVerticalStyle } from "../../cards/Style";
+import { CardLargSize, CardsVerticalStyle } from "../../cards/Style";
 import RestaurantCardDetails from "../../../interfaces/RestaurantCardDetails";
 import { getRestaurants } from "../../../api/EpicureAPI";
 import Card from "../../cards/Card/Card";
 import { RestaurantsContainerStyle, RestaurantsTabContainerStyle, RestaurantsListContainerStyle } from "./Style";
+import Tabs from "../../tools/Tabs/Tabs";
+import Tab from "../../tools/Tabs/Tab";
+
 
 const Restaurants = () => {
     const restaurants = getRestaurants();
     const imgSize = CardLargSize;
 
     let { sub_menu } = useParams();
-    const [subMenu, setSubMenu] = useState(sub_menu);
+    const [subMenu, setSubMenu] = useState(sub_menu !== undefined? sub_menu : "all");
 
     useEffect(() => {
 
@@ -41,21 +40,12 @@ const Restaurants = () => {
         <>
             <RestaurantsContainerStyle>
                 <RestaurantsTabContainerStyle>
-                    <Box>
-                        <Tabs
-                            value={subMenu}
-                            onChange={handleChange}
-                            textColor="inherit"
-                            indicatorColor="primary"
-                            TabIndicatorProps={{ style: { background: "#E19D1A" } }}
-                            aria-label="secondary tabs example"
-                        >
-                            <Tab value="all" label="All" />
-                            <Tab value="new" label="New" />
-                            <Tab value="most_popular" label="Most Popular" />
-                            <Tab value="open_new" label="Open Now" />
-                        </Tabs>
-                    </Box>
+                    <Tabs selected={subMenu} selectTab={setSubMenu}>
+                        <Tab tabName="All" tabValue="all" />
+                        <Tab tabName="New" tabValue="new" />
+                        <Tab tabName="Most Popular" tabValue="most_popular" />
+                        <Tab tabName="Open Now" tabValue="open_now" />
+                    </Tabs>
                 </RestaurantsTabContainerStyle>
                 <RestaurantsListContainerStyle>
                     <CardsVerticalStyle>

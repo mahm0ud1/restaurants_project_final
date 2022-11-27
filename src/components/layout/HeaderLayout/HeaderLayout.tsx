@@ -9,7 +9,7 @@ import { useRef, useState } from 'react';
 import { HeaderContainerStyle, HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle } from './Style'
 import SignIn from '../../pages/SignIn/SignIn';
 import Bag from '../../pages/Bag/Bag';
-import DialogWindow from '../../tools/AbsoluteWindow/DialogWindow';
+import DialogWindow from '../../tools/DialogWindow/DialogWindow';
 
 
 const Header = () => {
