@@ -46,7 +46,6 @@ const CardsVerticalStyle = styled.div`
     height: auto;
 
     gap: 25px;
-    padding: 17px 0;
 `
 
 const AllCardsButtonStyle = styled(Link)`

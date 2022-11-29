@@ -13,7 +13,7 @@ const RestaurantsTabContainerStyle = styled.div`
 `
 
 const RestaurantsListContainerStyle = styled.div`
-    padding: 32px 20px 53px;
+    padding: 20px 20px 53px;
 `
 
 export { RestaurantsContainerStyle, RestaurantsTabContainerStyle, RestaurantsListContainerStyle }
