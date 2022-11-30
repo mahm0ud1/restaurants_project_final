@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const ChefOfTheWeekContainerStyle = styled.div`
     margin: 20px 0;
-    padding: 0 20px;
 `
 
 const ChefOfTheWeekTitleStyle = styled.div`
@@ -11,6 +10,7 @@ const ChefOfTheWeekTitleStyle = styled.div`
     font-size: 18px;
     line-height: 35px;
     margin: 35px 0 16px;
+    padding: 0 20px;
 
     letter-spacing: 1.25px;
     text-transform: uppercase;
@@ -19,6 +19,7 @@ const ChefOfTheWeekTitleStyle = styled.div`
 `
 
 const ChefOfTheWeekImageContainerStyle = styled.div`
+    padding: 0 20px;
 `
 
 const ChefOfTheWeekImageStyle = styled.img`
@@ -45,6 +46,7 @@ const ChefOfTheWeekImageTitleStyle = styled.div`
 const ChefOfTheWeekDescriptionStyle = styled.div`
     position: relative;
     top: -30px;
+    padding: 0 20px;
 
     font-style: normal;
     font-weight: 200;

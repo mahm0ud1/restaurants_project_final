@@ -23,6 +23,7 @@ const ChefOfTheWeek = () => {
                 <ChefOfTheWeekCardsStyle>
                     <CardsTitleStyle>Chef of the week:</CardsTitleStyle>
                     <CardsHorizontalStyle>
+                        <div />
                         {restaurants.map((restaurant) => <Card key={restaurant.id} cardDetails={restaurant} imgSize={imgSize} />)}
                     </CardsHorizontalStyle>
                     <AllCardsButtonStyle to="/homePage_restaurants_all">

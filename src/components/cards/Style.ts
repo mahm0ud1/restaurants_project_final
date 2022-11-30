@@ -36,7 +36,7 @@ const CardsHorizontalStyle = styled.div`
     height: auto;
     grid-template-columns: 200px 1fr;
     grid-gap: 1rem;
-    gap: 24px;
+    gap: 20px;
     padding: 17px 0;
 `
 
