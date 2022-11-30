@@ -5,37 +5,7 @@ import { InnerBag, Shekel } from '../../../assets/AllLogo'
 import { useEffect, useState } from "react";
 import OrderCard from "../../cards/OrderCard/OrderCard";
 import OrderCardProps from "../../cards/OrderCard/OrderCardPorps";
-
-const ordersCards:OrderCardProps[] = [
-    {
-        id: 1,
-        imageUrl: "https://www.baltimoremagazine.com/wp-content/uploads/2020/12/KungFu12-1067x800.jpg",
-        title: "title1",
-        details: "details1",
-        price: 20
-    },
-    {
-        id: 2,
-        imageUrl: "https://www.baltimoremagazine.com/wp-content/uploads/2020/12/KungFu12-1067x800.jpg",
-        title: "title2",
-        details: "details2",
-        price: 15
-    },
-    {
-        id: 3,
-        imageUrl: "https://www.baltimoremagazine.com/wp-content/uploads/2020/12/KungFu12-1067x800.jpg",
-        title: "title3",
-        details: "details3",
-        price: 15
-    },
-    {
-        id: 4,
-        imageUrl: "https://www.baltimoremagazine.com/wp-content/uploads/2020/12/KungFu12-1067x800.jpg",
-        title: "title4",
-        details: "details4",
-        price: 15
-    }
-]
+import { getOrders } from "../../../api/EpicureAPI";
 
 const EmptyBag = () => {
     return (
@@ -48,6 +18,7 @@ const EmptyBag = () => {
 
 const BagWithItems = () => {
     const [ totalPrice, setTotalPrice ] = useState<number>(0);
+    const ordersCards:OrderCardProps[] = getOrders();
 
     useEffect(() => {
         return () => {

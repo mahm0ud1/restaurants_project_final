@@ -15,6 +15,7 @@ const DishsCards = () => {
             <CardsContainerStyle>
                 <CardsTitleStyle>Signature Dish Of:</CardsTitleStyle>
                 <CardsHorizontalStyle>
+                    <div />
                     {dishes.current.map((dish) => <Card key={dish.id} cardDetails={dish} imgSize={imgSize} />)}
                 </CardsHorizontalStyle>
                 <AllCardsButtonStyle to="/homePage_restaurants_all">

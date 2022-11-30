@@ -10,11 +10,12 @@ import { HeaderContainerStyle, HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, 
 import SignIn from '../../pages/SignIn/SignIn';
 import Bag from '../../pages/Bag/Bag';
 import DialogWindow from '../../tools/DialogWindow/DialogWindow';
+import DialogHeaderWindow from './DialogHeaderWindow';
 
 
 const Header = () => {
     const [topWindow, setTopWindow] = useState("");
-    const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const [notificationCount, setNotificationCount] = useState(25);
     const popupTitle = useRef("");
 
@@ -29,19 +30,26 @@ const Header = () => {
     const handleClose = () => {
         setTopWindow("");
         popupTitle.current = "";
-        setOpen(false);
+        setIsOpen(false);
     };
 
     const handleOpen = (windowName: string) => {
-        setTopWindow(windowName);
-        setOpen(true);
+        if(!isOpen)
+        {
+            setTopWindow(windowName);
+            setIsOpen(true);
+        }
+        else
+        {
+            handleClose();
+        }
     };
 
     const getDialogWindow = () => {
 
         return (
             <>
-                {open && <DialogWindow
+                {isOpen && <DialogWindow
                     closeFunction={handleClose}
                     title={popupTitle.current}
                 >
@@ -99,7 +107,7 @@ const Header = () => {
                         <IconButton
                             aria-label={notificationsLabel(notificationCount)}
                             sx={{ zIndex: "0" }}
-                            onClick={() => setTopWindow("bag")}>
+                            onClick={() => handleOpen("bag")}>
                             <ThemeProvider theme={theme}>
                                 <Badge
                                     color='primary'
@@ -114,9 +122,10 @@ const Header = () => {
                         </IconButton>
                     </RightHeaderStyle>
                 </HeaderStyle>
-                {getBagWindow()}
+                {/* {getBagWindow()}
+            {getDialogWindow()} */}
+            {isOpen && <DialogHeaderWindow windowName={topWindow} handleClose={handleClose} />}
             </HeaderContainerStyle>
-            {getDialogWindow()}
         </>
     );
 }

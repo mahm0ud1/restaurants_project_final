@@ -15,6 +15,7 @@ const RestaurantsCards = () => {
             <CardsContainerStyle>
                 <CardsTitleStyle>popular restaurant in epicure:</CardsTitleStyle>
                 <CardsHorizontalStyle>
+                    <div />
                     {restaurants.current.map((restaurant: RestaurantCardDetails) =>
                         <Card key={restaurant.id} cardDetails={restaurant} imgSize={imgSize} />
                     )}

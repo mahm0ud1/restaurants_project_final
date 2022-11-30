@@ -12,7 +12,7 @@ const CardLargSize = {
 }
 
 const CardsContainerStyle = styled.div`
-    margin: 48px 20px 17px;
+    margin: 48px 0 17px;
 `
 
 const CardsTitleStyle = styled.div`
@@ -23,6 +23,7 @@ const CardsTitleStyle = styled.div`
 
     letter-spacing: 1.25px;
     text-transform: uppercase;
+    padding-left: 20px;
 
     color: #000000;
 `
@@ -33,7 +34,8 @@ const CardsHorizontalStyle = styled.div`
     overflow-x: auto;
 
     height: auto;
-
+    grid-template-columns: 200px 1fr;
+    grid-gap: 1rem;
     gap: 24px;
     padding: 17px 0;
 `
@@ -58,6 +60,7 @@ const AllCardsButtonStyle = styled(Link)`
     text-align: left;
     letter-spacing: 2px;
     text-transform: capitalize;
+    padding-left: 20px;
 
     color: #000000;
     
