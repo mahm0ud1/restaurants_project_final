@@ -79,7 +79,7 @@ const RestaurantHomePage = () => {
                 <RestaurantsListContainerStyle>
                     <CardsVerticalStyle>
                         {dishes.current.map((restaurant: DishCardDetails) =>
-                            <Card key={restaurant.id} cardDetails={restaurant} imgSize={imgSize} />
+                            <Card key={restaurant.id} cardDetails={restaurant}  className="larg" />
                         )}
                     </CardsVerticalStyle>
                 </RestaurantsListContainerStyle>

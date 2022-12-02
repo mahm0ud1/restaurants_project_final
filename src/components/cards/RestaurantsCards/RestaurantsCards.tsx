@@ -3,12 +3,10 @@ import { getRestaurants } from '../../../api/EpicureAPI';
 import { Vector } from '../../../assets/AllLogo';
 import RestaurantCardDetails from '../../../interfaces/RestaurantCardDetails';
 import Card from '../Card/Card';
-import { CardSmallSize } from '../Style';
 import { CardsContainerStyle, CardsTitleStyle, CardsHorizontalStyle, AllCardsButtonStyle, AllCardsVectorStyle } from '../Style'
 
 const RestaurantsCards = () => {
     const restaurants = useRef<RestaurantCardDetails[]>(getRestaurants());
-    const imgSize = CardSmallSize;
 
     return (
         <>
@@ -17,7 +15,7 @@ const RestaurantsCards = () => {
                 <CardsHorizontalStyle>
                     <div />
                     {restaurants.current.map((restaurant: RestaurantCardDetails) =>
-                        <Card key={restaurant.id} cardDetails={restaurant} imgSize={imgSize} />
+                        <Card key={restaurant.id} cardDetails={restaurant}  className="small" />
                     )}
                 </CardsHorizontalStyle>
                 <AllCardsButtonStyle to="/homePage_restaurants_all">

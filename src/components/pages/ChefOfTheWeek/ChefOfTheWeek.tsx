@@ -1,5 +1,5 @@
 import { ChefOfTheWeekContainerStyle, ChefOfTheWeekTitleStyle, ChefOfTheWeekImageContainerStyle, ChefOfTheWeekImageStyle, ChefOfTheWeekImageTitleStyle, ChefOfTheWeekDescriptionStyle, ChefOfTheWeekCardsStyle } from './Style'
-import { CardsTitleStyle, CardsHorizontalStyle, AllCardsButtonStyle, AllCardsVectorStyle, CardSmallSize } from '../../cards/Style'
+import { CardsTitleStyle, CardsHorizontalStyle, AllCardsButtonStyle, AllCardsVectorStyle } from '../../cards/Style'
 
 import Card from '../../cards/Card/Card';
 import { Vector } from '../../../assets/AllLogo';
@@ -8,7 +8,6 @@ import { getChefRestaurants } from '../../../api/EpicureAPI';
 const ChefOfTheWeek = () => {
     const restaurants = getChefRestaurants(1);
 
-    const imgSize = CardSmallSize;
     return (
         <>
             <ChefOfTheWeekContainerStyle>
@@ -24,7 +23,7 @@ const ChefOfTheWeek = () => {
                     <CardsTitleStyle>Chef of the week:</CardsTitleStyle>
                     <CardsHorizontalStyle>
                         <div />
-                        {restaurants.map((restaurant) => <Card key={restaurant.id} cardDetails={restaurant} imgSize={imgSize} />)}
+                        {restaurants.map((restaurant) => <Card key={restaurant.id} cardDetails={restaurant}  className="small" />)}
                     </CardsHorizontalStyle>
                     <AllCardsButtonStyle to="/homePage_restaurants_all">
                         All Restaurants<AllCardsVectorStyle><img src={Vector} /></AllCardsVectorStyle>

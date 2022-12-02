@@ -45,7 +45,7 @@ const Restaurants = () => {
                     <CardsVerticalStyle>
                         {restaurants.map((restaurant: RestaurantCardDetails) =>
                             <RestaurantLinkStyle to={`/restaurant/${restaurant.id}`}>
-                                <Card key={restaurant.id} cardDetails={restaurant} imgSize={imgSize} />
+                                <Card key={restaurant.id} cardDetails={restaurant} className="larg" />
                             </RestaurantLinkStyle>
                         )}
                     </CardsVerticalStyle>
