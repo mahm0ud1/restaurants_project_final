@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const RestaurantsContainerStyle = styled.div`
@@ -16,4 +17,9 @@ const RestaurantsListContainerStyle = styled.div`
     padding: 20px 20px 53px;
 `
 
-export { RestaurantsContainerStyle, RestaurantsTabContainerStyle, RestaurantsListContainerStyle }
+const RestaurantLinkStyle = styled(Link)`
+    text-decoration: none;
+    
+`
+
+export { RestaurantsContainerStyle, RestaurantsTabContainerStyle, RestaurantsListContainerStyle, RestaurantLinkStyle }

@@ -1,8 +1,7 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getRestaurantDetails, getRestaurantDishes } from "../../../api/EpicureAPI";
 import DishCardDetails from "../../../interfaces/DishCardDetails";
-import RestaurantCardDetails from "../../../interfaces/RestaurantCardDetails";
 import Card from "../../cards/Card/Card";
 import { CardLargSize, CardsVerticalStyle } from "../../cards/Style";
 import { RestaurantsListContainerStyle } from "../Restaurants/Style";
@@ -17,8 +16,39 @@ const RestaurantHomePage = () => {
     const [ selectTab, setSelectedTab ] = useState("breakfast");
     const imgSize = CardLargSize;
 
-    const selectType = (type: string) => {
+    useEffect(() => {
+        return () => {
+            window.scrollTo(0,0);
+        };
+    }, []);
 
+    const getRestaurantStatus = () => {
+        try {
+        const timeOpenList = restaurantDetails?.timeOpen;
+            if(timeOpenList !== undefined)
+            {
+                const weekday = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+
+                const d = new Date();
+                let day = weekday[d.getDay()];
+                const timeOpen = timeOpenList.find(t=>t.day===day);
+                if(timeOpen === undefined)
+                    return "Closed";
+                const current = new Date();
+                const startTime = Number((timeOpen?.from as string).replace(":",""));
+                const currentTime = Number(current.getHours()+""+ (current.getMinutes()<10?'0':'') + current.getMinutes());
+                const endTime = Number((timeOpen?.to as string).replace(":",""));
+                console.log(startTime, currentTime, endTime);
+                if(startTime > currentTime)
+                    return "Will Open at " + timeOpen?.from;
+                else if(currentTime >= endTime)
+                    return "Closed";
+                else
+                    return "Open now";
+            }
+        }
+        catch(err){}
+        return "Not Definded" 
     }
 
     return (
@@ -35,7 +65,7 @@ const RestaurantHomePage = () => {
                         </RestaurantDetailsContainerStyle>
                         <RestaurantOpenTimeContainerStyle>
                             <RestaurantOpenTimeIconStyle src={TimeIcone} />
-                            {"Open now"}
+                            {getRestaurantStatus()}
                         </RestaurantOpenTimeContainerStyle>
                     </RestaurantHeaderDownContainerStyle>
                     <RestaurantTabsContainerStyle>

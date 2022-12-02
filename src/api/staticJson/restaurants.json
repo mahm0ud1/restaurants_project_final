@@ -1,38 +1,260 @@
 [
     {
-        "id":1,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907454282-TZKHZ1BXPGJBJ2VMBXWL/PhillyPlate.jpg",
+        "id": 1,
+        "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title1",
-        "details": "details1"
+        "details": "details1",
+        "timeOpen": [
+            {
+                "day": "sunday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "monday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "tuesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "wednesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "thursday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "friday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "saturday",
+                "from": "08:00",
+                "to": "22:00"
+            }
+        ]
     },
     {
-        "id":2,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
+        "id": 2,
+        "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title2",
-        "details": "details2"
+        "details": "details2",
+        "timeOpen": [
+            {
+                "day": "sunday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "monday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "tuesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "wednesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "thursday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "friday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "saturday",
+                "from": "08:00",
+                "to": "22:00"
+            }
+        ]
     },
     {
-        "id":3,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907454282-TZKHZ1BXPGJBJ2VMBXWL/PhillyPlate.jpg",
+        "id": 3,
+        "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title3",
-        "details": "details3"
+        "details": "details3",
+        "timeOpen": [
+            {
+                "day": "sunday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "monday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "tuesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "wednesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "thursday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "friday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "saturday",
+                "from": "08:00",
+                "to": "22:00"
+            }
+        ]
     },
     {
-        "id":4,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
+        "id": 4,
+        "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title4",
-        "details": "details4"
+        "details": "details4",
+        "timeOpen": [
+            {
+                "day": "sunday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "monday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "tuesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "wednesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "thursday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "friday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "saturday",
+                "from": "08:00",
+                "to": "22:00"
+            }
+        ]
     },
     {
-        "id":5,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
+        "id": 5,
+        "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title5",
-        "details": "details5"
+        "details": "details5",
+        "timeOpen": [
+            {
+                "day": "sunday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "monday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "tuesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "wednesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "thursday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "friday",
+                "from": "08:00",
+                "to": "20:53"
+            },
+            {
+                "day": "saturday",
+                "from": "08:00",
+                "to": "22:00"
+            }
+        ]
     },
     {
-        "id":6,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
+        "id": 6,
+        "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title6",
-        "details": "details6"
+        "details": "details6",
+        "timeOpen": [
+            {
+                "day": "sunday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "monday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "tuesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "wednesday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "thursday",
+                "from": "08:00",
+                "to": "22:00"
+            },
+            {
+                "day": "friday",
+                "from": "21:30",
+                "to": "23:59"
+            },
+            {
+                "day": "saturday",
+                "from": "08:00",
+                "to": "22:00"
+            }
+        ]
     }
 ]

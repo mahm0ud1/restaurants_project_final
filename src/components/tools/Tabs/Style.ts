@@ -6,9 +6,9 @@ const TabsStyle = styled.div`
     width: 100%;
     margin: 15px;
     font-style: normal;
-    font-weight: ${props => props.className == "selected" ? "400" : "200"};
+    font-weight: ${props => props.className === "selected" ? "400" : "200"};
     font-size: 18px;
-    line-height: ${props => props.className == "selected" ? "21px" : "22px"};
+    line-height: ${props => props.className === "selected" ? "21px" : "22px"};
 
     letter-spacing: 1.92px;
 

@@ -18,7 +18,7 @@ const CardDetailsStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 16px;
+    padding: 16px;
     gap: 10px;
     height: auto;
 `
