@@ -1,7 +1,7 @@
 import Hamburgar from "../../menuButtons/hamburgar/Hamburgar";
 import Search from "../../menuButtons/Search/Search";
-import Bag from "../../pages/Bag/Bag";
-import SignIn from "../../pages/SignIn/SignIn";
+import Bag from "../../menuButtons/Bag/Bag";
+import SignIn from "../../menuButtons/SignIn/SignIn";
 import DialogWindow from "../../tools/DialogWindow/DialogWindow";
 import DialogHeaderProps from "./DialogHeaderProps";
 

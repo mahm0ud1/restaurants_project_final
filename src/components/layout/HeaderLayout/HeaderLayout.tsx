@@ -7,8 +7,8 @@ import { IconButton, Badge, createTheme, ThemeProvider } from '@mui/material';
 import { useRef, useState } from 'react';
 
 import { HeaderContainerStyle, HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle } from './Style'
-import SignIn from '../../pages/SignIn/SignIn';
-import Bag from '../../pages/Bag/Bag';
+import SignIn from '../../menuButtons/SignIn/SignIn';
+import Bag from '../../menuButtons/Bag/Bag';
 import DialogWindow from '../../tools/DialogWindow/DialogWindow';
 import DialogHeaderWindow from './DialogHeaderWindow';
 
