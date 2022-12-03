@@ -7,9 +7,11 @@ import GetSignatureImage from '../../../assets/signatures/Signatures';
 import { Shekel } from '../../../assets/AllLogo';
 import CustomCardProps from '../../../interfaces/CustomCardProps';
 
+
 const Card = (props: CustomCardProps) => {
     const className = props.className;
     const cardDetails = props.cardDetails;
+    const PriceStyle = props.className === "larg" ? CardPriceDividerStyle : CardDetailsDownStyle;
 
     const getDetails = () => {
         if (Object.prototype.hasOwnProperty.call(cardDetails, 'signature')) {
@@ -17,10 +19,10 @@ const Card = (props: CustomCardProps) => {
             return <>
                 {className === "larg" || <CardSignatureImageStyle src={GetSignatureImage(dishCardDetails.signature)} />}
                 <CardDetailsDownStyle>
-                    <CardPriceDividerStyle textAlign="left">
+                    <PriceStyle>
                         <CardCurrencyImageStyle src={Shekel} />
                         <CardCurrencyPriceStyle>{dishCardDetails.price}</CardCurrencyPriceStyle>
-                    </CardPriceDividerStyle>
+                    </PriceStyle>
                 </CardDetailsDownStyle>
             </>
         }

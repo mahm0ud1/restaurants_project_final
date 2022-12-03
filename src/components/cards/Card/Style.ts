@@ -57,11 +57,21 @@ const CardDetailsDownStyle = styled.div`
     color: #000000;
 `
 
-const CardPriceDividerStyle = styled(Divider)`
-    & .MuiDivider-root {
-        &::before {
-            width: 0%;
-        }
+const CardPriceDividerStyle = styled.div`
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    text-align:left;
+    
+    &::after {
+        display: inline;
+        content: "";
+        height: 1px;
+        background: #979797;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        margin-left: 10px;
     }
 `
 
