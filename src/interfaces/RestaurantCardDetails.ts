@@ -3,6 +3,8 @@ interface RestaurantCardDetails {
   imageUrl: string
   title: string
   details: string
+  created_date: number
+  rate:number
   timeOpen: TimeOpen[]
 }
 

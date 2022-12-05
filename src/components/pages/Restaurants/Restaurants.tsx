@@ -1,16 +1,16 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { CardLargSize, CardsVerticalStyle } from "../../cards/Style";
+import { CardsVerticalStyle } from "../../cards/Style";
 import RestaurantCardDetails from "../../../interfaces/RestaurantCardDetails";
 import { getRestaurants } from "../../../api/EpicureAPI";
 import Card from "../../cards/Card/Card";
 import { RestaurantsContainerStyle, RestaurantsTabContainerStyle, RestaurantsListContainerStyle, RestaurantLinkStyle } from "./Style";
 import { Tabs, Tab } from "../../tools/Tabs/Tabs";
+import { getRestaurantStatus } from "../RestaurantHomePage/RestaurantHomePage";
 
 
 const Restaurants = () => {
     const restaurants = getRestaurants();
-    const imgSize = CardLargSize;
 
     let { sub_menu } = useParams();
     const [subMenu, setSubMenu] = useState(sub_menu !== undefined ? sub_menu : "all");
@@ -30,6 +30,16 @@ const Restaurants = () => {
         window.history.replaceState("", "", `homePage_restaurants_${newValue}`);
     };
 
+    const getRestaurantsByFilter = () => {
+        switch(subMenu)
+        {
+            case "new": return [...restaurants].sort((a,b)=>a.created_date-b.created_date);
+            case "most_popular": return [...restaurants].sort((a,b)=>b.rate-a.rate);
+            case "open_now": return restaurants.filter(restaurant=>getRestaurantStatus(restaurant)==="Open now")
+        }
+        return restaurants;
+    }
+
     return (
         <>
             <RestaurantsContainerStyle>
@@ -43,7 +53,7 @@ const Restaurants = () => {
                 </RestaurantsTabContainerStyle>
                 <RestaurantsListContainerStyle>
                     <CardsVerticalStyle>
-                        {restaurants.map((restaurant: RestaurantCardDetails) =>
+                        {getRestaurantsByFilter().map((restaurant: RestaurantCardDetails) =>
                             <RestaurantLinkStyle to={`/restaurant/${restaurant.id}`}>
                                 <Card key={restaurant.id} cardDetails={restaurant} className="larg" />
                             </RestaurantLinkStyle>

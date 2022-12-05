@@ -4,6 +4,8 @@
         "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title1",
         "details": "details1",
+        "created_date": 1670274022000,
+        "rate": 5,
         "timeOpen": [
             {
                 "day": "sunday",
@@ -47,6 +49,8 @@
         "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title2",
         "details": "details2",
+        "created_date": 1670264022000,
+        "rate": 2.5,
         "timeOpen": [
             {
                 "day": "sunday",
@@ -90,6 +94,8 @@
         "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title3",
         "details": "details3",
+        "created_date": 1670254022000,
+        "rate": 3,
         "timeOpen": [
             {
                 "day": "sunday",
@@ -99,7 +105,7 @@
             {
                 "day": "monday",
                 "from": "08:00",
-                "to": "22:00"
+                "to": "23:59"
             },
             {
                 "day": "tuesday",
@@ -133,6 +139,8 @@
         "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title4",
         "details": "details4",
+        "created_date": 1660244022000,
+        "rate": 1,
         "timeOpen": [
             {
                 "day": "sunday",
@@ -142,7 +150,7 @@
             {
                 "day": "monday",
                 "from": "08:00",
-                "to": "22:00"
+                "to": "23:50"
             },
             {
                 "day": "tuesday",
@@ -176,6 +184,8 @@
         "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title5",
         "details": "details5",
+        "created_date": 1670134022000,
+        "rate": 3.5,
         "timeOpen": [
             {
                 "day": "sunday",
@@ -219,6 +229,8 @@
         "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
         "title": "title6",
         "details": "details6",
+        "created_date": 1670224022000,
+        "rate": 4,
         "timeOpen": [
             {
                 "day": "sunday",
