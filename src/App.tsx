@@ -11,9 +11,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="restaurant/:restaurant_id" element={<RestaurantHomePage />} />
+          {["restaurant/:restaurant_id/dish/:dish_id", "restaurant/:restaurant_id"].map((path, index) =>
+            <Route path={path} element={<RestaurantHomePage />} key={index} />
+          )}
           <Route path="homePage_restaurants_:sub_menu" element={<Restaurants />} />
-          <Route path="chefs/:sub_menu" element={<Chefs />} /> 
+          <Route path="chefs/:sub_menu" element={<Chefs />} />
         </Route>
       </Routes>
     </BrowserRouter>

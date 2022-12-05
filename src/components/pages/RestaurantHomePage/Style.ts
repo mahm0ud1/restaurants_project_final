@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const RestaurantHomePageContainerStyle = styled.div`
     width: 100%;
@@ -57,6 +58,33 @@ const RestaurantOpenTimeIconStyle = styled.img`
 
 const RestaurantTabsContainerStyle = styled.div`
     width: 250px;
+`
+
+export const DishCloseContainerStyle = styled.div`
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 46px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.07);
+    align-items: center;
+`
+
+export const DishCloseButtonStyle = styled.img`
+    width: 15px;
+    height: 15px;
+    margin-left: 24.5px;
+`
+
+export const DishContainerStyle = styled.div`
+    position: relative;
+    width: 100%;
+`
+
+export const DishLinkStyle = styled(Link)`
+    
 `
 
 export { RestaurantHomePageContainerStyle, RestaurantHedearContainerStyle, RestaurantImageStyle, RestaurantHeaderDownContainerStyle, RestaurantNameStyleStyle, RestaurantDetailsContainerStyle, RestaurantOpenTimeContainerStyle, RestaurantOpenTimeIconStyle, RestaurantTabsContainerStyle }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { SigninContainerStyle, SigninTitleContainerStyle, SigninTitleStyle, SigninsecondaryTitleStyle, SigninInputContainerStyle,
     SigninInputStyle, LoginButtonStyle, ForgetPasswordStringStyle, DividerStyle, SignUpButtonStyle } from "./Style";
 
@@ -8,7 +8,7 @@ const SignIn = () => {
     const password = React.useRef<string>('');
 
     const checkInputs = () => {
-        if(email.current != "" && password.current != "")
+        if(email.current !== "" && password.current !== "")
         {
             setIsDisabled(false);
         }

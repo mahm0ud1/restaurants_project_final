@@ -2,32 +2,32 @@
     {
         "id": 1,
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
-        "title": "title",
-        "details": "details",
+        "title": "title1",
+        "details": "details1",
         "signature": "spicy",
         "price": "45"
     },
     {
         "id": 2,
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
-        "title": "title",
-        "details": "details",
+        "title": "title2",
+        "details": "details2",
         "signature": "vegitarian",
         "price": "45"
     },
     {
         "id": 3,
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
-        "title": "title",
-        "details": "details",
+        "title": "title3",
+        "details": "details3",
         "signature": "vegan",
         "price": "45"
     },
     {
         "id": 4,
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
-        "title": "title",
-        "details": "details",
+        "title": "title4",
+        "details": "details4",
         "signature": "spicy",
         "price": "45"
     }
