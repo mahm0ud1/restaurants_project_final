@@ -15,6 +15,7 @@ import {
 import { Tab, Tabs } from "../../tools/Tabs/Tabs";
 import Dish from "../Dish/Dish";
 import RestaurantCardDetails from "../../../interfaces/RestaurantCardDetails";
+import moment from 'moment';
 
 const getRestaurantStatus = (restaurantDetails:RestaurantCardDetails|undefined) => {
     try {
@@ -22,21 +23,21 @@ const getRestaurantStatus = (restaurantDetails:RestaurantCardDetails|undefined) 
         if (timeOpenList !== undefined) {
             const weekday = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
-            const d = new Date();
-            let day = weekday[d.getDay()];
+            const date = new Date();
+            let day = weekday[date.getDay()];
             const timeOpen = timeOpenList.find(t => t.day === day);
             if (timeOpen === undefined)
                 return "Closed";
-            const current = new Date();
-            const startTime = Number((timeOpen?.from as string).replace(":", ""));
-            const currentTime = Number(current.getHours() + "" + (current.getMinutes() < 10 ? '0' : '') + current.getMinutes());
-            const endTime = Number((timeOpen?.to as string).replace(":", ""));
-            if (startTime > currentTime)
+            const currentTime = moment(date);
+            const openTime = moment(timeOpen.from,'H:mm');
+            const closeTime = moment(timeOpen.to, 'H:mm');
+            console.log(currentTime,openTime,closeTime);
+            if (currentTime.isBefore(openTime))
                 return "Will Open at " + timeOpen?.from;
-            else if (currentTime >= endTime)
-                return "Closed";
-            else
+            else if (currentTime.isBetween(openTime, closeTime))
                 return "Open now";
+            else
+                return "Closed";
         }
     }
     catch (err) { }

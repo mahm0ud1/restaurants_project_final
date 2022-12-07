@@ -82,3 +82,7 @@ export const OptionButtonStyle = styled.input`
 export const DishCountContainerStyle = styled.div`
 
 `
+
+export const ConfirmOrderButtonStyle = styled.div`
+    
+`
