@@ -19,7 +19,7 @@ const RestaurantsCards = () => {
                     )}
                 </CardsHorizontalStyle>
                 <AllCardsButtonStyle to="/homePage_restaurants_all">
-                    All Restaurants<AllCardsVectorStyle><img src={Vector} /></AllCardsVectorStyle>
+                    All Restaurants<AllCardsVectorStyle><img src={Vector} alt="all_restaurants"/></AllCardsVectorStyle>
                 </AllCardsButtonStyle>
             </CardsContainerStyle>
         </>

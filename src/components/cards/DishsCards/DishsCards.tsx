@@ -14,10 +14,10 @@ const DishsCards = () => {
                 <CardsTitleStyle>Signature Dish Of:</CardsTitleStyle>
                 <CardsHorizontalStyle>
                     <div />
-                    {dishes.current.map((dish) => <Card key={dish.id} cardDetails={dish}  className="small" />)}
+                    {dishes.current.map((dish) => <Card key={dish.id} cardDetails={dish} className="small" />)}
                 </CardsHorizontalStyle>
                 <AllCardsButtonStyle to="/homePage_restaurants_all">
-                    All Restaurants<AllCardsVectorStyle><img src={Vector} /></AllCardsVectorStyle>
+                    All Restaurants<AllCardsVectorStyle><img src={Vector} alt="all_restaurants"/></AllCardsVectorStyle>
                 </AllCardsButtonStyle>
             </CardsContainerStyle>
         </>

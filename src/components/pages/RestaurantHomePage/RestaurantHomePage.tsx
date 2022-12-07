@@ -31,7 +31,6 @@ const getRestaurantStatus = (restaurantDetails:RestaurantCardDetails|undefined) 
             const currentTime = moment(date);
             const openTime = moment(timeOpen.from,'H:mm');
             const closeTime = moment(timeOpen.to, 'H:mm');
-            console.log(currentTime,openTime,closeTime);
             if (currentTime.isBefore(openTime))
                 return "Will Open at " + timeOpen?.from;
             else if (currentTime.isBetween(openTime, closeTime))
@@ -50,6 +49,7 @@ const RestaurantHomePage = () => {
     const [selectedDish, setSelectedDish] = useState(dish_id);
 
     const restaurantDetails = getRestaurantDetails(restaurant_id);
+    console.log(restaurantDetails, restaurant_id, dish_id);
     const dishes = useRef<DishCardDetails[]>(getRestaurantDishes(restaurant_id));
 
     useEffect(() => {

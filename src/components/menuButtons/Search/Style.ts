@@ -72,13 +72,10 @@ const SearchInputOptionsTitleStyle = styled.div`
     font-weight: 200;
     font-size: 14px;
     line-height: 17px;
-
-    /* identical to box height */
     letter-spacing: 1.29px;
 
     color: #000000;
 
-    /* Inside auto layout */
     flex: none;
     flex-grow: 0;
 `
@@ -89,16 +86,65 @@ const SearchInputOptionsValueStyle = styled.div`
     font-size: 14px;
     line-height: 17px;
     font-weight: bold;
-
-    /* identical to box height */
     letter-spacing: 1.29px;
 
     color: #000000;
-
-
-    /* Inside auto layout */
     flex: none;
     flex-grow: 0;
+`
+
+export const SearchResultsContainerStyle = styled.div`
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-top: 9px;
+    padding: 16px 15px 16px 55px;
+    gap: 10px;
+    background: #FFFFFF;
+    z-index: 2;
+    max-height: 270px;
+    overflow-y: scroll;
+`
+
+export const SearchResultSectionContainerStyle = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+`
+
+export const SearchResultTitleStyle = styled.div`
+    font-style: normal;
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 17px;
+
+    letter-spacing: 1.29px;
+`
+
+export const SearchResultListStyle = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+`
+
+export const SearchResultStyle = styled.div`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    letter-spacing: 1.29px;
+`
+
+export const SearchResultsCloseStyle = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
 `
 
 export { SearchStyle, SearchBarStyle, SearchInputStyle, SearchInputOptionsStyle, SearchInputOptionsTitleStyle, SearchInputOptionsValueStyle };

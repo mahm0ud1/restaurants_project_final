@@ -7,9 +7,6 @@ import { IconButton, Badge, createTheme, ThemeProvider } from '@mui/material';
 import { useRef, useState } from 'react';
 
 import { HeaderContainerStyle, HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle } from './Style'
-import SignIn from '../../menuButtons/SignIn/SignIn';
-import Bag from '../../menuButtons/Bag/Bag';
-import DialogWindow from '../../tools/DialogWindow/DialogWindow';
 import DialogHeaderWindow from './DialogHeaderWindow';
 
 
@@ -44,38 +41,6 @@ const Header = () => {
             handleClose();
         }
     };
-
-    const getDialogWindow = () => {
-
-        return (
-            <>
-                {isOpen && <DialogWindow
-                    closeFunction={handleClose}
-                    title={popupTitle.current}
-                >
-                    {getPopup(topWindow)}
-                </DialogWindow>}
-            </>);
-    }
-
-    const getPopup = (windowName: string) => {
-        switch (windowName) {
-            case "search":
-                popupTitle.current = "Search";
-                return <Search />
-            case "hamburger": return <Hamburgar />
-            case "signin": return <SignIn />
-        }
-    }
-
-    const getBagWindow = () => {
-        if (topWindow == "bag")
-            return (
-                <>
-                    <Bag closeFunction={handleClose} />
-                </>
-            )
-    }
 
     function notificationsLabel(count: number) {
         if (count === 0) {
@@ -122,8 +87,6 @@ const Header = () => {
                         </IconButton>
                     </RightHeaderStyle>
                 </HeaderStyle>
-                {/* {getBagWindow()}
-            {getDialogWindow()} */}
             {isOpen && <DialogHeaderWindow windowName={topWindow} handleClose={handleClose} />}
             </HeaderContainerStyle>
         </>

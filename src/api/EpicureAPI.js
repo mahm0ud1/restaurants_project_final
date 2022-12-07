@@ -15,11 +15,33 @@ const getChefRestaurants = (chefID) => {
 }
 
 const getRestaurantDetails = (restaurantID) => {
-    return restaurants.find(restaurant=>restaurant.id==restaurantID);
+    return restaurants.find(restaurant => restaurant.id == restaurantID);
 }
 
 const getOrders = () => {
     return orders;
 }
 
-export { getRestaurants, getRestaurantDishes, getChefRestaurants, getRestaurantDetails, getOrders }
+const searchAPI = (value) => {
+    return {
+        "searchResultsSections": [
+            {
+                "sectionTitle": "Restaurants",
+                "sectionResults": restaurants.map(restaurant => restaurant.title)
+                    .filter(title => title.search(value) !== -1)
+            },
+            {
+                "sectionTitle": "Cusine",
+                "sectionResults": dishes.map(dish => dish.title)
+                    .filter(title => title.search(value) !== -1)
+            },
+            {
+                "sectionTitle": "Chef",
+                "sectionResults": restaurants.map(restaurant => restaurant.details)
+                    .filter(details => details.search(value) !== -1)
+            }
+        ]
+    }
+}
+
+export { searchAPI, getRestaurants, getRestaurantDishes, getChefRestaurants, getRestaurantDetails, getOrders }
