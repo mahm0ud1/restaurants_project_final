@@ -4,7 +4,7 @@
         "imageUrl": "/static/restaurants/claro.svg",
         "title": "Claro",
         "details": "Ran Shmueli",
-        "created_date": 1659348000000,
+        "created_date": 1670666400000,
         "rate": 5,
         "timeOpen": [
             {
@@ -49,7 +49,7 @@
         "imageUrl": "/static/restaurants/Kab kem.svg",
         "title": "Kab Kem",
         "details": "Yariv Malili",
-        "created_date": 1670666400000,
+        "created_date": 1659348000000,
         "rate": 2.5,
         "timeOpen": [
             {

@@ -17,7 +17,6 @@ const SearchInput = ({ closeFunction }:HandleCloseInterface) => {
         }
         if (searching !== "") {
             const results: SearchResultsInterface = searchAPI(searching);
-            console.log(results);
             const searchSectionWithResults = results.searchResultsSections.filter(searchResultsSection => {
                 return searchResultsSection.sectionResults.length !== 0
             })
@@ -29,7 +28,7 @@ const SearchInput = ({ closeFunction }:HandleCloseInterface) => {
                             <SearchResultTitleStyle>{searchResultsSection.sectionTitle}:</SearchResultTitleStyle>
                             <SearchResultListStyle>
                                 {searchResultsSection.sectionResults.map(result =>
-                                    <SearchResultStyle to={result.url}>{result.value}</SearchResultStyle>
+                                    <SearchResultStyle onClick={closeFunction} to={result.url}>{result.value}</SearchResultStyle>
                                 )}
                             </SearchResultListStyle>
                         </SearchResultSectionContainerStyle>

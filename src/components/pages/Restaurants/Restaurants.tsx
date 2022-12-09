@@ -7,6 +7,7 @@ import Card from "../../cards/Card/Card";
 import { RestaurantsContainerStyle, RestaurantsTabContainerStyle, RestaurantsListContainerStyle, RestaurantLinkStyle } from "./Style";
 import { Tabs, Tab } from "../../tools/Tabs/Tabs";
 import { getRestaurantStatus } from "../RestaurantHomePage/RestaurantHomePage";
+import moment from "moment";
 
 
 const Restaurants = () => {
@@ -33,7 +34,10 @@ const Restaurants = () => {
     const getRestaurantsByFilter = () => {
         switch(subMenu)
         {
-            case "new": return [...restaurants].sort((a,b)=>a.created_date-b.created_date);
+            case "new": return [...restaurants].sort((a,b)=>a.created_date-b.created_date)
+            .filter(restaurant=>{
+                return moment(restaurant.created_date).isAfter(moment(new Date()).subtract(25, 'days'))
+            });
             case "most_popular": return [...restaurants].sort((a,b)=>b.rate-a.rate);
             case "open_now": return restaurants.filter(restaurant=>getRestaurantStatus(restaurant)==="Open now")
         }
