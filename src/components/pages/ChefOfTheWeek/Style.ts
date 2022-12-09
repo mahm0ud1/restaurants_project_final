@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ChefOfTheWeekContainerStyle = styled.div`
@@ -61,6 +62,10 @@ const ChefOfTheWeekDescriptionStyle = styled.div`
 
 const ChefOfTheWeekCardsStyle = styled.div`
 
+`
+
+export const LinkStyle = styled(Link)`
+    text-decoration: none;
 `
 
 export { ChefOfTheWeekContainerStyle, ChefOfTheWeekTitleStyle, ChefOfTheWeekImageContainerStyle, ChefOfTheWeekImageStyle, ChefOfTheWeekImageTitleStyle, ChefOfTheWeekDescriptionStyle, ChefOfTheWeekCardsStyle };

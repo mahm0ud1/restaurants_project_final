@@ -1,34 +1,34 @@
 [
     {
         "id": 1,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
-        "title": "title1",
-        "details": "details1",
+        "imageUrl": "/static/dishes/Pad ki mao 2.svg",
+        "title": "Pad Ki Mao",
+        "details": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
         "signature": "spicy",
-        "price": "45"
+        "price": "88"
     },
     {
         "id": 2,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
-        "title": "title2",
-        "details": "details2",
+        "imageUrl": "/static/dishes/ta ma la ko.svg",
+        "title": "Ta Ma La Ko",
+        "details": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
         "signature": "vegitarian",
-        "price": "45"
+        "price": "65"
     },
     {
         "id": 3,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
-        "title": "title3",
-        "details": "details3",
+        "imageUrl": "/static/dishes/pad-ki-mao.svg",
+        "title": "Red Farm",
+        "details": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
         "signature": "vegan",
-        "price": "45"
+        "price": "65"
     },
     {
         "id": 4,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c4b34f98ab722e0b5b742b0/1548907208608-NM80U3TPOSHHYC1YQ9PU/Burger.jpg",
-        "title": "title4",
-        "details": "details4",
+        "imageUrl": "/static/dishes/Pad ki mao 1.svg",
+        "title": "Pad Ki Mao",
+        "details": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
         "signature": "spicy",
-        "price": "45"
+        "price": "65"
     }
 ]

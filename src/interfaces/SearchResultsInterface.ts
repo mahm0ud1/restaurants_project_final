@@ -1,6 +1,11 @@
+interface sectionResult {
+    url: string,
+    value: string,
+}
+
 interface SearchResultsSectionInterface {
     sectionTitle: string
-    sectionResults: string[]
+    sectionResults: sectionResult[]
 }
 
 interface SearchResultsInterface {

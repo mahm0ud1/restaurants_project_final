@@ -76,4 +76,8 @@ const AllCardsVectorStyle = styled.div`
     padding: 0 12px;
 `
 
+export const LinkStyle = styled(Link)`
+    text-decoration: none;
+`
+
 export { CardSmallSize, CardLargSize, CardsContainerStyle, CardsTitleStyle, CardsHorizontalStyle, CardsVerticalStyle, AllCardsButtonStyle, AllCardsVectorStyle }

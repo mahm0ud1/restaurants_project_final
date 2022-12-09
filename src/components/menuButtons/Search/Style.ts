@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const SearchStyle = styled.div`
@@ -26,13 +27,9 @@ const SearchInputStyle = styled.input`
     font-weight: 200;
     font-size: 12px;
     line-height: 15px;
-
-    /* identical to box height */
     letter-spacing: 1.29px;
 
     color: #000000;
-
-    /* Inside auto layout */
     flex: none;
     order: 2;
     flex-grow: 1;
@@ -129,13 +126,16 @@ export const SearchResultListStyle = styled.div`
     gap: 10px;
 `
 
-export const SearchResultStyle = styled.div`
+export const SearchResultStyle = styled(Link)`
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
 
     letter-spacing: 1.29px;
+    color: black;
+    width: fit-content;
+    text-decoration: none;
 `
 
 export const SearchResultsCloseStyle = styled.div`

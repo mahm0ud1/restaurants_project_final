@@ -16,6 +16,7 @@ const SearchInput = () => {
         }
         if (searching !== "") {
             const results: SearchResultsInterface = searchAPI(searching);
+            console.log(results);
             const searchSectionWithResults = results.searchResultsSections.filter(searchResultsSection => {
                 return searchResultsSection.sectionResults.length !== 0
             })
@@ -27,7 +28,7 @@ const SearchInput = () => {
                             <SearchResultTitleStyle>{searchResultsSection.sectionTitle}:</SearchResultTitleStyle>
                             <SearchResultListStyle>
                                 {searchResultsSection.sectionResults.map(result =>
-                                    <SearchResultStyle>{result}</SearchResultStyle>
+                                    <SearchResultStyle to={result.url}>{result.value}</SearchResultStyle>
                                 )}
                             </SearchResultListStyle>
                         </SearchResultSectionContainerStyle>
@@ -61,7 +62,6 @@ const SearchInput = () => {
                 <SearchInputStyle
                     type="text"
                     onClick={() => setSearchValue(searchValue.current)}
-                    onBlur={() => setSearching("")}
                     onChange={(e) => setSearchValue(e.target.value)}
                     placeholder='Search for restaurant cuisine, chef' />
             </SearchBarStyle>

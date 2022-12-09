@@ -1,4 +1,4 @@
-import { ChefOfTheWeekContainerStyle, ChefOfTheWeekTitleStyle, ChefOfTheWeekImageContainerStyle, ChefOfTheWeekImageStyle, ChefOfTheWeekImageTitleStyle, ChefOfTheWeekDescriptionStyle, ChefOfTheWeekCardsStyle } from './Style'
+import { ChefOfTheWeekContainerStyle, ChefOfTheWeekTitleStyle, ChefOfTheWeekImageContainerStyle, ChefOfTheWeekImageStyle, ChefOfTheWeekImageTitleStyle, ChefOfTheWeekDescriptionStyle, ChefOfTheWeekCardsStyle, LinkStyle } from './Style'
 import { CardsTitleStyle, CardsHorizontalStyle, AllCardsButtonStyle, AllCardsVectorStyle } from '../../cards/Style'
 
 import Card from '../../cards/Card/Card';
@@ -23,10 +23,16 @@ const ChefOfTheWeek = () => {
                     <CardsTitleStyle>Chef of the week:</CardsTitleStyle>
                     <CardsHorizontalStyle>
                         <div />
-                        {restaurants.map((restaurant) => <Card key={restaurant.id} cardDetails={restaurant}  className="small" />)}
+                        {restaurants.map((restaurant) => {
+                            return (
+                                <LinkStyle to={`/restaurant/${restaurant.id}`}>
+                                    <Card key={restaurant.id} cardDetails={restaurant} className="small" />
+                                </LinkStyle>
+                            )
+                        })}
                     </CardsHorizontalStyle>
                     <AllCardsButtonStyle to="/homePage_restaurants_all">
-                        All Restaurants<AllCardsVectorStyle><img src={Vector} /></AllCardsVectorStyle>
+                        All Restaurants<AllCardsVectorStyle><img src={Vector} alt="all restaurants" /></AllCardsVectorStyle>
                     </AllCardsButtonStyle>
                 </ChefOfTheWeekCardsStyle>
             </ChefOfTheWeekContainerStyle>

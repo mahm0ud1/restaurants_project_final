@@ -27,18 +27,33 @@ const searchAPI = (value) => {
         "searchResultsSections": [
             {
                 "sectionTitle": "Restaurants",
-                "sectionResults": restaurants.map(restaurant => restaurant.title)
-                    .filter(title => title.search(value) !== -1)
+                "sectionResults": restaurants.filter(restaurant => restaurant.title.search(value) !== -1)
+                .map(restaurant => {
+                    return {
+                        url:`/restaurant/${restaurant.id}`,
+                        value:restaurant.title
+                    }
+                })
             },
             {
                 "sectionTitle": "Cusine",
-                "sectionResults": dishes.map(dish => dish.title)
-                    .filter(title => title.search(value) !== -1)
+                "sectionResults": dishes.filter(dish => dish.title.search(value) !== -1)
+                .map(dish => {
+                    return {
+                        url:`/restaurant/1/dish/1`,
+                        value:dish.title
+                    }
+                })
             },
             {
                 "sectionTitle": "Chef",
-                "sectionResults": restaurants.map(restaurant => restaurant.details)
-                    .filter(details => details.search(value) !== -1)
+                "sectionResults": restaurants.filter(restaurant => restaurant.details.search(value) !== -1)
+                .map(restaurant => {
+                    return {
+                        url:`/restaurant/${restaurant.id}`,
+                        value:restaurant.details
+                    }
+                })
             }
         ]
     }
