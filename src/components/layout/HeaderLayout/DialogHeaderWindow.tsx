@@ -30,9 +30,9 @@ const DialogHeaderWindow = (props: DialogHeaderProps) => {
 
     const getWindow = (windowName: string) => {
         switch (windowName) {
-            case "search": return <Search />
-            case "hamburger": return <Hamburgar />
-            case "signin": return <SignIn />
+            case "search": return <Search closeFunction={props.handleClose} />
+            case "hamburger": return <Hamburgar closeFunction={props.handleClose} />
+            case "signin": return <SignIn closeFunction={props.handleClose} />
             case "bag": return <Bag closeFunction={props.handleClose} />
         }
     }

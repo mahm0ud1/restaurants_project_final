@@ -1,8 +1,9 @@
 import React from "react";
+import HandleCloseInterface from "../../../interfaces/HandleCloseInterface";
 import { SigninContainerStyle, SigninTitleContainerStyle, SigninTitleStyle, SigninsecondaryTitleStyle, SigninInputContainerStyle,
     SigninInputStyle, LoginButtonStyle, ForgetPasswordStringStyle, DividerStyle, SignUpButtonStyle } from "./Style";
 
-const SignIn = () => {
+const SignIn = ({ closeFunction }:HandleCloseInterface) => {
     const [ isDisabled, setIsDisabled ] = React.useState<boolean>(true);
     const email = React.useRef<string>('');
     const password = React.useRef<string>('');

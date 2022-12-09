@@ -1,11 +1,12 @@
 import { useRef, useState } from 'react';
 import { searchAPI } from '../../../api/EpicureAPI';
 import searchLogo from '../../../assets/search_logo.svg';
+import HandleCloseInterface from '../../../interfaces/HandleCloseInterface';
 import SearchResultsInterface from '../../../interfaces/SearchResultsInterface';
 
 import { SearchBarStyle, SearchInputStyle, SearchResultsContainerStyle, SearchResultSectionContainerStyle, SearchResultTitleStyle, SearchResultListStyle, SearchResultStyle, SearchResultsCloseStyle } from './Style'
 
-const SearchInput = () => {
+const SearchInput = ({ closeFunction }:HandleCloseInterface) => {
     const searchValue = useRef("");
     const [searching, setSearching] = useState("");
 

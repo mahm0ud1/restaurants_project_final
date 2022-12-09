@@ -1,9 +1,10 @@
+import HandleCloseInterface from '../../../interfaces/HandleCloseInterface';
 import { HamburgerStyle, ButtonsRowsUpperContainerStyle, ButtonsRowsLowerContainerStyle, ButtonRowStyle, LineBreak } from './Style'
 
-const Hamburgar = () => {
+const Hamburgar = ({ closeFunction }:HandleCloseInterface) => {
     return (
         <>
-            <HamburgerStyle>
+            <HamburgerStyle onClick={closeFunction}>
                 <ButtonsRowsUpperContainerStyle>
                     <ButtonRowStyle to="/homePage_restaurants_all">Restaurants</ButtonRowStyle>
                     <ButtonRowStyle to="/chefs/all">Chefs</ButtonRowStyle>
