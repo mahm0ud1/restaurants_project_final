@@ -27,7 +27,7 @@ const searchAPI = (value) => {
         "searchResultsSections": [
             {
                 "sectionTitle": "Restaurants",
-                "sectionResults": restaurants.filter(restaurant => restaurant.title.search(value) !== -1)
+                "sectionResults": restaurants.filter(restaurant => restaurant.title.toLocaleLowerCase().search(value.toLocaleLowerCase())!==-1)
                 .map(restaurant => {
                     return {
                         url:`/restaurant/${restaurant.id}`,
@@ -37,7 +37,7 @@ const searchAPI = (value) => {
             },
             {
                 "sectionTitle": "Cusine",
-                "sectionResults": dishes.filter(dish => dish.title.search(value) !== -1)
+                "sectionResults": dishes.filter(dish => dish.title.toLocaleLowerCase().search(value.toLocaleLowerCase())!==-1)
                 .map(dish => {
                     return {
                         url:`/restaurant/1/dish/1`,
@@ -47,7 +47,7 @@ const searchAPI = (value) => {
             },
             {
                 "sectionTitle": "Chef",
-                "sectionResults": restaurants.filter(restaurant => restaurant.details.search(value) !== -1)
+                "sectionResults": restaurants.filter(restaurant => restaurant.details.toLocaleLowerCase().search(value.toLocaleLowerCase())!==-1)
                 .map(restaurant => {
                     return {
                         url:`/restaurant/${restaurant.id}`,
