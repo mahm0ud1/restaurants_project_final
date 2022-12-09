@@ -8,12 +8,14 @@ import { useRef, useState } from 'react';
 
 import { HeaderContainerStyle, HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle } from './Style'
 import DialogHeaderWindow from './DialogHeaderWindow';
+import { getOrders } from '../../../api/EpicureAPI';
 
 
 const Header = () => {
     const [topWindow, setTopWindow] = useState("");
     const [isOpen, setIsOpen] = useState(false);
-    const [notificationCount, setNotificationCount] = useState(25);
+    // ToDo - change getOrders() with redux
+    const [notificationCount, setNotificationCount] = useState(getOrders().length);
     const popupTitle = useRef("");
 
     const theme = createTheme({

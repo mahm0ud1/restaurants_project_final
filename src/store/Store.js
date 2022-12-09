@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-// import restaurantsReducer from './RestaurantsSlicer'
+import { ordersSlice } from './OrdersSlicer'
 
 export default configureStore({
   reducer: {
-      // restaurants: restaurantsReducer,
+      orders: ordersSlice,
   }
 })
 

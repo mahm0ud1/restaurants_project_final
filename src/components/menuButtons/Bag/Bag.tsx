@@ -16,13 +16,12 @@ const EmptyBag = () => {
     )
 }
 
-const BagWithItems = () => {
+const BagWithItems = ({orders}:{orders:OrderCardProps[]}) => {
     const [ totalPrice, setTotalPrice ] = useState<number>(0);
-    const ordersCards:OrderCardProps[] = getOrders();
 
     useEffect(() => {
         return () => {
-            setTotalPrice(ordersCards.reduce((a,v) =>  a = a + v.price , 0 ));
+            setTotalPrice(orders.reduce((a,v) =>  a = a + v.price , 0 ));
         };
     }, [])
 
@@ -33,7 +32,7 @@ const BagWithItems = () => {
                 <BagOrderDownTitleStyle>Mashya</BagOrderDownTitleStyle>
             </BagOrderTitleStyle>
             <BagOrdersList>
-                {ordersCards.map((orderCardProps)=><OrderCard orderCardProps={orderCardProps} />)}
+                {orders.map((order)=><OrderCard orderCardProps={order} />)}
             </BagOrdersList>
             <BagOrderCheckoutContainer>
                 <BagOrderTotalStyle>total - 
@@ -47,7 +46,9 @@ const BagWithItems = () => {
 }
 
 const Bag = ({ closeFunction }: HandleCloseInterface) => {
-    const [isEmpty, setIsEmpty] = useState<boolean>(false);
+    // ToDo - change getOrders() with redux
+    const ordersCards:OrderCardProps[] = getOrders();
+    const [isEmpty, setIsEmpty] = useState<boolean>(ordersCards.length===0);
 
     const CloseBag = () => {
         closeFunction();
@@ -56,7 +57,7 @@ const Bag = ({ closeFunction }: HandleCloseInterface) => {
     return (
         <>
             <BagContainerStyle>
-                {isEmpty ? <EmptyBag /> : <BagWithItems />}
+                {isEmpty ? <EmptyBag /> : <BagWithItems orders={ordersCards} />}
             </BagContainerStyle>
             <BagOutSideContainerStyle onClick={CloseBag} />
         </>

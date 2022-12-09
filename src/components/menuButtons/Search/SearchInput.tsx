@@ -6,13 +6,19 @@ import SearchResultsInterface from '../../../interfaces/SearchResultsInterface';
 
 import { SearchBarStyle, SearchInputStyle, SearchResultsContainerStyle, SearchResultSectionContainerStyle, SearchResultTitleStyle, SearchResultListStyle, SearchResultStyle, SearchResultsCloseStyle } from './Style'
 
-const SearchInput = ({ closeFunction }:HandleCloseInterface) => {
+const SearchInput = ({ closeFunction }: HandleCloseInterface) => {
     const searchValue = useRef("");
     const [searching, setSearching] = useState("");
 
+    const scrollToSearch = () => {
+        const element = document.getElementById('search-bar');
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+    }
+
     const search = () => {
-        if(searching!==searchValue.current)
-        {
+        if (searching !== searchValue.current) {
             setSearchValue(searching);
         }
         if (searching !== "") {
@@ -20,8 +26,7 @@ const SearchInput = ({ closeFunction }:HandleCloseInterface) => {
             const searchSectionWithResults = results.searchResultsSections.filter(searchResultsSection => {
                 return searchResultsSection.sectionResults.length !== 0
             })
-            if(searchSectionWithResults.length > 0)
-            {
+            if (searchSectionWithResults.length > 0) {
                 return searchSectionWithResults.map(searchResultsSection => {
                     return (
                         <SearchResultSectionContainerStyle>
@@ -35,8 +40,7 @@ const SearchInput = ({ closeFunction }:HandleCloseInterface) => {
                     )
                 });
             }
-            else
-            {
+            else {
                 return (
                     <SearchResultSectionContainerStyle>
                         <SearchResultTitleStyle>No Results Found.</SearchResultTitleStyle>
@@ -46,18 +50,19 @@ const SearchInput = ({ closeFunction }:HandleCloseInterface) => {
         }
     }
 
-    const setSearchValue = (value:string) => {
+    const setSearchValue = (value: string) => {
+        scrollToSearch();
         searchValue.current = value;
         setSearching(value)
     }
 
-    const isSearching = ():boolean => {
+    const isSearching = (): boolean => {
         return searching !== "";
     }
 
     return (
         <>
-            <SearchBarStyle>
+            <SearchBarStyle id="search-bar">
                 <img src={searchLogo} alt="restaurant_logo" />
                 <SearchInputStyle
                     type="text"
@@ -70,7 +75,7 @@ const SearchInput = ({ closeFunction }:HandleCloseInterface) => {
                     <SearchResultsContainerStyle>
                         {search()}
                     </SearchResultsContainerStyle>
-                    <SearchResultsCloseStyle onClick={() => setSearching("")}/>
+                    <SearchResultsCloseStyle onClick={() => setSearching("")} />
                 </>
             )}
         </>
