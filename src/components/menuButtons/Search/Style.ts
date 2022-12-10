@@ -100,7 +100,7 @@ export const SearchResultsContainerStyle = styled.div`
     background: #FFFFFF;
     z-index: 2;
     max-height: 270px;
-    overflow-y: scroll;
+    overflow-y: auto;
 `
 
 export const SearchResultSectionContainerStyle = styled.div`

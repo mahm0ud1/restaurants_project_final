@@ -54,9 +54,24 @@ const RestaurantHomePage = () => {
 
     useEffect(() => {
         return () => {
-            window.scrollTo(0, 0);
+            scrollToTop();
         };
     }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    }
+
+    const selectDish = (dish_id:string) => {
+        setSelectedDish(dish_id);
+        scrollToTop();
+    }
+
+    const getFilteredDishes = () => {
+        return dishes.current.filter(dish=>{
+            return dish.dishType.toLocaleLowerCase() === selectTab.toLocaleLowerCase();
+        })
+    }
 
     const getDish = () => {
         if (selectedDish === undefined)
@@ -107,8 +122,8 @@ const RestaurantHomePage = () => {
                     </RestaurantHedearContainerStyle>
                     <RestaurantsListContainerStyle>
                         <CardsVerticalStyle>
-                            {dishes.current.map((dish: DishCardDetails) =>
-                                <div onClick={()=>setSelectedDish(String(dish.id))}>
+                            {getFilteredDishes().map((dish: DishCardDetails) =>
+                                <div onClick={()=>selectDish(String(dish.id))}>
                                     <Card key={dish.id} cardDetails={dish} className="larg" />
                                 </div>
                             )}

@@ -9,13 +9,13 @@ import { SearchBarStyle, SearchInputStyle, SearchResultsContainerStyle, SearchRe
 const SearchInput = ({ closeFunction }: HandleCloseInterface) => {
     const searchValue = useRef("");
     const [searching, setSearching] = useState("");
-
-    const scrollToSearch = () => {
-        const element = document.getElementById('search-bar');
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-    }
+    // ToDo - Fix function
+    // const scrollToSearch = () => {
+    //     const element = document.getElementById('search-bar');
+    //         if (element) {
+    //             element.scrollIntoView({ behavior: 'smooth' });
+    //         }
+    // }
 
     const search = () => {
         if (searching !== searchValue.current) {
@@ -51,7 +51,8 @@ const SearchInput = ({ closeFunction }: HandleCloseInterface) => {
     }
 
     const setSearchValue = (value: string) => {
-        scrollToSearch();
+        // ToDo - use after Fix
+        // scrollToSearch();
         searchValue.current = value;
         setSearching(value)
     }

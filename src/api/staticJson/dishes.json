@@ -5,6 +5,7 @@
         "title": "Pad Ki Mao",
         "details": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
         "signature": "spicy",
+        "dishType":"breakfast",
         "price": "88"
     },
     {
@@ -13,6 +14,7 @@
         "title": "Ta Ma La Ko",
         "details": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
         "signature": "vegitarian",
+        "dishType":"lanch",
         "price": "65"
     },
     {
@@ -21,6 +23,7 @@
         "title": "Red Farm",
         "details": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
         "signature": "vegan",
+        "dishType":"dinner",
         "price": "65"
     },
     {
@@ -29,6 +32,7 @@
         "title": "Pad Ki Mao",
         "details": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
         "signature": "spicy",
+        "dishType":"lanch",
         "price": "65"
     }
 ]

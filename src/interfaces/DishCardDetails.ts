@@ -4,6 +4,7 @@ interface DishCardDetails {
     title: string,
     details: string,
     signature: string,
+    dishType: string,
     price: string
 }
 
