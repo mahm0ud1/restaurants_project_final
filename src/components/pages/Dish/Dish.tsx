@@ -1,5 +1,7 @@
+import { useState } from "react";
+import CounterButton from "../../tools/CounterButton/CounterButton";
 import DishProps from "./DishProps";
-import { DishContainerStyle, DishDetailsStyle, DishImageStyle, DishOptionContainerStyle, DishOptionsContainerStyle, DishTitleContainerStyle, DishTitleStyle, OptionButtonStyle, OptionHeaderStyle, OptionLabelStyle, OptionValuesStyle } from './Style'
+import { ConfirmOrderButtonStyle, DishContainerStyle, DishDetailsStyle, DishImageStyle, DishOptionContainerStyle, DishOptionsContainerStyle, DishTitleContainerStyle, DishTitleStyle, OptionButtonStyle, OptionHeaderStyle, OptionLabelStyle, OptionValuesStyle } from './Style'
 
 const optionsValues: Option[] = [
     {
@@ -40,6 +42,7 @@ interface Option {
 
 const Dish = ({ props }: { props: DishProps }) => {
     const selectedOptions = new Map();
+    const [counter, setCounter] = useState(0);
 
     let handleSubmit = async () => {
         try {
@@ -62,15 +65,14 @@ const Dish = ({ props }: { props: DishProps }) => {
         }
     };
 
-    const setRadioButton = (name:string, value:string) => {
+    const setRadioButton = (name: string, value: string) => {
         selectedOptions.set(name, value);
         console.log(name, value);
     }
 
-    const setValueCheckbox = (name:string, value:string, value1:any) => {
-        if(selectedOptions.has(name))
-        {
-            selectedOptions.set(name,new Set<string>())
+    const setValueCheckbox = (name: string, value: string, value1: any) => {
+        if (selectedOptions.has(name)) {
+            selectedOptions.set(name, new Set<string>())
         }
         (selectedOptions.get(name) as Set<string>).add(value);
         console.log(selectedOptions.get(name));
@@ -81,7 +83,7 @@ const Dish = ({ props }: { props: DishProps }) => {
         const optionsList = options.options.map((option: string) => {
             return (
                 <OptionLabelStyle>
-                    <OptionButtonStyle name={options.name} type={options.type} onChange={(e)=>setValueCheckbox(options.name,option,e.target.checked)} />
+                    <OptionButtonStyle name={options.name} type={options.type} onChange={(e) => setValueCheckbox(options.name, option, e.target.checked)} />
                     {option}
                 </OptionLabelStyle>
             );
@@ -106,9 +108,15 @@ const Dish = ({ props }: { props: DishProps }) => {
                     <DishDetailsStyle>{props.details}</DishDetailsStyle>
                 </DishTitleContainerStyle>
             </DishContainerStyle>
-            <DishOptionsContainerStyle  onSubmit={handleSubmit}>
+            <DishOptionsContainerStyle onSubmit={handleSubmit}>
                 {optionsValues.map(buildOptions)}
-                <OptionButtonStyle type="submit" />
+                <DishOptionContainerStyle>
+                    <OptionHeaderStyle>Quantity</OptionHeaderStyle>
+                    <OptionValuesStyle>
+                        <CounterButton setCounter={setCounter} />
+                    </OptionValuesStyle>
+                </DishOptionContainerStyle>
+                <ConfirmOrderButtonStyle>Test</ConfirmOrderButtonStyle>
             </DishOptionsContainerStyle>
         </>
     )

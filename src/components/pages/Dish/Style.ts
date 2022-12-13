@@ -76,7 +76,6 @@ export const OptionLabelStyle = styled.label`
     letter-spacing: 1.97px;
 `
 export const OptionButtonStyle = styled.input`
-
 `
 
 export const DishCountContainerStyle = styled.div`
@@ -84,5 +83,29 @@ export const DishCountContainerStyle = styled.div`
 `
 
 export const ConfirmOrderButtonStyle = styled.div`
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 42px;
+    padding: 5px 24px;
+    gap: 10px;
+
+    width: 206px;
+    height: 48px;
+
+    background: #000000;
+    border: 1px solid #000000;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+
+    /* identical to box height, or 111% */
+    text-align: center;
+    letter-spacing: 2.67px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
 `
