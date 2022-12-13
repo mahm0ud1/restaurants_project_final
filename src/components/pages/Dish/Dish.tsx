@@ -65,17 +65,22 @@ const Dish = ({ props }: { props: DishProps }) => {
         }
     };
 
-    const setRadioButton = (name: string, value: string) => {
-        selectedOptions.set(name, value);
-        console.log(name, value);
-    }
-
-    const setValueCheckbox = (name: string, value: string, value1: any) => {
-        if (selectedOptions.has(name)) {
-            selectedOptions.set(name, new Set<string>())
+    const setValue = (name:string, value:string, type:string, selected:boolean) => {
+        switch(type)
+        {
+            case "radio":
+                selectedOptions.set(name, [value]);
+                break;
+            case "checkbox":
+                if (!selectedOptions.has(name)) {
+                    selectedOptions.set(name, new Set<string>())
+                }
+                const values = selectedOptions.get(name) as Set<string>;
+                if(selected)
+                    values.add(value);
+                else
+                    values.delete(value)
         }
-        (selectedOptions.get(name) as Set<string>).add(value);
-        console.log(selectedOptions.get(name));
     }
 
     const buildOptions = (options: Option) => {
@@ -83,7 +88,7 @@ const Dish = ({ props }: { props: DishProps }) => {
         const optionsList = options.options.map((option: string) => {
             return (
                 <OptionLabelStyle>
-                    <OptionButtonStyle name={options.name} type={options.type} onChange={(e) => setValueCheckbox(options.name, option, e.target.checked)} />
+                    <OptionButtonStyle name={options.name} type={options.type} onChange={(e) => setValue(options.name, option, options.type, e.target.checked)} />
                     {option}
                 </OptionLabelStyle>
             );
