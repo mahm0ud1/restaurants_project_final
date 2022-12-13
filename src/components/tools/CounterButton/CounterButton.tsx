@@ -17,7 +17,7 @@ const CounterButton = ({setCounter}:CounterButtonInterface) => {
     }
 
     const decrement = () => {
-        setCount((count)=>count-1)
+        setCount((count)=>count>0?count-1:0)
     }
 
     return (
