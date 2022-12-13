@@ -49,7 +49,6 @@ const RestaurantHomePage = () => {
     const [selectedDish, setSelectedDish] = useState(dish_id);
 
     const restaurantDetails = getRestaurantDetails(restaurant_id);
-    console.log(restaurantDetails, restaurant_id, dish_id);
     const dishes = useRef<DishCardDetails[]>(getRestaurantDishes(restaurant_id));
 
     useEffect(() => {
