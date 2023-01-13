@@ -1,11 +1,11 @@
 interface DishCardDetails {
     id: number,
-    imageUrl: string,
-    title: string,
-    details: string,
-    signature: string,
+    name: string,
+    price: string,
+    about: string,
     dishType: string,
-    price: string
+    signature: string,
+    imageUrl: string,
 }
 
 export default DishCardDetails;

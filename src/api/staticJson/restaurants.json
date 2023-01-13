@@ -2,8 +2,8 @@
     {
         "id": 1,
         "imageUrl": "/static/restaurants/claro.svg",
-        "title": "Claro",
-        "details": "Ran Shmueli",
+        "name": "Claro",
+        "about": "Ran Shmueli",
         "created_date": 1670666400000,
         "rate": 5,
         "timeOpen": [
@@ -47,8 +47,8 @@
     {
         "id": 2,
         "imageUrl": "/static/restaurants/Kab kem.svg",
-        "title": "Kab Kem",
-        "details": "Yariv Malili",
+        "name": "Kab Kem",
+        "about": "Yariv Malili",
         "created_date": 1659348000000,
         "rate": 2.5,
         "timeOpen": [
@@ -92,8 +92,8 @@
     {
         "id": 3,
         "imageUrl": "/static/restaurants/Messa.svg",
-        "title": "Messa",
-        "details": "Aviv Moshe",
+        "name": "Messa",
+        "about": "Aviv Moshe",
         "created_date": 1667296800000,
         "rate": 3,
         "timeOpen": [
@@ -137,8 +137,8 @@
     {
         "id": 4,
         "imageUrl": "/static/restaurants/nithan-thai.svg",
-        "title": "Nitan Thai",
-        "details": "Shahaf Shabtay",
+        "name": "Nitan Thai",
+        "about": "Shahaf Shabtay",
         "created_date": 1662026400000,
         "rate": 1,
         "timeOpen": [
@@ -182,8 +182,8 @@
     {
         "id": 5,
         "imageUrl": "/static/restaurants/tiger-lily.svg",
-        "title": "Tiger Lilly",
-        "details": "Yanir Green",
+        "name": "Tiger Lilly",
+        "about": "Yanir Green",
         "created_date": 1669370400000,
         "rate": 3.5,
         "timeOpen": [
@@ -227,8 +227,8 @@
     {
         "id": 6,
         "imageUrl": "/static/restaurants/Yapan.svg",
-        "title": "Ya Pan",
-        "details": "Yuval Ben Moshe",
+        "name": "Ya Pan",
+        "about": "Yuval Ben Moshe",
         "created_date": 1669888800000,
         "rate": 4,
         "timeOpen": [
@@ -267,8 +267,8 @@
     {
         "id": 7,
         "imageUrl": "/static/restaurants/claro 2.svg",
-        "title": "Claro",
-        "details": "Ran Shmueli",
+        "name": "Claro",
+        "about": "Ran Shmueli",
         "created_date": 1670234400000,
         "rate": 4,
         "timeOpen": [
@@ -307,8 +307,8 @@
     {
         "id": 8,
         "imageUrl": "/static/restaurants/Kab kem 2.svg",
-        "title": "Kab Kem",
-        "details": "Yariv Malili",
+        "name": "Kab Kem",
+        "about": "Yariv Malili",
         "created_date": 1659348000000,
         "rate": 4,
         "timeOpen": [
@@ -347,8 +347,8 @@
     {
         "id": 9,
         "imageUrl": "/static/restaurants/Messa 2.svg",
-        "title": "Messa",
-        "details": "Aviv Moshe",
+        "name": "Messa",
+        "about": "Aviv Moshe",
         "created_date": 1664618400000,
         "rate": 4,
         "timeOpen": [

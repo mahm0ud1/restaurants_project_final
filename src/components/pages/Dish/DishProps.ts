@@ -1,7 +1,7 @@
 interface DishProps {
     imageUrl: string,
-    title:string,
-    details:string
+    name:string,
+    about:string
 }
 
 export default DishProps;

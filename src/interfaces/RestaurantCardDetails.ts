@@ -1,10 +1,10 @@
 interface RestaurantCardDetails {
-    id: number
+  id: number
   imageUrl: string
-  title: string
-  details: string
+  name: string
+  about: string
   created_date: number
-  rate:number
+  rate: number
   timeOpen: TimeOpen[]
 }
 

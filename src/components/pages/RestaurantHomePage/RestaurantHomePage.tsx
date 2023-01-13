@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getRestaurantDetails, getRestaurantDishes } from "../../../api/EpicureAPI";
 import DishCardDetails from "../../../interfaces/DishCardDetails";
 import Card from "../../cards/Card/Card";
 import { CardsVerticalStyle } from "../../cards/Style";
@@ -10,14 +9,17 @@ import {
     RestaurantHomePageContainerStyle, RestaurantHedearContainerStyle, RestaurantImageStyle,
     RestaurantHeaderDownContainerStyle, RestaurantNameStyleStyle, RestaurantDetailsContainerStyle,
     RestaurantOpenTimeContainerStyle, RestaurantOpenTimeIconStyle, RestaurantTabsContainerStyle,
-    DishContainerStyle, DishCloseContainerStyle, DishCloseButtonStyle, DishLinkStyle
+    DishContainerStyle, DishCloseContainerStyle, DishCloseButtonStyle
 } from './Style';
 import { Tab, Tabs } from "../../tools/Tabs/Tabs";
 import Dish from "../Dish/Dish";
 import RestaurantCardDetails from "../../../interfaces/RestaurantCardDetails";
 import moment from 'moment';
+import RestaurantDataInterface from "../../../interfaces/RestaurantDataInterface";
+import RestaurantHPInterface from "../../../interfaces/RestaurantHomePageInterface";
+import { getRestaurantFullInfo } from "../../../api/middleware";
 
-const getRestaurantStatus = (restaurantDetails:RestaurantCardDetails|undefined) => {
+const getRestaurantStatus = (restaurantDetails: RestaurantCardDetails | undefined) => {
     try {
         const timeOpenList = restaurantDetails?.timeOpen;
         if (timeOpenList !== undefined) {
@@ -29,7 +31,7 @@ const getRestaurantStatus = (restaurantDetails:RestaurantCardDetails|undefined) 
             if (timeOpen === undefined)
                 return "Closed";
             const currentTime = moment(date);
-            const openTime = moment(timeOpen.from,'H:mm');
+            const openTime = moment(timeOpen.from, 'H:mm');
             const closeTime = moment(timeOpen.to, 'H:mm');
             if (currentTime.isBefore(openTime))
                 return "Will Open at " + timeOpen?.from;
@@ -48,42 +50,57 @@ const RestaurantHomePage = () => {
     const [selectTab, setSelectedTab] = useState("breakfast");
     const [selectedDish, setSelectedDish] = useState(dish_id);
 
-    const restaurantDetails = getRestaurantDetails(restaurant_id);
-    const dishes = useRef<DishCardDetails[]>(getRestaurantDishes(restaurant_id));
+    const [restaurantData, setRestaurantData] = useState<RestaurantCardDetails>();
+    const [dishesData, setDishesData] = useState<DishCardDetails[]>([]);
 
     useEffect(() => {
-        return () => {
-            scrollToTop();
-        };
-    }, []);
+        scrollToTop();
+        if (restaurant_id === undefined)
+            return;
+        fetchData(restaurant_id);
+    }, [restaurant_id]);
+
+    const fetchData = async (restaurantID: String) => {
+        const data = await new Promise<RestaurantHPInterface | null>(async (resolve, reject) => {
+            const data = await getRestaurantFullInfo(restaurantID);
+            resolve(data);
+        });
+        if (data != null) {
+            setRestaurantData(data.restaurant);
+            setDishesData(data.dishes);
+        }
+    }
 
     const scrollToTop = () => {
         window.scrollTo(0, 0);
     }
 
-    const selectDish = (dish_id:string) => {
+    const selectDish = (dish_id: string) => {
         setSelectedDish(dish_id);
         scrollToTop();
     }
 
     const getFilteredDishes = () => {
-        return dishes.current.filter(dish=>{
+        const dishes = dishesData.filter(dish => {
             return dish.dishType.toLocaleLowerCase() === selectTab.toLocaleLowerCase();
         })
+        if (dishes)
+            return dishes;
+        return [];
     }
 
     const getDish = () => {
         if (selectedDish === undefined)
             return false;
 
-        const dish = dishes.current.find(dish => dish.id === Number(selectedDish));
+        const dish = dishesData.find(dish => dish.id === Number(selectedDish));
         if (dish === undefined)
             return false;
 
         return (
             <>
                 <DishCloseContainerStyle>
-                    <DishCloseButtonStyle src={CloseButton} onClick={()=>setSelectedDish("")}/>
+                    <DishCloseButtonStyle src={CloseButton} onClick={() => setSelectedDish("")} />
                 </DishCloseContainerStyle>
                 <DishContainerStyle>
                     <Dish props={dish} />
@@ -98,17 +115,17 @@ const RestaurantHomePage = () => {
                 getDish() ||
                 <RestaurantHomePageContainerStyle>
                     <RestaurantHedearContainerStyle>
-                        <RestaurantImageStyle src={restaurantDetails?.imageUrl} />
+                        <RestaurantImageStyle src={restaurantData?.imageUrl} />
                         <RestaurantHeaderDownContainerStyle>
                             <RestaurantNameStyleStyle>
-                                {restaurantDetails?.title}
+                                {restaurantData?.name}
                             </RestaurantNameStyleStyle>
                             <RestaurantDetailsContainerStyle>
-                                {restaurantDetails?.details}
+                                {restaurantData?.about}
                             </RestaurantDetailsContainerStyle>
                             <RestaurantOpenTimeContainerStyle>
                                 <RestaurantOpenTimeIconStyle src={TimeIcone} />
-                                {getRestaurantStatus(restaurantDetails)}
+                                {getRestaurantStatus(restaurantData)}
                             </RestaurantOpenTimeContainerStyle>
                         </RestaurantHeaderDownContainerStyle>
                         <RestaurantTabsContainerStyle>
@@ -122,7 +139,7 @@ const RestaurantHomePage = () => {
                     <RestaurantsListContainerStyle>
                         <CardsVerticalStyle>
                             {getFilteredDishes().map((dish: DishCardDetails) =>
-                                <div onClick={()=>selectDish(String(dish.id))}>
+                                <div onClick={() => selectDish(String(dish.id))}>
                                     <Card key={dish.id} cardDetails={dish} className="larg" />
                                 </div>
                             )}
@@ -134,4 +151,4 @@ const RestaurantHomePage = () => {
     );
 }
 
-export {RestaurantHomePage, getRestaurantStatus };
+export { RestaurantHomePage, getRestaurantStatus };

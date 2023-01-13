@@ -2,23 +2,35 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { CardsVerticalStyle } from "../../cards/Style";
 import RestaurantCardDetails from "../../../interfaces/RestaurantCardDetails";
-import { getRestaurants } from "../../../api/EpicureAPI";
 import Card from "../../cards/Card/Card";
 import { RestaurantsContainerStyle, RestaurantsTabContainerStyle, RestaurantsListContainerStyle, RestaurantLinkStyle } from "./Style";
 import { Tabs, Tab } from "../../tools/Tabs/Tabs";
 import { getRestaurantStatus } from "../RestaurantHomePage/RestaurantHomePage";
 import moment from "moment";
+import { getRestaurants } from "../../../api/middleware";
 
 
 const Restaurants = () => {
-    const restaurants = getRestaurants();
+    const [restaurants, setRestaurants] = useState<RestaurantCardDetails[]>([])
 
     let { sub_menu } = useParams();
     const [subMenu, setSubMenu] = useState(sub_menu !== undefined ? sub_menu : "all");
 
     useEffect(() => {
+        fetchRestaurants();
+    }, [])
+
+    const fetchRestaurants = async () => {
+        const restaurants = await getRestaurants();
+        if (restaurants == null)
+            setRestaurants([]);
+        else
+            setRestaurants(restaurants);
+    }
+
+    useEffect(() => {
         return () => {
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
         };
     }, [])
 
@@ -32,14 +44,13 @@ const Restaurants = () => {
     };
 
     const getRestaurantsByFilter = () => {
-        switch(subMenu)
-        {
-            case "new": return [...restaurants].sort((a,b)=>a.created_date-b.created_date)
-            .filter(restaurant=>{
-                return moment(restaurant.created_date).isAfter(moment(new Date()).subtract(25, 'days'))
-            });
-            case "most_popular": return [...restaurants].sort((a,b)=>b.rate-a.rate);
-            case "open_now": return restaurants.filter(restaurant=>getRestaurantStatus(restaurant)==="Open now")
+        switch (subMenu) {
+            case "new": return [...restaurants].sort((a, b) => a.created_date - b.created_date)
+                .filter(restaurant => {
+                    return moment(restaurant.created_date).isAfter(moment(new Date()).subtract(25, 'days'))
+                });
+            case "most_popular": return [...restaurants].sort((a, b) => b.rate - a.rate);
+            case "open_now": return restaurants.filter(restaurant => getRestaurantStatus(restaurant) === "Open now")
         }
         return restaurants;
     }

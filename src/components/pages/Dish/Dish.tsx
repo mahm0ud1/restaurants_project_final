@@ -23,7 +23,7 @@ const optionsValues: Option[] = [
         ]
     },
     {
-        "name": "changes",
+        "name": "changes1",
         "title": "Changes",
         "type": "checkbox",
         "options": [
@@ -109,8 +109,8 @@ const Dish = ({ props }: { props: DishProps }) => {
             <DishContainerStyle>
                 <DishImageStyle src={props.imageUrl} />
                 <DishTitleContainerStyle>
-                    <DishTitleStyle>{props.title}</DishTitleStyle>
-                    <DishDetailsStyle>{props.details}</DishDetailsStyle>
+                    <DishTitleStyle>{props.name}</DishTitleStyle>
+                    <DishDetailsStyle>{props.about}</DishDetailsStyle>
                 </DishTitleContainerStyle>
             </DishContainerStyle>
             <DishOptionsContainerStyle onSubmit={handleSubmit}>

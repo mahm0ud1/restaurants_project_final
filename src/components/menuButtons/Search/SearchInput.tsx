@@ -1,14 +1,14 @@
 import { useRef, useState } from 'react';
-import { searchAPI } from '../../../api/EpicureAPI';
 import searchLogo from '../../../assets/search_logo.svg';
 import HandleCloseInterface from '../../../interfaces/HandleCloseInterface';
 import SearchResultsInterface from '../../../interfaces/SearchResultsInterface';
+import { searchValue } from '../../../api/middleware';
 
 import { SearchBarStyle, SearchInputStyle, SearchResultsContainerStyle, SearchResultSectionContainerStyle, SearchResultTitleStyle, SearchResultListStyle, SearchResultStyle, SearchResultsCloseStyle } from './Style'
 
 const SearchInput = ({ closeFunction }: HandleCloseInterface) => {
-    const searchValue = useRef("");
-    const [searching, setSearching] = useState("");
+    const searchedValue = useRef<String>("");
+    const [searchingResults, setSearchinResults] = useState<SearchResultsInterface>();
     // ToDo - Fix function
     // const scrollToSearch = () => {
     //     const element = document.getElementById('search-bar');
@@ -17,48 +17,59 @@ const SearchInput = ({ closeFunction }: HandleCloseInterface) => {
     //         }
     // }
 
-    const search = () => {
-        if (searching !== searchValue.current) {
-            setSearchValue(searching);
-        }
-        if (searching !== "") {
-            const results: SearchResultsInterface = searchAPI(searching);
-            const searchSectionWithResults = results.searchResultsSections.filter(searchResultsSection => {
-                return searchResultsSection.sectionResults.length !== 0
-            })
-            if (searchSectionWithResults.length > 0) {
-                return searchSectionWithResults.map(searchResultsSection => {
-                    return (
-                        <SearchResultSectionContainerStyle>
-                            <SearchResultTitleStyle>{searchResultsSection.sectionTitle}:</SearchResultTitleStyle>
-                            <SearchResultListStyle>
-                                {searchResultsSection.sectionResults.map(result =>
-                                    <SearchResultStyle onClick={closeFunction} to={result.url}>{result.value}</SearchResultStyle>
-                                )}
-                            </SearchResultListStyle>
-                        </SearchResultSectionContainerStyle>
-                    )
-                });
-            }
-            else {
+    const getSearchingResults = () => {
+        if (searchingResults === undefined)
+            return <></>;
+            
+        const searchSectionWithResults = searchingResults.searchResultsSections.filter(searchResultsSection => {
+            return searchResultsSection.sectionResults.length !== 0
+        })
+        if (searchSectionWithResults.length > 0) {
+            return searchSectionWithResults.map(searchingResults => {
                 return (
                     <SearchResultSectionContainerStyle>
-                        <SearchResultTitleStyle>No Results Found.</SearchResultTitleStyle>
+                        <SearchResultTitleStyle>{searchingResults.sectionTitle}:</SearchResultTitleStyle>
+                        <SearchResultListStyle>
+                            {searchingResults.sectionResults.map(result =>
+                                <SearchResultStyle onClick={closeFunction} to={result.url}>{result.value}</SearchResultStyle>
+                            )}
+                        </SearchResultListStyle>
                     </SearchResultSectionContainerStyle>
                 )
-            }
+            });
+        }
+        else {
+            return (
+                <SearchResultSectionContainerStyle>
+                    <SearchResultTitleStyle>No Results Found.</SearchResultTitleStyle>
+                </SearchResultSectionContainerStyle>
+            )
         }
     }
 
-    const setSearchValue = (value: string) => {
+    const searching = (value: String) => {
         // ToDo - use after Fix
         // scrollToSearch();
-        searchValue.current = value;
-        setSearching(value)
+        searchedValue.current = value;
+        fetch(value);
     }
 
-    const isSearching = (): boolean => {
-        return searching !== "";
+    const stopSearching = () => {
+        setSearchinResults(undefined);
+    }
+
+    const fetch = async (value: String) => {
+        if (value !== "") {
+            const data = await searchValue(value);
+            setSearchinResults(data);
+        }
+        else
+            setSearchinResults(undefined);
+
+    }
+
+    const isSearching = () => {
+        return searchingResults !== undefined;
     }
 
     return (
@@ -67,16 +78,16 @@ const SearchInput = ({ closeFunction }: HandleCloseInterface) => {
                 <img src={searchLogo} alt="restaurant_logo" />
                 <SearchInputStyle
                     type="text"
-                    onClick={() => setSearchValue(searchValue.current)}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onClick={() => searching(searchedValue.current)}
+                    onChange={(e) => searching(e.target.value)}
                     placeholder='Search for restaurant cuisine, chef' />
             </SearchBarStyle>
             {isSearching() && (
                 <>
                     <SearchResultsContainerStyle>
-                        {search()}
+                        {getSearchingResults()}
                     </SearchResultsContainerStyle>
-                    <SearchResultsCloseStyle onClick={() => setSearching("")} />
+                    <SearchResultsCloseStyle onClick={() => stopSearching()} />
                 </>
             )}
         </>

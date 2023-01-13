@@ -33,8 +33,8 @@ const Card = (props: CustomCardProps) => {
             <CardContainerStyle className={className}>
                 <CardImageStyle className={className} src={cardDetails.imageUrl} />
                 <CardDetailsStyle>
-                    <CardDetailsTopStyle>{cardDetails.title}</CardDetailsTopStyle>
-                    <CardDetailsDownStyle>{cardDetails.details}</CardDetailsDownStyle>
+                    <CardDetailsTopStyle>{cardDetails.name}</CardDetailsTopStyle>
+                    <CardDetailsDownStyle>{cardDetails.about}</CardDetailsDownStyle>
                     {getDetails()}
                 </CardDetailsStyle>
             </CardContainerStyle>

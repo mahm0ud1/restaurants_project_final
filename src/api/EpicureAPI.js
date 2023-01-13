@@ -2,61 +2,46 @@ import restaurants from './staticJson/restaurants.json'
 import dishes from './staticJson/dishes.json'
 import orders from './staticJson/orders.json'
 
-const getRestaurants = () => {
+const api = "http://localhost:3001/api";
+
+const getData = async (path) => {
+    const data = await fetch(`${api}/${path}`, { method: 'GET' })
+    .then(response => response.json())
+    return data;
+}
+
+export const getPopularRestaurants = () => {
+    return getData("restaurants/getPapularRestaurans");
+}
+
+export const getSignatureDishes = () => {
+    return getData("dishes/getSignatureDishes");
+}
+
+export const getRestaurants = () => {
+    return getData("restaurants/getRestaurants");
+}
+
+export const getRestaurantDishes = (restaurantID) => {
+    return getData(`dishes/getRestaurantDishes/${restaurantID}`);
+}
+
+export const getRestaurantFullInfo = (restaurantID) => {
+    return getData(`restaurants/getRestaurant/${restaurantID}`);
+}
+
+export const getChefRestaurants = (chefID) => {
     return restaurants;
 }
 
-const getRestaurantDishes = (restaurantID) => {
-    return dishes;
-}
-
-const getChefRestaurants = (chefID) => {
-    return restaurants;
-}
-
-const getRestaurantDetails = (restaurantID) => {
+export const getRestaurantDetails = (restaurantID) => {
     return restaurants.find(restaurant => restaurant.id == restaurantID);
 }
 
-const getOrders = () => {
+export const getOrders = () => {
     return orders;
 }
 
-const searchAPI = (value) => {
-    return {
-        "searchResultsSections": [
-            {
-                "sectionTitle": "Restaurants",
-                "sectionResults": restaurants.filter(restaurant => restaurant.title.toLocaleLowerCase().search(value.toLocaleLowerCase())!==-1)
-                .map(restaurant => {
-                    return {
-                        url:`/restaurant/${restaurant.id}`,
-                        value:restaurant.title
-                    }
-                })
-            },
-            {
-                "sectionTitle": "Cusine",
-                "sectionResults": dishes.filter(dish => dish.title.toLocaleLowerCase().search(value.toLocaleLowerCase())!==-1)
-                .map(dish => {
-                    return {
-                        url:`/restaurant/1/dish/1`,
-                        value:dish.title
-                    }
-                })
-            },
-            {
-                "sectionTitle": "Chef",
-                "sectionResults": restaurants.filter(restaurant => restaurant.details.toLocaleLowerCase().search(value.toLocaleLowerCase())!==-1)
-                .map(restaurant => {
-                    return {
-                        url:`/restaurant/${restaurant.id}`,
-                        value:restaurant.details
-                    }
-                })
-            }
-        ]
-    }
+export const searchAPI = (value) => {
+    return getData(`search/${value}`);
 }
-
-export { searchAPI, getRestaurants, getRestaurantDishes, getChefRestaurants, getRestaurantDetails, getOrders }
