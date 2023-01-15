@@ -1,32 +1,43 @@
 import React from "react";
 import HandleCloseInterface from "../../../interfaces/HandleCloseInterface";
-import { SigninContainerStyle, SigninTitleContainerStyle, SigninTitleStyle, SigninsecondaryTitleStyle, SigninInputContainerStyle,
-    SigninInputStyle, LoginButtonStyle, ForgetPasswordStringStyle, DividerStyle, SignUpButtonStyle } from "./Style";
+import { login } from "../../../api/middleware";
+import {
+    SigninContainerStyle, SigninTitleContainerStyle, SigninTitleStyle, SigninsecondaryTitleStyle, SigninInputContainerStyle,
+    SigninInputStyle, LoginButtonStyle, ForgetPasswordStringStyle, DividerStyle, ErrorMessageStyle, SignUpButtonStyle
+} from "./Style";
+import LoginResponseInterface from "../../../interfaces/LoginResponseInterface";
 
-const SignIn = ({ closeFunction }:HandleCloseInterface) => {
-    const [ isDisabled, setIsDisabled ] = React.useState<boolean>(true);
+const SignIn = ({ closeFunction }: HandleCloseInterface) => {
+    const [isDisabled, setIsDisabled] = React.useState<boolean>(true);
+    const [errorMessage, setErrorMessage] = React.useState<String>("");
     const email = React.useRef<string>('');
     const password = React.useRef<string>('');
 
     const checkInputs = () => {
-        if(email.current !== "" && password.current !== "")
-        {
+        if (email.current !== "" && password.current !== "") {
             setIsDisabled(false);
         }
-        else
-        {
+        else {
             setIsDisabled(true);
         }
     }
 
-    const checkEmailInput = (e: { currentTarget: { value: React.SetStateAction<string>; }; }):void => {
+    const checkEmailInput = (e: { currentTarget: { value: React.SetStateAction<string>; }; }): void => {
         email.current = String(e.currentTarget.value);
         checkInputs();
     }
 
-    const checkPasswordInput = (e: { currentTarget: { value: React.SetStateAction<string>; }; }):void => {
+    const checkPasswordInput = (e: { currentTarget: { value: React.SetStateAction<string>; }; }): void => {
         password.current = String(e.currentTarget.value);
         checkInputs();
+    }
+
+    const loginClick = async () => {
+        const response: LoginResponseInterface = await login(email.current, password.current);
+        if(response.Message !== "Success")
+            setErrorMessage(response.Message);
+        else
+            console.log("Logged In Successfully")
     }
 
     return (
@@ -52,7 +63,8 @@ const SignIn = ({ closeFunction }:HandleCloseInterface) => {
                         onChange={checkPasswordInput}
                         variant="standard" />
                 </SigninInputContainerStyle>
-                <LoginButtonStyle disabled={isDisabled}>login</LoginButtonStyle>
+                <ErrorMessageStyle>{errorMessage}</ErrorMessageStyle>
+                <LoginButtonStyle disabled={isDisabled} onClick={loginClick}>login</LoginButtonStyle>
                 <ForgetPasswordStringStyle>Forget password?</ForgetPasswordStringStyle>
                 <DividerStyle>or</DividerStyle>
                 <SignUpButtonStyle>sign up</SignUpButtonStyle>

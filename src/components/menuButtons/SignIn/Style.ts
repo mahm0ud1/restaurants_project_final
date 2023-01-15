@@ -98,6 +98,13 @@ const ForgetPasswordStringStyle = styled.div`
     color: #000000;
 `
 
+const ErrorMessageStyle = styled.div`
+    position: relative;
+    top: 15px;
+    color: red;
+    padding: 0 24px;
+`
+
 const DividerStyle = styled(Divider)`
 
     font-style: normal;
@@ -139,4 +146,4 @@ const SignUpButtonStyle = styled.button`
 `
 
 export { SigninContainerStyle, SigninTitleContainerStyle, SigninTitleStyle, SigninsecondaryTitleStyle, SigninInputContainerStyle,
-     SigninInputStyle, LoginButtonStyle, ForgetPasswordStringStyle, DividerStyle, SignUpButtonStyle }
+     SigninInputStyle, LoginButtonStyle, ForgetPasswordStringStyle, DividerStyle, ErrorMessageStyle, SignUpButtonStyle }

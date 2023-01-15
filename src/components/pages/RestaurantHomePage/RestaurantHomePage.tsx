@@ -15,7 +15,6 @@ import { Tab, Tabs } from "../../tools/Tabs/Tabs";
 import Dish from "../Dish/Dish";
 import RestaurantCardDetails from "../../../interfaces/RestaurantCardDetails";
 import moment from 'moment';
-import RestaurantDataInterface from "../../../interfaces/RestaurantDataInterface";
 import RestaurantHPInterface from "../../../interfaces/RestaurantHomePageInterface";
 import { getRestaurantFullInfo } from "../../../api/middleware";
 
@@ -77,6 +76,8 @@ const RestaurantHomePage = () => {
 
     const selectDish = (dish_id: string) => {
         setSelectedDish(dish_id);
+        const dishPath = dish_id !== undefined && dish_id !== ""? `/dish/${dish_id}`:"";
+        window.history.replaceState( {} , 'restaurant', `/restaurant/${restaurant_id}${dishPath}` );
         scrollToTop();
     }
 
@@ -100,7 +101,7 @@ const RestaurantHomePage = () => {
         return (
             <>
                 <DishCloseContainerStyle>
-                    <DishCloseButtonStyle src={CloseButton} onClick={() => setSelectedDish("")} />
+                    <DishCloseButtonStyle src={CloseButton} onClick={() => selectDish("")} />
                 </DishCloseContainerStyle>
                 <DishContainerStyle>
                     <Dish props={dish} />

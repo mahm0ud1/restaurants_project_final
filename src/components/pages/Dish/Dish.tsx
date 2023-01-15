@@ -44,22 +44,14 @@ const Dish = ({ props }: { props: DishProps }) => {
     const selectedOptions = new Map();
     const [counter, setCounter] = useState(0);
 
-    let handleSubmit = async () => {
+    const handleSubmit = async () => {
         try {
-            let res = await fetch("https://httpbin.org/post", {
-                method: "POST",
-                body: JSON.stringify({
-                    name: "",
-                    email: "",
-                    mobileNumber: "",
-                }),
-            });
-            let resJson = await res.json();
-            if (res.status === 200) {
-
-            } else {
-
+            const optionsParams = {
+                options: selectedOptions,
+                count: counter
             }
+
+            console.log(optionsParams);
         } catch (err) {
             console.log(err);
         }
@@ -81,6 +73,7 @@ const Dish = ({ props }: { props: DishProps }) => {
                 else
                     values.delete(value)
         }
+        console.log(selectedOptions)
     }
 
     const buildOptions = (options: Option) => {
@@ -113,7 +106,7 @@ const Dish = ({ props }: { props: DishProps }) => {
                     <DishDetailsStyle>{props.about}</DishDetailsStyle>
                 </DishTitleContainerStyle>
             </DishContainerStyle>
-            <DishOptionsContainerStyle onSubmit={handleSubmit}>
+            <DishOptionsContainerStyle>
                 {optionsValues.map(buildOptions)}
                 <DishOptionContainerStyle>
                     <OptionHeaderStyle>Quantity</OptionHeaderStyle>
@@ -121,7 +114,7 @@ const Dish = ({ props }: { props: DishProps }) => {
                         <CounterButton setCounter={setCounter} />
                     </OptionValuesStyle>
                 </DishOptionContainerStyle>
-                <ConfirmOrderButtonStyle>Test</ConfirmOrderButtonStyle>
+                <ConfirmOrderButtonStyle onClick={handleSubmit}>Add to bag</ConfirmOrderButtonStyle>
             </DishOptionsContainerStyle>
         </>
     )
