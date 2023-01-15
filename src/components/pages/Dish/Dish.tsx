@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import CounterButton from "../../tools/CounterButton/CounterButton";
 import DishProps from "./DishProps";
 import { ConfirmOrderButtonStyle, DishContainerStyle, DishDetailsStyle, DishImageStyle, DishOptionContainerStyle, DishOptionsContainerStyle, DishTitleContainerStyle, DishTitleStyle, OptionButtonStyle, OptionHeaderStyle, OptionLabelStyle, OptionValuesStyle } from './Style'
@@ -41,13 +41,14 @@ interface Option {
 }
 
 const Dish = ({ props }: { props: DishProps }) => {
-    const selectedOptions = new Map();
+    const selectedOptions = useRef<Map<String, Object>>(new Map());
     const [counter, setCounter] = useState(0);
 
-    const handleSubmit = async () => {
+    const handleSubmit = () => {
         try {
             const optionsParams = {
-                options: selectedOptions,
+                dishID: props.id,
+                options: Array.from(selectedOptions.current.entries()),
                 count: counter
             }
 
@@ -61,19 +62,18 @@ const Dish = ({ props }: { props: DishProps }) => {
         switch(type)
         {
             case "radio":
-                selectedOptions.set(name, [value]);
+                selectedOptions.current.set(name, [value]);
                 break;
             case "checkbox":
-                if (!selectedOptions.has(name)) {
-                    selectedOptions.set(name, new Set<string>())
+                if (!selectedOptions.current.has(name)) {
+                    selectedOptions.current.set(name, new Set<string>())
                 }
-                const values = selectedOptions.get(name) as Set<string>;
+                const values = selectedOptions.current.get(name) as Set<string>;
                 if(selected)
                     values.add(value);
                 else
                     values.delete(value)
         }
-        console.log(selectedOptions)
     }
 
     const buildOptions = (options: Option) => {
