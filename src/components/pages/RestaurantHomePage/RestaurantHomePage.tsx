@@ -104,7 +104,7 @@ const RestaurantHomePage = () => {
                     <DishCloseButtonStyle src={CloseButton} onClick={() => selectDish("")} />
                 </DishCloseContainerStyle>
                 <DishContainerStyle>
-                    <Dish props={dish} />
+                    <Dish dish={dish} closeFunction={() => selectDish("")} />
                 </DishContainerStyle>
             </>
         )

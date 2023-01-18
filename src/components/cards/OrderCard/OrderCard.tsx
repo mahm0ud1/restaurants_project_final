@@ -10,8 +10,8 @@ const OrderCard = ({orderCardProps}:{orderCardProps:OrderCardProps}) => {
                     <OrderImageStyle src={orderCardProps.imageUrl} />
                 </OrderLeftContainerStyle>
                 <OrderRightContainerStyle>
-                    <OrderTopRightConstainerStyle>{orderCardProps.title}</OrderTopRightConstainerStyle>
-                    <OrderBottonRightContainerStyle>{orderCardProps.details}</OrderBottonRightContainerStyle>
+                    <OrderTopRightConstainerStyle>{orderCardProps.name}</OrderTopRightConstainerStyle>
+                    <OrderBottonRightContainerStyle>{orderCardProps.about}</OrderBottonRightContainerStyle>
                     <OrderPriceStyle>
                         <OrderCurrencyImgcyStyle src={Shekel} />
                         {orderCardProps.price}

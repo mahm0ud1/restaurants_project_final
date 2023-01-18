@@ -46,9 +46,14 @@ const BagWithItems = ({orders}:{orders:OrderCardProps[]}) => {
 }
 
 const Bag = ({ closeFunction }: HandleCloseInterface) => {
-    // ToDo - change getOrders() with redux
-    const ordersCards:OrderCardProps[] = getOrders();
-    const [isEmpty, setIsEmpty] = useState<boolean>(ordersCards.length===0);
+    const [orders, setOrders] = useState<OrderCardProps[]>([])
+    const [isEmpty, setIsEmpty] = useState<boolean>(true);
+    
+    useEffect(() => {
+        const ordersList = getOrders(); // Change with the middleware => getOrders
+        setOrders(ordersList);
+        setIsEmpty(ordersList.length === 0)
+    }, [])
 
     const CloseBag = () => {
         closeFunction();
@@ -57,7 +62,7 @@ const Bag = ({ closeFunction }: HandleCloseInterface) => {
     return (
         <>
             <BagContainerStyle>
-                {isEmpty ? <EmptyBag /> : <BagWithItems orders={ordersCards} />}
+                {isEmpty ? <EmptyBag /> : <BagWithItems orders={orders} />}
             </BagContainerStyle>
             <BagOutSideContainerStyle onClick={CloseBag} />
         </>

@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { createOrder } from "../../../api/middleware";
 import CounterButton from "../../tools/CounterButton/CounterButton";
 import DishProps from "./DishProps";
 import { ConfirmOrderButtonStyle, DishContainerStyle, DishDetailsStyle, DishImageStyle, DishOptionContainerStyle, DishOptionsContainerStyle, DishTitleContainerStyle, DishTitleStyle, OptionButtonStyle, OptionHeaderStyle, OptionLabelStyle, OptionValuesStyle } from './Style'
@@ -40,27 +41,27 @@ interface Option {
     options: string[]
 }
 
-const Dish = ({ props }: { props: DishProps }) => {
+const Dish = ({ dish, closeFunction }: { dish: DishProps, closeFunction: () => void }) => {
     const selectedOptions = useRef<Map<String, Object>>(new Map());
     const [counter, setCounter] = useState(0);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         try {
-            const optionsParams = {
-                dishID: props.id,
-                options: Array.from(selectedOptions.current.entries()),
-                count: counter
+            const options = Array.from(selectedOptions.current.entries());
+            const respone = await createOrder(dish.id, counter, options);
+            if (respone === "added") {
+                closeFunction();
             }
-
-            console.log(optionsParams);
+            else {
+                console.log(respone);
+            }
         } catch (err) {
             console.log(err);
         }
     };
 
-    const setValue = (name:string, value:string, type:string, selected:boolean) => {
-        switch(type)
-        {
+    const setValue = (name: string, value: string, type: string, selected: boolean) => {
+        switch (type) {
             case "radio":
                 selectedOptions.current.set(name, [value]);
                 break;
@@ -69,7 +70,7 @@ const Dish = ({ props }: { props: DishProps }) => {
                     selectedOptions.current.set(name, new Set<string>())
                 }
                 const values = selectedOptions.current.get(name) as Set<string>;
-                if(selected)
+                if (selected)
                     values.add(value);
                 else
                     values.delete(value)
@@ -100,10 +101,10 @@ const Dish = ({ props }: { props: DishProps }) => {
     return (
         <>
             <DishContainerStyle>
-                <DishImageStyle src={props.imageUrl} />
+                <DishImageStyle src={dish.imageUrl} />
                 <DishTitleContainerStyle>
-                    <DishTitleStyle>{props.name}</DishTitleStyle>
-                    <DishDetailsStyle>{props.about}</DishDetailsStyle>
+                    <DishTitleStyle>{dish.name}</DishTitleStyle>
+                    <DishDetailsStyle>{dish.about}</DishDetailsStyle>
                 </DishTitleContainerStyle>
             </DishContainerStyle>
             <DishOptionsContainerStyle>

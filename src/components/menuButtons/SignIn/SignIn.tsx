@@ -33,9 +33,9 @@ const SignIn = ({ closeFunction }: HandleCloseInterface) => {
     }
 
     const loginClick = async () => {
-        const response: LoginResponseInterface = await login(email.current, password.current);
-        if(response.Message !== "Success")
-            setErrorMessage(response.Message);
+        const response: string = await login(email.current, password.current);
+        if(response !== "Success")
+            setErrorMessage(response);
         else
             console.log("Logged In Successfully")
     }

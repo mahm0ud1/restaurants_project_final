@@ -1,5 +1,6 @@
 interface LoginResponseInterface {
-    Message: String
+    jsessionid: string,
+    Message: string
 }
 
 export default LoginResponseInterface;

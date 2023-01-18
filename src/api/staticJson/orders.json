@@ -2,29 +2,29 @@
     {
         "id": 1,
         "imageUrl": "https://www.baltimoremagazine.com/wp-content/uploads/2020/12/KungFu12-1067x800.jpg",
-        "title": "title1",
-        "details": "details1",
+        "name": "name1",
+        "about": "about1",
         "price": 20
     },
     {
         "id": 2,
         "imageUrl": "https://www.baltimoremagazine.com/wp-content/uploads/2020/12/KungFu12-1067x800.jpg",
-        "title": "title2",
-        "details": "details2",
+        "name": "name2",
+        "about": "about2",
         "price": 20
     },
     {
         "id": 3,
         "imageUrl": "https://www.baltimoremagazine.com/wp-content/uploads/2020/12/KungFu12-1067x800.jpg",
-        "title": "title3",
-        "details": "details3",
+        "name": "name3",
+        "about": "about3",
         "price": 15
     },
     {
         "id": 4,
         "imageUrl": "https://www.baltimoremagazine.com/wp-content/uploads/2020/12/KungFu12-1067x800.jpg",
-        "title": "title4",
-        "details": "details4",
+        "name": "name4",
+        "about": "about4",
         "price": 15
     }
 ]

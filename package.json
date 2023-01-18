@@ -16,6 +16,7 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "axios": "^1.2.2",
+    "js-cookie": "^3.0.1",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -52,6 +53,8 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.26"
+    "@types/js-cookie": "^3.0.2",
+    "@types/styled-components": "^5.1.26",
+    "@types/tough-cookie": "^4.0.2"
   }
 }

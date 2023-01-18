@@ -1,8 +1,8 @@
 interface OrderCardProps {
     id: number,
     imageUrl:string,
-    title: string,
-    details: string,
+    name: string,
+    about: string,
     price: number
 }
 

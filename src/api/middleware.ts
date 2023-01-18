@@ -1,4 +1,6 @@
 import axios from "axios";
+import Cookies from 'js-cookie';
+
 import ChefOfTheWeekInterface from "../interfaces/ChefOfTheWeekInterface";
 import LoginResponseInterface from "../interfaces/LoginResponseInterface";
 import RestaurantCardDetails from "../interfaces/RestaurantCardDetails";
@@ -7,6 +9,11 @@ import SearchResultsInterface from "../interfaces/SearchResultsInterface";
 import SignatureDishData from "../interfaces/SignatureDishData";
 
 const backendURL: string = "http://localhost:3001/api";
+
+const getISessionID = () => {
+    const cookieValue = Cookies.get('jsessionid');
+    return cookieValue;
+}
 
 export const searchValue = async (value: String) => {
     let searchValues: SearchResultsInterface = { searchResultsSections: [] };
@@ -152,15 +159,34 @@ export const login = async (username: String, password: String) => {
                 {
                     "username": username,
                     "password": password
+                }
+            ).then((res) => {
+                resolve(res.data);
+            }).catch(error => {
+                resolve(error.response.data);
+            });
+        })
+        Cookies.set('jsessionid', respone.jsessionid, { expires: 1 });
+        return respone.Message;
+    }
+    catch (error) { }
+
+    return "ERROR";
+}
+
+export const createOrder = async (dishID:number, count:number, options:Object) => {
+    try {
+        const respone = await new Promise<String>((resolve, reject) => {
+            axios.post<String>(
+                `${backendURL}/orders/createOrder`,
+                {
+                    "dishID": dishID,
+                    "count": count,
+                    "dishOptions": options
                 },
                 {
-                    withCredentials: true,
-                    responseType: 'json',
-                    timeout: 10000,
-                    // withCredentials: true,
                     headers: {
-                        'X-Requested-With': 'XMLHttpRequest',
-                        'Content-Type': 'application/json'
+                        'jsessionid': getISessionID()
                     }
                 }
             ).then((res) => {
@@ -169,14 +195,28 @@ export const login = async (username: String, password: String) => {
                 resolve(error.response.data);
             });
         })
-
-        return {
-            Message: respone.Message
-        };
+        
+        return respone;
     }
     catch (error) { }
 
-    return {
-        Message: "ERROR"
-    };
+    return "ERROR";
+}
+
+export const getOrders = async () => {
+    try {
+        const { data, status } = await axios.get<ChefOfTheWeekInterface>(
+            `${backendURL}/orders/getOrders`,
+            {
+                headers: {
+                    'jsessionid': getISessionID()
+                }
+            }
+        );
+        if (status === 200)
+            return data;
+    }
+    catch (error) { }
+
+    return null;
 }
