@@ -50,10 +50,17 @@ const Bag = ({ closeFunction }: HandleCloseInterface) => {
     const [isEmpty, setIsEmpty] = useState<boolean>(true);
     
     useEffect(() => {
-        const ordersList = getOrders(); // Change with the middleware => getOrders
-        setOrders(ordersList);
-        setIsEmpty(ordersList.length === 0)
+        fetchData();
     }, [])
+
+    const fetchData = async () => {
+        const ordersList = getOrders();
+        if(ordersList != null)
+        {
+            setOrders(ordersList);
+            setIsEmpty(ordersList.length === 0)
+        }
+    }
 
     const CloseBag = () => {
         closeFunction();

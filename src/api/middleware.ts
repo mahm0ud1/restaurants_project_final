@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
+import OrderCardProps from "../components/cards/OrderCard/OrderCardPorps";
 
 import ChefOfTheWeekInterface from "../interfaces/ChefOfTheWeekInterface";
 import LoginResponseInterface from "../interfaces/LoginResponseInterface";
@@ -205,7 +206,7 @@ export const createOrder = async (dishID:number, count:number, options:Object) =
 
 export const getOrders = async () => {
     try {
-        const { data, status } = await axios.get<ChefOfTheWeekInterface>(
+        const { data, status } = await axios.get<OrderCardProps[]>(
             `${backendURL}/orders/getOrders`,
             {
                 headers: {

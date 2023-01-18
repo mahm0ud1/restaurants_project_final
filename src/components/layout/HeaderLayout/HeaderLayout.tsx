@@ -1,10 +1,7 @@
-import { MenuIcon, restaurantLogo, searchLogo, accountLogo, cartLogo, CloseButton } from '../../../assets/AllLogo';
-
-import Hamburgar from '../../menuButtons/hamburgar/Hamburgar';
-import Search from '../../menuButtons/Search/Search';
+import { MenuIcon, restaurantLogo, searchLogo, accountLogo, cartLogo } from '../../../assets/AllLogo';
 
 import { IconButton, Badge, createTheme, ThemeProvider } from '@mui/material';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { HeaderContainerStyle, HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle } from './Style'
 import DialogHeaderWindow from './DialogHeaderWindow';
@@ -15,8 +12,20 @@ const Header = () => {
     const [topWindow, setTopWindow] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     // ToDo - change getOrders() with redux
-    const [notificationCount, setNotificationCount] = useState(getOrders().length);
+    const [notificationCount, setNotificationCount] = useState(0);
     const popupTitle = useRef("");
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    const fetchData = async () => {
+        const ordersList = getOrders();
+        if(ordersList != null)
+        {
+            setNotificationCount(ordersList.length)
+        }
+    }
 
     const theme = createTheme({
         palette: {
