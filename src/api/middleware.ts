@@ -168,11 +168,16 @@ export const login = async (username: String, password: String) => {
             });
         })
         Cookies.set('jsessionid', respone.jsessionid, { expires: 1 });
-        return respone.Message;
+        return {
+            responeMessage: respone.Message,
+            respone: respone
+        };
     }
     catch (error) { }
 
-    return "ERROR";
+    return {
+        responeMessage: "ERROR"
+    };
 }
 
 export const createOrder = async (dishID:number, count:number, options:Object) => {

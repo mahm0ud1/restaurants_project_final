@@ -33,11 +33,15 @@ const SignIn = ({ closeFunction }: HandleCloseInterface) => {
     }
 
     const loginClick = async () => {
-        const response: string = await login(email.current, password.current);
-        if(response !== "Success")
-            setErrorMessage(response);
-        else
-            console.log("Logged In Successfully")
+        const response: any = await login(email.current, password.current);
+        if(response.responeMessage === "Success") {
+            if(response.respone.role === "admin") {
+                console.log("Enter")
+            }
+        }
+        else {
+            setErrorMessage(response.responeMessage);
+        }
     }
 
     return (

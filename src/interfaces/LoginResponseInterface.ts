@@ -1,5 +1,6 @@
 interface LoginResponseInterface {
     jsessionid: string,
+    role: string,
     Message: string
 }
 
