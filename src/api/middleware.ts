@@ -8,6 +8,7 @@ import RestaurantCardDetails from "../interfaces/RestaurantCardDetails";
 import RestaurantHPInterface from "../interfaces/RestaurantHomePageInterface";
 import SearchResultsInterface from "../interfaces/SearchResultsInterface";
 import SignatureDishData from "../interfaces/SignatureDishData";
+import UserInfoInterface from "../interfaces/UserInfoInterface";
 
 const backendURL: string = "http://localhost:3001/api";
 
@@ -180,7 +181,7 @@ export const login = async (username: String, password: String) => {
     };
 }
 
-export const createOrder = async (dishID:number, count:number, options:Object) => {
+export const createOrder = async (dishID: number, count: number, options: Object) => {
     try {
         const respone = await new Promise<String>((resolve, reject) => {
             axios.post<String>(
@@ -201,7 +202,7 @@ export const createOrder = async (dishID:number, count:number, options:Object) =
                 resolve(error.response.data);
             });
         })
-        
+
         return respone;
     }
     catch (error) { }
@@ -224,5 +225,23 @@ export const getOrders = async () => {
     }
     catch (error) { }
 
-    return null;
+    return [];
+}
+
+export const getUserInfo = async () => {
+    try {
+        const { data, status } = await axios.get<UserInfoInterface[]>(
+            `${backendURL}/auth/getUserInfo`,
+            {
+                headers: {
+                    'jsessionid': getISessionID()
+                }
+            }
+        );
+        if (status === 200)
+            return data;
+    }
+    catch (error) { }
+
+    return "ERROR";
 }

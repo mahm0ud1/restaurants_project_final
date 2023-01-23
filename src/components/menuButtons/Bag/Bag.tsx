@@ -3,9 +3,9 @@ import { BagContainerStyle, BagEmptyContainerStyle, BagEmptyImageStyle, BagEmpty
 import { BagWithItemStyle, BagOrderTitleStyle, BagOrderTopTitleStyle, BagOrderDownTitleStyle, BagOrdersList, BagOrderCheckoutContainer, BagOrderCurrencyImgcyStyle, BagOrderTotalStyle, BagOrderCheckoutButton } from './Style'
 import { InnerBag, Shekel } from '../../../assets/AllLogo'
 import { useEffect, useState } from "react";
-import OrderCard from "../../cards/OrderCard/OrderCard";
 import OrderCardProps from "../../cards/OrderCard/OrderCardPorps";
-import { getOrders } from "../../../api/EpicureAPI";
+import { useSelector } from "react-redux";
+import OrderCard from "../../cards/OrderCard/OrderCard";
 
 const EmptyBag = () => {
     return (
@@ -16,12 +16,12 @@ const EmptyBag = () => {
     )
 }
 
-const BagWithItems = ({orders}:{orders:OrderCardProps[]}) => {
-    const [ totalPrice, setTotalPrice ] = useState<number>(0);
+const BagWithItems: React.FC<{ orders: OrderCardProps[] }> = ({ orders }) => {
+    const [totalPrice, setTotalPrice] = useState<number>(0);
 
     useEffect(() => {
         return () => {
-            setTotalPrice(orders.reduce((a,v) =>  a = a + v.price , 0 ));
+            setTotalPrice(orders.map((order) => order.price).reduce((a, v) => a = a + v, 0));
         };
     }, [])
 
@@ -32,10 +32,10 @@ const BagWithItems = ({orders}:{orders:OrderCardProps[]}) => {
                 <BagOrderDownTitleStyle>Mashya</BagOrderDownTitleStyle>
             </BagOrderTitleStyle>
             <BagOrdersList>
-                {orders.map((order)=><OrderCard orderCardProps={order} />)}
+                {orders.map((order) => <OrderCard orderCardProps={order} />)}
             </BagOrdersList>
             <BagOrderCheckoutContainer>
-                <BagOrderTotalStyle>total - 
+                <BagOrderTotalStyle>total -
                     <BagOrderCurrencyImgcyStyle src={Shekel} />
                     {totalPrice}
                 </BagOrderTotalStyle>
@@ -48,19 +48,14 @@ const BagWithItems = ({orders}:{orders:OrderCardProps[]}) => {
 const Bag = ({ closeFunction }: HandleCloseInterface) => {
     const [orders, setOrders] = useState<OrderCardProps[]>([])
     const [isEmpty, setIsEmpty] = useState<boolean>(true);
-    
-    useEffect(() => {
-        fetchData();
-    }, [])
 
-    const fetchData = async () => {
-        const ordersList = getOrders();
-        if(ordersList != null)
-        {
-            setOrders(ordersList);
-            setIsEmpty(ordersList.length === 0)
-        }
-    }
+    const ordersCount: number = useSelector((state: any) => state.orders.count);
+    const ordersList: OrderCardProps[] = useSelector((state: any) => state.orders.ordersList);
+
+    useEffect(() => {
+        setIsEmpty(ordersCount === 0);
+        setOrders(ordersList);
+    }, [ordersCount, ordersList])
 
     const CloseBag = () => {
         closeFunction();

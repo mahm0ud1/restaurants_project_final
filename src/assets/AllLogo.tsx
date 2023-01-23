@@ -13,5 +13,6 @@ import InnerBag from './bag_inner.svg'
 import TimeIcone from './time.svg'
 import Increment from './increment.svg'
 import Decrement from './decrement.svg'
+import LogoutButton from './logout_button.svg'
 
-export { Increment, Decrement, MenuIcon, restaurantLogo, searchLogo, accountLogo, cartLogo, CloseButton, Vector, PlaystoreButton, AppstoreButton, EpicureLogo, Shekel, InnerBag, TimeIcone }
+export { Increment, Decrement, MenuIcon, restaurantLogo, searchLogo, accountLogo, cartLogo, CloseButton, Vector, PlaystoreButton, AppstoreButton, EpicureLogo, Shekel, InnerBag, TimeIcone, LogoutButton }

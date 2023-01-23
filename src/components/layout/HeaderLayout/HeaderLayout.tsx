@@ -5,27 +5,22 @@ import { useEffect, useRef, useState } from 'react';
 
 import { HeaderContainerStyle, HeaderStyle, LeftHeaderStyle, CenterHeaderStyle, RestaurantLogoStyle, RightHeaderStyle, HeaderRightLogoStyle } from './Style'
 import DialogHeaderWindow from './DialogHeaderWindow';
-import { getOrders } from '../../../api/EpicureAPI';
+import { useSelector } from 'react-redux';
 
 
 const Header = () => {
     const [topWindow, setTopWindow] = useState("");
     const [isOpen, setIsOpen] = useState(false);
-    // ToDo - change getOrders() with redux
     const [notificationCount, setNotificationCount] = useState(0);
     const popupTitle = useRef("");
 
-    useEffect(() => {
-        fetchData();
-    }, [])
+    const countOrders: number = useSelector((state: any) => state.orders.count);
+    const isAdmin: boolean = useSelector((state: any) => state.user.isAdmin);
+    const isLoggedIn: boolean = useSelector((state: any) => state.user.isLoggedIn);
 
-    const fetchData = async () => {
-        const ordersList = getOrders();
-        if(ordersList != null)
-        {
-            setNotificationCount(ordersList.length)
-        }
-    }
+    useEffect(() => {
+        setNotificationCount(countOrders)
+    }, [countOrders, isAdmin])
 
     const theme = createTheme({
         palette: {

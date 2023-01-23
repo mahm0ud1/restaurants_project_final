@@ -5,13 +5,16 @@ import {
     SigninContainerStyle, SigninTitleContainerStyle, SigninTitleStyle, SigninsecondaryTitleStyle, SigninInputContainerStyle,
     SigninInputStyle, LoginButtonStyle, ForgetPasswordStringStyle, DividerStyle, ErrorMessageStyle, SignUpButtonStyle
 } from "./Style";
-import LoginResponseInterface from "../../../interfaces/LoginResponseInterface";
+import { useDispatch } from "react-redux";
+import {setUserInfo, setIsAdmin, setIsLoggedIn} from '../../../store/UserSlicer'
 
 const SignIn = ({ closeFunction }: HandleCloseInterface) => {
     const [isDisabled, setIsDisabled] = React.useState<boolean>(true);
     const [errorMessage, setErrorMessage] = React.useState<String>("");
     const email = React.useRef<string>('');
     const password = React.useRef<string>('');
+
+    const dispatch = useDispatch();
 
     const checkInputs = () => {
         if (email.current !== "" && password.current !== "") {
@@ -35,11 +38,15 @@ const SignIn = ({ closeFunction }: HandleCloseInterface) => {
     const loginClick = async () => {
         const response: any = await login(email.current, password.current);
         if(response.responeMessage === "Success") {
-            if(response.respone.role === "admin") {
-                console.log("Enter")
-            }
+            dispatch(setIsAdmin(response.respone.role === "admin"));
+            dispatch(setIsLoggedIn(true));
+            dispatch(setUserInfo(undefined));
+            closeFunction();
         }
         else {
+            dispatch(setIsAdmin(false));
+            dispatch(setIsLoggedIn(false));
+            dispatch(setUserInfo(undefined));
             setErrorMessage(response.responeMessage);
         }
     }

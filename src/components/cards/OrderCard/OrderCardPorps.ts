@@ -3,6 +3,7 @@ interface OrderCardProps {
     imageUrl:string,
     name: string,
     about: string,
+    count: number,
     price: number
 }
 
